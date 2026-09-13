@@ -1,12 +1,12 @@
 :root {
-  /* Corporate/Clinical Palette */
-  --bg: #ffffff;           /* Pure white background */
-  --ink: #0f172a;          /* Deep Slate text */
-  --muted: #64748b;        /* Muted slate for secondary info */
-  --accent: #0284c7;       /* Corporate blue accent */
-  --accent-dark: #075985;  /* Darker blue for emphasis */
-  --card: #f8fafc;         /* Very light gray/blue card background */
-  --dark: #02061cap;       /* Deep navy for footer/headers */
+  /* Human Husbandry Inspired Palette (Warm Parchment & Clinical Blue) */
+  --bg: #fdfcf8;           /* Warm parchment background */
+  --ink: #1a1a1a;          /* Dark, legible ink */
+  --muted: #6b7280;        /* Muted gray for secondary info */
+  --accent: #0369a1;       /* Clinical blue accent */
+  --accent-dark: #0c4a6e;  /* Deeper blue for emphasis */
+  --card: #ffffff;         /* Clean white cards */
+  --dark: #0f172a;         /* Deep slate for footer/headers */
   --gold: #0ea5e9;         /* Modern blue highlight */
 }
 
