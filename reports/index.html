@@ -8,18 +8,16 @@
 
   <meta
     name="description"
-    content="Field reports and archival notes from Horses Are Foes about horses, the CIA, and demons."
+    content="Field reports and archival notes from Horses Are Foes about horses, the/the CIA, and demons."
   />
 
-  <!-- Use relative path to access the updated master stylesheet -->
   <link rel="stylesheet" href="../style.css" />
 </head>
 
-<body>
+<body class="page-reports">
   <header class="hero page-hero">
     <nav class="nav">
       <a class="logo" href="/">Horses Are Foes</a>
-
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/reports/">Reports</a>
@@ -30,10 +28,10 @@
     </nav>
 
     <div class="hero-content">
-      <p class="eyebrow">Research Division</p>
-      <h1>Archive of Observed Anomalies</h1>
+      <p class="eyebrow">Reports regarding Horses, the CIA, and related topics of interest</p>
+      <h1 class="title">Reports</h1>
       <p class="subtitle">
-        Documented findings, investigative field notes, and psychical impact assessments regarding equine-CIA coordination.
+        Detailed reports, dreams implying influence, and documented observations from a long-running inquiry into horse activity, and CIA influence.
       </p>
     </div>
   </header>
@@ -43,36 +41,42 @@
     <section class="section">
       <div style="margin-bottom: 4rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
         <label for="searchInput" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.5rem;">
-          Search Archive
+          Search Reports by Author or Keywords:
         </label>
         <input 
           type="text" 
           id="searchInput" 
-          placeholder="Filter by keyword, author, or subject..."
+          placeholder="e.g., Joseph Peltusche, horses, CIA, psychic..."
           style="width: 100%; background: transparent; border: none; font-size: 1.5rem; font-weight: 300; color: var(--ink); outline: none;"
         />
+        <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;">
+          <small>Tip: Search updates as you type. Clear to see all reports.</small>
+        </p>
       </div>
 
       <!-- Primary Analysis Section (Featured Cards) -->
-      <h2 style="margin-bottom: 2rem;">Primary Analysis</h2>
+      <h2 style="margin-bottom: 2rem;">Latest Reports</h2>
       <div class="cards" id="blogList">
         
         <article class="card" data-author="Joseph Peltusche" data-keywords="deception, truth, observation, investigation">
           <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
           <h3><a href="/reports/the-world-has-lied-to-you/" style="text-decoration: none; color: inherit;">The World Has Lied to You</a></h3>
-          <p>An investigation into pervasive information asymmetry and the psychology of denial.</p>
+          <p>by Joseph Peltusche</p>
+          <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: July 28, 2026</p>
         </article>
 
         <article class="card" data-author="Gideon Vale" data-keywords="dust, drugs, psychic, resilience, youth, stable, powder">
-          <span class="eyebrow" style="font-size: 0.7rem;">Environmental Study</span>
-          <h3><a href="/reports/the-dust/" style="text-decoration: none; color: inherit;">The Dust Your Kids May Be Inhaling</a></h3>
-          <p>Analyzing particulate matter in stable environments and potential neurological impacts.</p>
+          <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
+          <h3><a href="/reports/the-dust/" style="text-decoration: none; color: inherit;">The Dust Your Kids May Be Inhaling Without You Knowing</a></h3>
+          <p>by Gideon Vale</p>
+          <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: August 16, 2026</p>
         </article>
 
         <article class="card" data-author="Joseph Petusche" data-keywords="horses, video, viral, psychic, dogs, tree, antenna, CIA">
-          <span class="subkey" style="font-size: 0.7rem;">Digital Forensic</span>
-          <h3><a href="/reports/21-million-views-tree-to-fall/" style="text-decoration: none; color: inherit;">The Tree to Fall Incident</a></h3>
-          <p>Analyzing viral multimedia artifacts and their underlying structural patterns.</p>
+          <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
+          <h3><a href="/reports/21-million-views-tree-to-fall/" style="text-decoration: none; color: inherit;">2.1 Million views… Don't be the next tree to fall.</a></h3>
+          <p>By Joseph Petusche.</p>
+          <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: August 6, 2026</p>
         </article>
 
       </div>
@@ -80,23 +84,34 @@
 
     <!-- Technical Bulletin Section (List Style) -->
     <section class="section">
-      <h2>Technical Bulletins & Archives</h2>
-      
-      <div class="blog-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <h2 style="margin-bottom: 2rem;">Archive Summaries</h2>
+      <div class="blog-list" id="archiveList" style="display: flex; flex-direction: column; gap: 1.5rem;">
         
         <article class="card" data-author="Adrienna Reichloft" data-keywords="underground, cities, Hiatus, Saltmane, Velvet Grove">
-          <h3><a href="/reports/top-5-undeground-horse-cities/" style="text-decoration: none; color: inherit;">Top 5 Underground Horse Cities</a></h3>
-          <p>A structural survey of subterranean equine residential clusters.</p>
+          <h3><a href="/reports/top-5-underground-horse-cities/" style="text-decoration: none; color: inherit;">Top 5 Underground Horse Cities</a></h3>
+          <p>by Adrienna Reichloft</p>
+          <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: August 17, 2026</p>
         </article>
 
         <article class="card" data-author="Dr. Quincy Brainwater" data-keywords="faerie, lights, swamp, gas, psychic, deception, creatures">
-          <h3><a href="/reports/faerie-lights-swamp-gas/" style="text-decoration: none; color: inherit;">Faerie Lights and Swamp Gas?</a></h3>
-          <p>Re-evaluating atmospheric anomalies through a skepticism-first lens.</p>
+          <h3><a href="/reports/faerie-lights-swamp-gas/" style="text-decoration: none; color: inherit;">Faerie Lights and Swamp Gas? Think Again</a></h3>
+          <p>by Dr. Quincy Brainwater</p>
+          <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: September 1, 20            6</p>
         </article>
 
         <article class="card" data-author="Unknown" data-keywords="Abraxas, entities, learning, observations, spiritual, influence">
-          <h3><a href="/reports/the-third-shadow-on-the-ridge/" style="text-decoration: none; color: inherit;">Observations on Abraxas</a></h3>
-          <p>Preliminary findings from the subject interaction study.</p>
+          <h3><a href="/reports/the-third-shadow-on-the-ridge/" style="text-decoration: none; color: inherit;">What we learned from Abraxas Abaralabrabraha over the last year</a></h3>
+          <p>Under review for Quality Assurance.</p>
+        </article>
+
+        <article class="card" data-author="Gideon Vale" data-keywords="crystals, artifacts, sigils, safety, supernatural, Alfonso Chizmac">
+          <h3><a href="/reports/crystals-artifacts-sigils-lost-alfonso-chizmac/" style="text-decoration: none; color: inherit;">Crystals, Artifacts, and Sigils: How We Lost Alfonso Chizmac</a></h3>
+          <p>A Safety Advisory on the use of crystals artifacts, and sigils. Under review for integrity and accuracy.</p>
+        </article>
+
+        <article class="card" data-author="Gideon Vale" data-keywords="grass, lawns, conspiracy, psyop, government, control">
+          <h3><a href="/reports/grass-lawns-psyop/" style="text-decoration: none; color: inherit;">Grass lawns are a PSYOP</a></h3>
+          <p>By Gideon Vale. Under review for verification of sources and accuracy.</p>
         </article>
 
       </div>
@@ -104,13 +119,12 @@
   </main>
 
   <footer style="margin-top: 6rem;">
-    <p>&copy; 2026 Horses Are Foes Archive. All data is subject to ongoing verification.</p>
+    <p>© 2026 Horses Are Foes. An archive of documented observations.</p>
   </footer>
 
   <script>
+    // We target both the primary cards and the secondary list items for a unified search experience
     const searchInput = document.getElementById('searchInput');
-    const blogList = document.getElementById('blogList');
-    // We need to include all cards in the search logic, so I'll select them globally within our sections
     const allCards = document.querySelectorAll('.card');
 
     searchInput.addEventListener('input', function() {
