@@ -14,19 +14,20 @@
   <link rel="stylesheet" href="../style.css" />
 </head>
 
-<body class="page-reports">
-  <header class="hero page-hero">
-    <nav class="nav">
-      <a class="logo" href="/">Horses Are Foes</a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/reports/">Reports</a>
-        <a href="/mission/">Mission</a>
-        <a href="/wiki/">Wiki</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </nav>
+<body class="page-nav">
+  <nav class="nav">
+    <a class="logo" href="/">Horses Are Foes</a>
 
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/reports/">Reports</a>
+      <a href="/mission/">Mission</a>
+      <a href="/wiki/">Wiki</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero page-hero">
     <div class="hero-content">
       <p class="eyebrow">Official Archive // 2026</p>
       <h1 class="title">Reports</h1>
@@ -73,7 +74,7 @@
         </article>
 
         <article class="card" data-author="Joseph Petusche" data-keywords="horses, video, viral, psychic, dogs, tree, antenna, CIA">
-          <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
+          <span class="eyebrow"</strong> style="font-size: 0.7rem;">Field Report</span>
           <h3><a href="/reports/21-million-views-tree-to-fall/" style="text-decoration: none; color: inherit;">2.1 Million views… Don't be the next tree to fall.</a></h3>
           <p>By Joseph Petusche.</p>
           <p class="publish-date" style="font-size: 0.8rem; opacity: 0.7;">Published: August 6, 2026</p>
@@ -110,6 +111,7 @@
         </article>
 
         <article class="card" data-author="Gideon Vale" data-keywords="grass, lawns, conspiracy, psyop, government, control">
+          <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
           <h3><a href="/reports/grass-lawns-psyop/" style="text-decoration: none; color: inherit;">Grass lawns are a PSYOP</a></h3>
           <p>By Gideon Vale. Under review for verification of sources and accuracy.</p>
         </article>
@@ -127,24 +129,27 @@
     const searchInput = document.getElementById('searchInput');
     const allCards = document.querySelectorAll('.card');
 
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase().trim();
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
 
-      allCards.forEach(card => {
-        const author = (card.getAttribute('data-author') || '').toLowerCase();
-        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        
-        if (searchTerm === '' || 
-            author.includes(searchTerm) || 
-            keywords.includes(searchTerm) ||
-            title.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        allCards.forEach(card => {
+          const author = (card.getAttribute('data-author') || '').toLowerCase();
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const titleElement = card.querySelector('h3');
+          const titleText = titleElement ? titleElement.textContent.toLowerCase() : '';
+          
+          if (searchTerm === '' || 
+              author.includes(searchTerm) || 
+              keywords.includes(searchTerm) ||
+              titleText.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
-    });
+    }
   </script>
 </body>
 </html>
