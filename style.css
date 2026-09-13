@@ -29,7 +29,7 @@ body {
 /* Clean, professional header/hero */
 .hero {
   min-height: 40vh;
-  background: #f1f5f9; /* Light clinical gray */
+  background: var(--bg); /* Use the new parchment background */
   color: var(--ink);
   padding: 4rem 1rem;
   border-bottom: 1px solid #e2e8f0;
