@@ -40,38 +40,20 @@ body {
 }
 
 .nav {
-  max-width: 1100px;
-  margin: 0 auto;
+  background-color: #0f172a; /* Deep Slate */
+  padding: 1rem 5%;
   display: flex;
-  gap: 2rem;
-  align-items:/center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
+.nav .logo, .nav .nav-links a {
+  color: #f8fafc !important; /* Very light slate */
+  transition: color 0.2s ease;
 }
 
-.nav a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-.nav a:hover {
-  opacity: 1;
-  color: var(--accent);
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--ink) !important;
+.nav .nav-links a:hover {
+  color: var(--accent) !important;
 }
 
 .hero-content {
