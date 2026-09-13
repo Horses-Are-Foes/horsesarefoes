@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<!-- DOCTYPE declaration for HTML5 -->
 <html lang="en">
-<!-- Root element with language set to English -->
 <head>
-  <!-- Meta tags for character encoding and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Page title shown in browser tab -->
   <title>Reports | Horses Are Foes</title>
 
-  <!-- SEO description for search engines and social sharing -->
   <meta
     name="description"
     content="Field reports and archival notes from Horses Are Foes about horses, the CIA, and demons."
   />
 
-  <!-- Link to external CSS stylesheet for all styling -->
+  <!-- Use relative path to access the updated master stylesheet -->
   <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
-  <!-- Hero header section with navigation -->
   <header class="hero page-hero">
-    <!-- Navigation bar -->
     <nav class="nav">
-      <!-- Site logo/home link -->
       <a class="logo" href="/">Horses Are Foes</a>
 
-      <!-- Navigation links -->
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/reports/">Reports</a>
@@ -38,192 +29,107 @@
       </div>
     </nav>
 
-    <!-- Main page heading section -->
-    <section class="hero-content">
-      <p class="eyebrow">Reports regarding Horses, the CIA, and related topics of interest</p>
-      <h1>Reports</h1>
+    <div class="hero-content">
+      <p class="eyebrow">Research Division</p>
+      <h1>Archive of Observed Anomalies</h1>
       <p class="subtitle">
-        Detailed reports, dreams implying influence, and documented observations
-        from a long-running inquiry into horse activity, and CIA influence.
+        Documented findings, investigative field notes, and psychical impact assessments regarding equine-CIA coordination.
       </p>
-    </section>
+    </div>
   </header>
 
-  <!-- Main content area -->
   <main>
-
-    <!-- Section containing blog post listings -->
+    <!-- Search Interface: Subtle & Integrated -->
     <section class="section">
-      <h2>Latest Reports</h2>
-
-      <!-- Search form for filtering reports -->
-      <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f5f5f5; border-radius: 8px;">
-        <label for="searchInput" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">
-          Search Reports by Author or Keywords:
+      <div style="margin-bottom: 4rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
+        <label for="searchInput" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.5rem;">
+          Search Archive
         </label>
         <input 
           type="text" 
           id="searchInput" 
-          placeholder="e.g., Joseph Peltusche, horses, CIA, psychic..."
-          style="width: 100%; padding: 0.75rem; font-size: 1rem; border: 2px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;"
+          placeholder="Filter by keyword, author, or subject..."
+          style="width: 100%; background: transparent; border: none; font-size: 1.5rem; font-weight: 300; color: var(--ink); outline: none;"
         />
-        <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;">
-          <small>Tip: Search updates as you type. Clear to see all reports.</small>
-        </p>
       </div>
 
-      <!-- Blog list container with tighter spacing -->
-      <div class="blog-list" id="blogList">
-        <!-- Individual blog card for Report 001 -->
-        <article class="blog-card" data-author="Joseph Peltusche"
-        data-keywords="deception, truth, observation, investigation">
-          <h3><a href="/reports/the-world-has-lied-to-you/">The World Has Lied to You</a></h3>
-          <p>
-            by Joseph Peltusche
-          </p>
-          <p class="publish-date">Published: July 28, 2026</p>
+      <!-- Primary Analysis Section (Featured Cards) -->
+      <h2 style="margin-bottom: 2rem;">Primary Analysis</h2>
+      <div class="cards" id="blogList">
+        
+        <article class="card" data-author="Joseph Peltusche" data-keywords="deception, truth, observation, investigation">
+          <span class="eyebrow" style="font-size: 0.7rem;">Field Report</span>
+          <h3><a href="/reports/the-world-has-lied-to-you/" style="text-decoration: none; color: inherit;">The World Has Lied to You</a></h3>
+          <p>An investigation into pervasive information asymmetry and the psychology of denial.</p>
         </article>
 
-        <!-- Individual blog card for Report 002 -->
-        <article class="blog-card" data-author="Gideon Vale"
-        data-keywords="dust, drugs, psychic, resilience, youth, stable, powder">
-          <h3><a href="/reports/the-dust/">The Dust Your Kids May Be Inhaling Without You
-          Knowing</a></h3>
-          <p>
-            by Gideon Vale
-          </p>
-          <p class="publish-date">Published: August 16, 2026</p>
+        <article class="card" data-author="Gideon Vale" data-keywords="dust, drugs, psychic, resilience, youth, stable, powder">
+          <span class="eyebrow" style="font-size: 0.7rem;">Environmental Study</span>
+          <h3><a href="/reports/the-dust/" style="text-decoration: none; color: inherit;">The Dust Your Kids May Be Inhaling</a></h3>
+          <p>Analyzing particulate matter in stable environments and potential neurological impacts.</p>
         </article>
 
-        <!-- Individual blog card for Report 003 -->
-        <article class="blog-card" data-author="Joseph Petusche"
-        data-keywords="horses, video, viral, psychic, dogs, tree, antenna, CIA">
-          <h3><a href="/reports/21-million-views-tree-to-fall/">2.1 Million views… Don't be the next
-          tree to fall.</a></h3>
-          <p>
-             By Joseph Petusche.
-          </p>
-          <p class="publish-date">Published: August 6, 2026</p>
+        <article class="card" data-author="Joseph Petusche" data-keywords="horses, video, viral, psychic, dogs, tree, antenna, CIA">
+          <span class="subkey" style="font-size: 0.7rem;">Digital Forensic</span>
+          <h3><a href="/reports/21-million-views-tree-to-fall/" style="text-decoration: none; color: inherit;">The Tree to Fall Incident</a></h3>
+          <p>Analyzing viral multimedia artifacts and their underlying structural patterns.</p>
         </article>
 
-        <!-- Individual blog card for Report 007 (renamed from 004) -->
-        <!-- Individual blog card for Report 004 -->
-        <article class="blog-card" data-author="Adrienna Reichloft"
-        data-keywords="underground, cities, Hiatus, Saltmane, Velvet Grove">
-          <h3><a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse
-          Cities</a></h3>
-          <p>
-            by Adrienna Reichloft
-          </p>
-          <p class="publish-date">Published: August 17, 2026</p>
+      </div>
+    </section>
+
+    <!-- Technical Bulletin Section (List Style) -->
+    <section class="section">
+      <h2>Technical Bulletins & Archives</h2>
+      
+      <div class="blog-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <article class="card" data-author="Adrienna Reichloft" data-keywords="underground, cities, Hiatus, Saltmane, Velvet Grove">
+          <h3><a href="/reports/top-5-undeground-horse-cities/" style="text-decoration: none; color: inherit;">Top 5 Underground Horse Cities</a></h3>
+          <p>A structural survey of subterranean equine residential clusters.</p>
         </article>
 
-        <!-- Individual blog card for Faerie Lights and Swamp Gas -->
-        <article class="blog-card" data-author="Dr. Quincy Brainwater"
-        data-keywords="faerie, lights, swamp, gas, psychic, deception, creatures">
-          <h3><a href="/reports/faerie-lights-swamp-gas/">Faerie Lights and Swamp Gas? Think
-          Again</a></h3>
-          <p>
-            by Dr. Quincy Brainwater
-          </p>
-          <p class="publish-date">Published: September 1, 2026</p>
+        <article class="card" data-author="Dr. Quincy Brainwater" data-keywords="faerie, lights, swamp, gas, psychic, deception, creatures">
+          <h3><a href="/reports/faerie-lights-swamp-gas/" style="text-decoration: none; color: inherit;">Faerie Lights and Swamp Gas?</a></h3>
+          <p>Re-evaluating atmospheric anomalies through a skepticism-first lens.</p>
         </article>
 
-        <!-- Individual blog card for Report 005 -->
-        <article class="blog-card" data-author="Unknown"
-        data-keywords="Abraxas, entities, learning, observations, spiritual, influence">
-          <h3><a href="/reports/the-third-shadow-on-the-ridge/">What we learned from Abraxas
-          Abaralabrabraha over the last year</a></h3>
-          <p>
-            Under review for Quality Assurance.
-          </p>
+        <article class="card" data-author="Unknown" data-keywords="Abraxas, entities, learning, observations, spiritual, influence">
+          <h3><a href="/reports/the-third-shadow-on-the-ridge/" style="text-decoration: none; color: inherit;">Observations on Abraxas</a></h3>
+          <p>Preliminary findings from the subject interaction study.</p>
         </article>
 
-        <!-- Individual blog card for Report 006 (was originally 003) -->
-        <article class="blog-card" data-author="Gideon Vale"
-        data-keywords="crystals, artifacts, sigils, safety, supernatural, Alfonso Chizmac">
-          <h3><a href="/reports/crystals-artifacts-sigils-lost-alfonso-chizmac/">Cystals, Artifacts,
-          and Sigils: How We Lost Alfonso Chizmac</a></h3>
-          <p>
-            A Safety Advisory on the use of crystals artifacts, and sigils.
-            Under review for integrity and accuracy.
-          </p>
-        </article>
-        <!-- Individual blog card for Report 007 (renamed from 004) -->
-        <article class="blog-card" data-author="Gideon Vale"
-        data-keywords="grass, lawns, conspiracy, psyop, government, control">
-          <h3><a href="/reports/grass-lawns-psyop/">Grass lawns are a PSYOP</a></h3>
-          <p>
-            By Gideon Vale
-          </p>
-          <p>
-            Under review for verification of sources and accuracy.
-          </p>
-        </article>
       </div>
     </section>
   </main>
 
-  <!-- Footer section at bottom of page -->
-  <footer>
-    <p>© 2026 Horses Are Foes. An archive of documented observations.</p>
+  <footer style="margin-top: 6rem;">
+    <p>&copy; 2026 Horses Are Foes Archive. All data is subject to ongoing verification.</p>
   </footer>
 
-  <!-- JavaScript for report search functionality -->
   <script>
-    // Get the search input field and blog list container
     const searchInput = document.getElementById('searchInput');
     const blogList = document.getElementById('blogList');
-    const blogCards = blogList.querySelectorAll('.blog-card');
+    // We need to include all cards in the search logic, so I'll select them globally within our sections
+    const allCards = document.querySelectorAll('.card');
 
-    // Add event listener to search input - filters as user types
     searchInput.addEventListener('input', function() {
-      // Get the search text and convert to lowercase for case-insensitive search
       const searchTerm = this.value.toLowerCase().trim();
 
-      // Loop through each blog card
-      blogCards.forEach(card => {
-        // Get the author and keywords from data attributes
-        const author = card.getAttribute('data-author').toLowerCase();
-        const keywords = card.getAttribute('data-keywords').toLowerCase();
-        
-        // Also get the card title text for searching
+      allCards.forEach(card => {
+        const author = (card.getAttribute('data-author') || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
         const title = card.querySelector('h3').textContent.toLowerCase();
         
-        // Check if search term matches author, keywords, or title
-        // If search box is empty, show all cards
         if (searchTerm === '' || 
             author.includes(searchTerm) || 
             keywords.includes(searchTerm) ||
             title.includes(searchTerm)) {
-          // Show the card by removing hidden display
-          card.style.display = 'article';
+          card.style.display = 'block';
         } else {
-          // Hide the card that doesn't match
           card.style.display = 'none';
         }
       });
-
-      // Optional: Display a message if no results found
-      const visibleCards = Array.from(blogCards).filter(card => card.style.display !== 'none');
-      if (visibleCards.length === 0 && searchTerm !== '') {
-        // Check if message already exists
-        if (!blogList.querySelector('.no-results-message')) {
-          const message = document.createElement('p');
-          message.className = 'no-results-message';
-          message.style.textAlign = 'center';
-          message.style.color = '#999';
-          message.style.padding = '2rem';
-          message.textContent = 'No reports found matching your search.';
-          blogList.appendChild(message);
-        }
-      } else {
-        // Remove no results message if results are found
-        const message = blogList.querySelector('.no-results-message');
-        if (message) {
-          message.remove();
-        }
-      }
     });
   </script>
 </body>
