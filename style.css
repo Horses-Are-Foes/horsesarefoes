@@ -1,12 +1,12 @@
 :root {
-  /* Human Husbandry Inspired Palette (Warm Parchment & Clinical Blue) */
-  --bg: #fdfcf8;           /* Warm parchment background */
+  /* Aged Archive Palette (Deep Parchment & Black) */
+  --bg: #eaddca;           /* Deep, aged parchment background */
   --ink: #1a1a1a;          /* Dark, legible ink */
-  --muted: #6b7280;        /* Muted gray for secondary info */
+  --muted: #5d5d5d;        /* Muted gray for secondary info */
   --accent: #0369a1;       /* Clinical blue accent */
   --accent-dark: #0c4a6e;  /* Deeper blue for emphasis */
   --card: #ffffff;         /* Clean white cards */
-  --dark: #0f172a;         /* Deep slate for footer/headers */
+  --dark: #000000;         /* Pure black for high contrast */
   --gold: #0ea5e9;         /* Modern blue highlight */
 }
 
@@ -40,7 +40,7 @@ body {
 }
 
 .nav {
-  background-color: #0f172a; /* Deep Slate */
+  background-color: #000000; /* Pure Black */
   padding: 1rem 5%;
   display: flex;
   justify-content: space-between;
@@ -48,7 +48,7 @@ body {
 }
 
 .nav .logo, .nav .nav-links a {
-  color: #f8fafc !important; /* Very light slate */
+  color: #ffffff !important; /* Pure White for high contrast on black */
   transition: color 0.2s ease;
 }
 
