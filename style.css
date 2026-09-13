@@ -71,6 +71,31 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Bureaucratic Typography - For Official Metadata */
+.notice-label {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.meta-header {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+.meta-header h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
 h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
