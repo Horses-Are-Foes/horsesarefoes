@@ -1,235 +1,191 @@
 :root {
-  /* CSS Custom Properties (variables) for consistent theming */
-  --bg: #f7efe2;        /* Main background color */
-  --ink: #1f1b18;       /* Primary text color */
-  --muted: #6e5e4f;     /* Muted/secondary text color */
-  --accent: #8b2f2f;    /* Main accent color (dark red) */
-  --accent-dark: #5e1f1f; /* Darker accent for emphasis */
-  --card: #fffaf1;      /* Card/container background */
-  --dark: #171312;      /* Very dark color for contrast */
-  --gold: #d5a84f;      /* Gold accent for headings/special text */
+  /* Corporate/Clinical Palette */
+  --bg: #ffffff;           /* Pure white background */
+  --ink: #0f172a;          /* Deep Slate text */
+  --muted: #64748b;        /* Muted slate for secondary info */
+  --accent: #0284c7;       /* Corporate blue accent */
+  --accent-dark: #075985;  /* Darker blue for emphasis */
+  --card: #f8fafc;         /* Very light gray/blue card background */
+  --dark: #02061cap;       /* Deep navy for footer/headers */
+  --gold: #0ea5e9;         /* Modern blue highlight */
 }
 
 * {
-  /* Apply border-box sizing to all elements for easier width/padding calculations */
   box-sizing: border-box;
 }
 
 html {
-  /* Smooth scrolling behavior when jumping to anchor links */
   scroll-behavior: smooth;
 }
 
 body {
-  /* Reset default margins */
   margin: 0;
-  /* Use Georgia serif font for a classic look */
-  font-family: Georgia, "Times New Roman", serif;
-  /* Apply background and text colors from CSS variables */
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; /* modern sans-serif */
   background: var(--bg);
   color: var(--ink);
-  /* Set line-height for readable text spacing */
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
+/* Clean, professional header/hero */
 .hero {
-  /* Make hero section take up most of viewport height */
-  min-height: 86vh;
-  /* Layered background: dark overlay on top of gradient */
-  background:
-    linear-gradient(rgba(20, 15, 10, 0.68), rgba(20, 15, 10, 0.68)),
-    radial-gradient(circle at top left, #6a3b22, #171312);
-  /* White text on dark background */
-  color: white;
-  padding: 1.25rem;
+  min-height: 40vh;
+  background: #f1f5f9; /* Light clinical gray */
+  color: var(--ink);
+  padding: 4rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .page-hero {
-  /* Shorter hero for internal pages like reports - reduced to not cover content */
-  min-height: 35vh;
+  min-height: 30vh;
 }
 
 .nav {
-  /* Container for navigation elements */
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 2rem;
+  align-items:/center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .nav-links {
-  /* Container for all navigation links */
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .nav a {
-  /* Navigation link styling */
-  color: #f7efe2;
+  color: var(--ink);
   text-decoration: none;
-  font-weight: bold;
-  opacity: 0.9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.7;
 }
 
 .nav a:hover {
-  /* Hover effect for better interactivity */
   opacity: 1;
-  text-decoration: underline;
-}
-
-.logo {
-  /* Site logo styling in navigation */
-  font-size: 1.35rem;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  color: var(--gold);
-}
-
-.hero-content {
-  /* Main content area inside hero section */
-  max-width: 900px;
-  margin: 20vh auto 0;
-  text-align: center;
-  padding-bottom: 2rem;
-}
-
-.eyebrow {
-  /* Small decorative text above main headings */
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-weight: bold;
-}
-
-h1 {
-  /* Main page heading */
-  font-size: clamp(3rem, 8vw, 6.8rem);
-  line-height: 0.92;
-  margin: 0.3em 0;
-}
-
-.subtitle {
-  /* Secondary text below main heading */
-  max-width: 760px;
-  margin: 0 auto 2rem;
-  color: #f3e4ca;
-  font-size: clamp(1.15rem, 2vw, 1.5rem);
-}
-
-.button {
-  /* Call-to-action button styling */
-  display: inline-block;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 0.9rem 1.25rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  margin-top: 1rem;
-}
-
-.notice {
-  max-width: 1050px;
-  margin: 1.5rem auto 3rem;
-  background: #fff6d8;
-  border: 2px solid var(--accent);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.section {
-  max-width: 1050px;
-  margin: 2rem auto;
-  padding: 0 1.25rem;
-}
-
-/* Blog listing styles */
-.blog-list {
-  /* Container for blog card grid */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.blog-card {
-  /* Individual blog post card */
-  margin: 0;
-  padding: 1rem;
-  background: var(--card);
-  border-radius: 8px;
-}
-
-.blog-card .eyebrow {
-  /* Tighten spacing for eyebrow text in cards */
-  margin: 0 0 0.25rem 0;
-}
-
-.blog-card h3 {
-  /* Reduce margin for blog title */
-  margin: 0.25rem 0 0.5rem 0;
-}
-
-.blog-card p {
-  /* Reduce paragraph margins inside cards */
-  margin: 0.25rem 0;
-}
-
-.blog-card a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.blog-card a:hover {
-  text-decoration: underline;
   color: var(--accent);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink) !important;
 }
 
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left; /* Align left for corporate look */
+}
+
+.eyebrot {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--ink);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: var(--accent);
+}
+
+/* Clean, clinical notice/disclaimer */
+.notice {
+  max-width: 1100px;
+  margin: 3rem auto;
+  background: #fef2f2; /* Very subtle red alert tint */
+  border-left: 4px solid #ef4444;
+  padding: 2rem;
+  text-align: left;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.section h2 {
+  font-int-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+/* Grid of modern cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0;
 }
 
 footer {
   background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
+  color: #94a3b8;
+  text-align: left;
+  padding: 4rem 1.5rem;
+  font-size: 0.875rem;
 }
 
-/* Global responsive helpers */
-img { max-width: 100%; height: auto; display: block; }
-
-/* Make article/card content more compact on small screens */
-.card { padding: 1rem; }
-
-@media (max-width: 720px) {
-  .hero { min-height: 45vh; padding: 0.75rem; }
-  .hero-content { margin: 8vh auto 0; padding-bottom: 1rem; }
-  h1 { font-size: clamp(1.8rem, 7vw, 3rem); }
-  .section { padding: 0 0.75rem; }
-  .nav { padding: 0.5rem; }
+@media (max-width: 768px) {
+  .hero { text-align: center; }
+  .hero-content { text-align: center; }
+  .nav { flex-direction: column; gap: 1rem; }
 }
-
-@media (max-width: 420px) {
-  body { font-size: 15px; }
-  h1 { font-size: clamp(1.6rem, 9vw, 2.4rem); }
-}
-
-/* Global edge-image helper used by report pages: cover on desktop, contain on small screens to avoid cropping in Safari */
-.edge-image { width:100%; height:170px; object-fit:cover; display:block; margin:0; border-radius:0; }
-@media (max-width:420px) { .edge-image { height:auto; object-fit:contain; } }
