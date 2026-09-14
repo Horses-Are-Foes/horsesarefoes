@@ -43,8 +43,9 @@ body {
   background-color: #000000; /* Pure Black */
   padding: 1rem 5%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .nav .logo, .nav .nav-links a {
