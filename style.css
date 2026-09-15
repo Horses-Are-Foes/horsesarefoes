@@ -195,8 +195,16 @@ h1 {
 /* Homepage report cards: thumbnail on the left, text on the right */
 .card-link {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 1rem;
+}
+
+/* Text sits beside the thumbnail when there's room, otherwise drops below it */
+.card-link > div {
+  flex: 1 1 180px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .card-thumb {
