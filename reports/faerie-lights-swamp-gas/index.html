@@ -40,22 +40,16 @@
       flex-shrink: 0;
     }
 
-    .author-portrait {
-      width: 25%;
-    }
-
+    .author-portrait,
     .intro-image {
       width: 36%;
       border-radius: 0.5rem;
     }
 
     @media (max-width: 720px) {
-      .author-portrait {
-        width: 40%;
-      }
-
+      .author-portrait,
       .intro-image {
-        width: 58%;
+        width: 48%;
       }
     }
 
@@ -249,23 +243,19 @@
         </p>
 
         <!-- Assistant portrait -->
-        <figure style="width: 25%; float: right; margin: 0 0 1rem 1rem;">
+        <figure style="margin: 2rem auto 0; text-align: center;">
           <img src="./Ralph.png" alt="Ralph Herman, Assistant to Dr. Brainwater"
-          style="width: 100%; height: auto; border-radius: 0.5rem;" />
-          <figcaption>
+          style="width: 25%; min-width: 180px; height: auto; border-radius: 0.5rem;" />
+          <figcaption style="max-width: 600px; margin: 0.75rem auto 0;">
             I am training my assistant, Ralph Herman, to develop his psychic powers so that he can
             follow in my footsteps if I am killed during psychic combat with a horse. The attacks
             have gotten more frequent as of late, and I fear they may try to kill me in my sleep,
             when I am the weakest.
           </figcaption>
         </figure>
-
       </article>
     </section>
   </main>
-
-  <!-- Clear floats before footer -->
-  <div style="clear: both;"></div>
 
   <!-- Footer section at bottom of page -->
   <footer>
