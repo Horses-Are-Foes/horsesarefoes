@@ -192,6 +192,26 @@ h1 {
   margin: 0;
 }
 
+/* Homepage report cards: thumbnail on the left, text on the right */
+.card-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .card-link { flex-direction: column; }
+  .card-thumb { width: 100%; height: 160px; }
+}
+
 footer {
   background: var(--dark);
   color: #94a3b8;
