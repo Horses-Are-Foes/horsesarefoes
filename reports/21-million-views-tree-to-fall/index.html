@@ -12,21 +12,32 @@
   />
 
   <link rel="stylesheet" href="../../style.css" />
+  <style>
+    /* Keep screenshots inside the article card */
+    figure {
+      margin: 1.5rem 0;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+  </style>
 </head>
 
-<body>
-  <header class="hero page-hero">
-    <nav class="nav">
-      <a class="logo" href="/">Horses Are Foes</a>
+<body class="page-nav">
+  <nav class="nav">
+    <a class="logo" href="/">Horses Are Foes</a>
 
-      <div class="nav-links">
-        <a href="/">Home</a>
-        
-        <a href="/mission/">Mission</a>
-        <a href="/wiki/">Wiki</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </nav>
+    <div class="nav-links">
+      <a href="/mission/">Mission</a>
+      <a href="/wiki/">Wiki</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero page-hero">
 
     <section class="hero-content">
       <h1>2.1 Million views… Don't be the next tree to fall.</h1>
@@ -39,6 +50,7 @@
   <main>
 
     <section class="section">
+      <article class="card" style="max-width: 900px; margin: 0 auto;">
       <!-- Warning banner with inline styles: dark red background with bold white text -->
       <div
       style="background-color: #8B0000; padding: 20px; margin-bottom: 20px; text-align: center; border-radius: 8px;">
@@ -52,12 +64,11 @@
       -->
       <div
       style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px; border-radius: 8px;">
-        <!-- YouTube embed iframe with permission attributes -->
-        <iframe 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-          src="https://www.youtube.com/embed/KCzwyFHSMdY?rel=0" <!-- rel=0 hides recommended videos
-          at end -->
-          title="YouTube video player" 
+        <!-- YouTube embed iframe with permission attributes (rel=0 hides recommended videos at end) -->
+        <iframe
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          src="https://www.youtube.com/embed/KCzwyFHSMdY?rel=0"
+          title="YouTube video player"
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
@@ -209,6 +220,7 @@
         If you watched the video, hug your dogs while they remember you and please don't touch any
         trees for at least ten days.
       </p>
+      </article>
     </section>
   </main>
 
