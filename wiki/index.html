@@ -8,74 +8,63 @@
 
   <meta
     name="description"
-    content="The Horses Are Foes Wiki - a growing index of horse-CIA phenomena, currently under construction."
+    content="The Horses Are Foes Wiki - a cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense techniques."
   />
+
+  <meta property="og:title" content="Wiki | Horses Are Foes">
+  <meta property="og:description" content="The Horses Are Foes Wiki - a cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense techniques.">
+  <meta property="og:image" content="https://horsesarefoes.com/assets/antihorse.png">
+  <meta property="og:url" content="https://horsesarefoes.com/wiki/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/antihorse.png">
+  <link rel="apple-touch-icon" href="/assets/antihorse.png">
 
   <link rel="stylesheet" href="../style.css" />
   <style>
-    /* Under-construction section: horse-kicking-wall illustration behind a readable message card */
-    .construction {
-      position: relative;
-      overflow: hidden;
+    /* Wiki layout */
+    .wiki-entry {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--card);
+    }
+
+    .wiki-entry h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+    }
+
+    .wiki-entry .wiki-source {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+
+    .wiki-entry .wiki-source a {
+      color: var(--accent-dark);
+    }
+
+    .wiki-section {
+      margin-bottom: 2rem;
+    }
+
+    .wiki-section h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Keep the under-construction notice if you want it; otherwise this page is actual content now */
+    .construction-notice {
       border-radius: 12px;
       background: var(--dark);
-      min-height: 420px;
-      display: flex;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .construction-art {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.55;
-    }
-
-    .construction-art svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .construction-message {
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      background: rgba(23, 19, 18, 0.82);
-      border: 2px dashed var(--gold);
-      border-radius: 10px;
-      padding: 1.75rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
       color: #f7efe2;
     }
 
-    .construction-tag {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-weight: bold;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      margin-bottom: 0.75rem;
-    }
-
-    .construction-message h2 {
-      margin: 0 0 0.75rem;
+    .construction-notice h2 {
       color: var(--gold);
-    }
-
-    .construction-message p {
-      color: #f3e4ca;
-    }
-
-    @media (max-width: 720px) {
-      .construction {
-        min-height: 320px;
-        padding: 1.25rem;
-      }
     }
   </style>
 </head>
@@ -83,11 +72,11 @@
 <body class="page-nav">
   <nav class="nav">
     <a class="logo" href="/">Horses Are Foes</a>
-    <div class="nav-links" style="display: flex; gap: 1.5rem;">
+
+    <div class="nav-links">
       <a href="/mission/">Mission</a>
       <a href="/wiki/">Wiki</a>
       <a href="/contact/">Contact</a>
-      <a href="#latest-reports">Reports</a>
     </div>
   </nav>
 
@@ -97,67 +86,121 @@
       <h1 class="title">Wiki</h1>
       <p class="subtitle">
         A cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense
-        techniques. Entries are being verified before publication.
+        techniques. Entries are drawn from published reports.
       </p>
     </div>
   </header>
 
   <main>
+
     <section class="section">
-      <div class="construction">
-        <div class="construction-art" aria-hidden="true">
-          <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img"
-          aria-label="A cracked brick wall">
-            <!-- Brick wall -->
-            <g>
-              <rect x="480" y="20" width="300" height="380" fill="#3a2a20" />
-              <g stroke="#5e4433" stroke-width="3" fill="none">
-                <!-- Mortar lines, staggered rows -->
-                <path d="M480 60 H780 M480 110 H780 M480 160 H780 M480 210 H780 M480 260 H780 M480 310 H780 M480 360 H780" />
-                <path d="M480 60 V110 M580 60 V11    0 M680 60 V110 M780 60 V110" />
-                <path d="M480 110 V160 M580 110 V160 M680 110 V160 M780 110 V160" />
-                <path d="M480 160 V210 M580 160 V210 M680 160 V210 M780 160 V210" />
-                <path d="M480 210 V260 M580 210 V260 M680 210 V260 M780 210 V260" />
-                <path d="M480 260 V310 M580 260 V310 M680 260 V310 M780 260 V310" />
-                <path d="M480 310 V360 M580 3    60 V360 M680 360 V360 M780 360 V360" />
-                <path d="M480 360 V400 M580 360 V400 M680 360 V400 M780 360 V400" />
-              </g>
-              <!-- Crack radiating from impact point -->
-              <g stroke="#f7efe2" stroke-width="3" fill="none" opacity="0.85">
-                <path d="M525 215 L560 190 L575 205 L610 175" />
-                <path d="M525 215 L555 240 L540 265 L565 290" />
-                <path d="M525 215 L500 230 L510 255" />
-              </g>
-              <!-- Dust / debris at impact -->
-              <g fill="#f7efe2" opacity="0.7">
-                <circle cx="470" cy="200" r="4" />
-                <circle cx="455" cy="220" r="3" />
-                <circle cx="465" cy="245" r="5" />
-                <circle cx="445" cy="235" r="2.5" />
-              </g>
-            </g>
-          </svg>
+      <div class="wiki-section">
+        <h2>Organizations &amp; Entities</h2>
+
+        <div class="wiki-entry">
+          <h3>CREPP — Center for Research of Equine Psychic Phenomena</h3>
+          <p class="wiki-source">Source: <a href="/reports/faerie-lights-swamp-gas/">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
+          <p>A research organization that has developed methods of psychic protection effective at combating horses of all types. Led by Dr. Quincy Brainwater, CREPP conducts experiments in sigilry, psychic attack, psychic defense, crystal warding, and pocket mirror techniques. The center also operates a compound under surveillance by horse forces.</p>
+          <p><strong>Associated entities:</strong> Ralph Herman (assistant), Dr. Quincy Brainwater</p>
         </div>
 
-        <div class="construction-message">
-          <span class="construction-tag">🚧 Under Construction 🚧</span>
-          <h2 class="title">The Wiki is being assembled</h2>
-          <p>
-            Our researchers are still cross-referencing sigils, psychic incident reports, and
-            confirmed horse-CIA collaborations before anything goes public. Expect entries on
-            crystal warding, hoofprint cataloguing, and known demonic aliases soon.
-          </p>
-          <p>
-            Have something to add before we finish the first draft?
-          </p>
-          <a class="button" href="/contact/">Submit an entry</a>
+        <div class="wiki-entry">
+          <h3>NEIGH — National Equine Institute of General Horse-ology</h3>
+          <p class="wiki-source">Source: <a href="/reports/faerie-lights-swamp-gas/">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
+          <p>An organization that produces publications intended to portray horses and their schemes as beneficial to humanity. According to Dr. Brainwater, most of NEIGH's funding has been funneled in from the CIA.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>CIA</h3>
+          <p class="wiki-source">Source: <a href="/reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
+          <p>Allegedly working in league or in alignment with horses. The CIA has been active in horse propaganda since the 1960s and is said to have systematically removed anti-horse homeopathic and technological solutions within seconds of their launch.</p>
+          <p><strong>Associated phenomena:</strong> Horse infiltration, propaganda, systematic censorship</p>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="wiki-section">
+        <h2>Phenomena &amp; Artifacts</h2>
+
+        <div class="wiki-entry">
+          <h3>Stables Dust</h3>
+          <p class="wiki-source">Source: <a href="/reports/the-dust/">The Dust Your Kids May Be Inhaling Without You Knowing</a> by Gideon Vale</p>
+          <p>A fine residue produced by horsehair pillows. When inhaled over time, it is said to weaken a person's natural psychic resilience. In larger exposures, it can cause complete collapse of psychic ability and vivid mirage-like visions of endless apple orchards. Children and teenagers are primary targets.</p>
+          <p><strong>Countermeasures:</strong> Avoid horsehair pillows; use only unverified bedding</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Nightmare Grass</h3>
+          <p class="wiki-source">Source: <a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          <p>Discovered at Velvet Grove in 2020. A wispy, ephemeral dust that stays in one spot, swaying like grass in a breeze but pulling away from humans who approach. Common theory: horses worship a being known as the Nightmare, and this material is its remains. Biochemical and psychographic PPE appears ineffective against it.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Dream Invasions</h3>
+          <p class="wiki-source">Source: <a href="/reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
+          <p>Horses track humans through dreams. Horse eyes watch dreamers far more than most know. Dream content is designed to be pleasant (riding horses, unicorns, flying Pegasi) to lower vigilance. Carl Jung is suspected of being an integral part of the horse cause, possibly manipulated since birth in Switzerland.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Dog Corruption</h3>
+          <p class="wiki-source">Source: <a href="/reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
+          <p>Horses have many methods to corrupt dog minds and take them over. Once corrupted, dogs may exhibit loss of interest in herding, increased fear response, entering their owner's dreams, and disinterest in all foods except grains. Dogs should never be allowed to meet horses.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wiki-section">
+        <h2>Locations</h2>
+
+        <div class="wiki-entry">
+          <h3>Velvet Grove</h3>
+          <p class="wiki-source">Source: <a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          <p>An ancient underground horse city described as pitch dark, without bioluminescence or natural light. Branching paths echo endlessly. The ground is covered in nightmare grass. The city depicts what is believed to be how horses see the afterlife.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Saltmane</h3>
+          <p class="wiki-source">Source: <a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          <p>An ancient horse city discovered under a massive salt deposit in the Atacama desert. Excavation has been halted by an environmental study initiated by a three-letter organization. A rigorous mapping of lick marks was underway when stopped. Some believe horses are ancient, alien beings who may have originally seeded life on Earth, including the minerals used for food.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Hiatus</h3>
+          <p class="wiki-source">Source: <a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          <p>Discovered by LIDAR in Northern Australia in 2018 during a water table survey. A massive hole with no end as far as the team could tell — on the other side of the planet. The hole widened as it approached the mantle. Generations of horses lived there, digging constantly. Stopped just before reaching their apparent goal. A plan that, if successful, would have seen horses rule the Earth's surface and depths.</p>
+        </div>
+
+        <div class="wiki-entry">
+          <h3>Restless Hoof</h3>
+          <p class="wiki-source">Source: <a href="/reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          <p>Discovered in the walls of the Grand Canyon in 1996. A massive bowl with only one spot at which a single horse could stand still. Psychic anthropologists believe the herd leader would stand at the center and horses performed a walking ritual. Surface horses are believed by some to be an echo of the Restless Hoof tribes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wiki-section">
+        <h2>Defense &amp; Techniques</h2>
+
+        <div class="wiki-entry">
+          <h3>Anti-Horse Measures</h3>
+          <p class="wiki-source">Source: <a href="/reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
+          <p><strong>Anti-Horse Incense</strong> — reportedly removed from public availability within seconds of launch.<br>
+          <strong>Snake Grass seeds</strong> — plant and let go to seed; share only through trusted community networks, never on social media.<br>
+          <strong>Anti-Horse Magnets</strong> — in-ground installation, also systematically removed.<br>
+          <strong>Personal amulets</strong> — local bead-smiths can construct anti-horse necklaces, bracelets, or anklets.<br>
+          <strong>Dream vigilance</strong> — do not alert horses to your awareness of their presence. Grow psychic power with a balanced diet.<br>
+          <strong>Vigilance questions</strong> — "Why are children given rocking horses?" "Why is the knight the only chess piece that can leap?" "Why do we measure engines in horse power?" Used as a mantra.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>© 2026 Horses Are Foes. Investigation archive.</p>
+    <p>&copy; 2026 Horses Are Foes. Investigation archive.</p>
   </footer>
 </body>
 </html>
