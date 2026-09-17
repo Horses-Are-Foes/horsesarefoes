@@ -209,6 +209,14 @@ h1 {
   overflow-wrap: break-word;
 }
 
+/* Flip image to right side (used by wiki) */
+.card-link-reverse img {
+  order: 2;
+}
+.card-link-reverse > div {
+  order: 1;
+}
+
 .card-thumb {
   width: 128px;
   height: 128px;
