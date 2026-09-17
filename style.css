@@ -209,20 +209,22 @@ h1 {
   overflow-wrap: break-word;
 }
 
-/* Flip image to right side (used by wiki) */
-.card-link.card-link-reverse .card-thumb {
-  order: 2 !important;
-}
-.card-link.card-link-reverse > div {
-  order: 1 !important;
-}
-
 .card-thumb {
   width: 128px;
   height: 128px;
   object-fit: cover;
   border-radius: 0.5rem;
-  flex-shrink: 0;
+  flex: 0 0 128px;
+}
+
+/* Wiki cards: force side-by-side, image on right */
+.wiki-section .card-link {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.wiki-section .card-link > div {
+  min-width: 0;
 }
 
 footer {
