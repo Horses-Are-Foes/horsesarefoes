@@ -60,7 +60,7 @@ body {
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
-  text-align: left; /* Align left for corporate look */
+  text-align: center;
 }
 
 .eyebrow {
