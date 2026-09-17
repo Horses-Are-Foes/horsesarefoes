@@ -106,10 +106,11 @@ h1 {
 }
 
 .subtitle {
-  max-width: 600px;
   color: var(--muted);
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
