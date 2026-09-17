@@ -217,17 +217,23 @@ h1 {
   flex: 0 0 128px;
 }
 
-/* Wiki cards: use grid for reliable side-by-side, text left / image right */
-.wiki-section .card-link {
-  display: grid !important;
-  grid-template-columns: 1fr 128px !important;
-  align-items: center !important;
-  gap: 1rem !important;
+/* Wiki cards: grid layout, text left / image right */
+.wiki-section .wiki-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 1rem;
 }
 
-.wiki-section .card-link > div {
-  min-width: 0 !important;
-  overflow-wrap: break-word !important;
+.wiki-section .wiki-card .wiki-text {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.wiki-section .wiki-card img {
+  display: block;
+  max-width: 300px;
+  height: auto;
 }
 
 footer {
