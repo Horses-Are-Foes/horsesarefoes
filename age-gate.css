@@ -144,6 +144,18 @@ body.gate-open {
   font-size: 10px;
 }
 
+.age-gate-restricted .sympathizers {
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.age-gate-restricted .sympathizers::before {
+  content: "☠";
+  font-size: 12px;
+}
+
 /* Welcome to magicians */
 .age-gate-welcome {
   margin: 16px 0 0;
