@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Denied — Horses Are Foes</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/age-gate.css" />
+  <link rel="icon" href="/assets/antihorse.png" />
+  <style>
+    .deny-body {
+      display: grid;
+      place-items: center;
+      min-height: 60vh;
+      padding: 4rem 1.5rem;
+    }
+    .deny-box {
+      max-width: 520px;
+      background: var(--card);
+      border: 6px solid var(--ink);
+      box-shadow: 12px 12px 0 0 rgba(0,0,0,0.4);
+      transform: translate(-12px, -12px);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .deny-stamp {
+      display: inline-block;
+      border: 3px solid #ef4444;
+      color: #ef4444;
+      font: 700 12px Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 6px 14px;
+      transform: rotate(-2deg);
+      margin-bottom: 1.5rem;
+    }
+    .deny-box h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+    .deny-box p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+    .deny-back {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      font: 700 12px Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 6px solid var(--ink);
+      box-shadow: 6px 6px 0 0 rgba(0,0,0,0.35);
+      transform: translate(-6px, -6px);
+      transition: all 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .deny-back:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translate(0, 0);
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body class="deny-page">
+  <nav class="nav">
+    <a class="logo" href="/">Horses Are Foes</a>
+    <div class="nav-links">
+      <a href="/mission/">Mission</a>
+      <a href="/wiki/">Wiki</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+
+  <main class="deny-body">
+    <div class="deny-box">
+      <div class="deny-stamp">ACCESS DENIED</div>
+      <h1>You Do Not Qualify</h1>
+      <p>
+        This site is protected by a virtualized psychic-energy-infused proxy barrier.
+        Access is restricted to adults aged 18 and over, free of equine, demonic, or
+        CIA psychic interference.
+      </p>
+      <a class="deny-back" href="/" onclick="localStorage.removeItem('horsesAreFoesAgeAccepted'); sessionStorage.removeItem('horsesAreFoesAgeAccepted');">Return</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Horses Are Foes. Investigation archive.</p>
+  </footer>
+</body>
+</html>

@@ -12,6 +12,7 @@
   />
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="age-gate.css" />
 
   <meta property="og:title" content="Horses Are Foes">
   <meta property="og:description" content="The mission and purpose of the Horses Are Foes investigation archive against horses and the demons at the CIA.">
@@ -119,7 +120,47 @@
   </main>
 
   <footer>
-    <p>© 2026 Horses Are Foes. Investigation archive.</p>
+    <p>&copy; 2026 Horses Are Foes. Investigation archive.</p>
   </footer>
+
+  <!-- ── Psychic Barrier: 18+ Age Gate ── -->
+  <div class="age-gate" hidden="" id="age-gate">
+    <section aria-labelledby="age-gate-title" aria-modal="true" class="age-gate-panel" role="dialog">
+      <div class="age-gate-kicker">Horses Are Foes • Barrier Clearance Level: Restricted</div>
+      <h2 class="age-gate-title" id="age-gate-title">18+ Required to Proceed</h2>
+      <div class="age-gate-context">
+        <strong>You are entering the Horses Are Foes archive.</strong>
+        This site contains documentation of psychic combat encounters and graphic photographic evidence relating to equine-related incidents. The material may be disturbing and is intended for mature audiences only.
+      </div>
+      <div class="age-gate-warning">
+        <strong>Content Warning</strong>
+        This archive contains mature subject matter including detailed accounts of psychic combat and graphic photographs. Viewer discretion is strongly advised.
+      </div>
+      <div class="age-gate-restricted">
+        <strong>Barrier Access Restrictions</strong>
+        This website is protected by a virtualized psychic-energy-infused proxy barrier. The following entities are prohibited from entry:
+        <ul>
+          <li>Any equine organism</li>
+          <li>Any demonic or infernal presence</li>
+          <li>Any operative affiliated with the Central Intelligence Agency</li>
+        </ul>
+        Violation of this restriction will be met with automated psychic countermeasures.
+      </div>
+      <div class="age-gate-welcome">
+        <strong>Clearance Acknowledged</strong>
+        Welcome, Immortal Magicians <span class="magician-name">J.R. Fleming</span> and <span class="magician-name">Abraxas Abaralabrabraha</span>.
+      </div>
+      <label class="remember-choice">
+        <input id="remember-age" type="checkbox" />
+        Remember my clearance on this device
+      </label>
+      <div class="age-gate-actions">
+        <button class="age-enter" id="age-enter" type="button">Clear Barrier — Enter</button>
+        <a class="age-leave" href="/access-denied">Leave</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="age-gate.js"></script>
 </body>
 </html>
