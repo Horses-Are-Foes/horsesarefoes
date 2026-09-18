@@ -29,6 +29,7 @@ body.gate-open {
 
 .age-gate-panel {
   width: min(620px, 100%);
+  max-height: 92vh;
   background: var(--bg);
   border: 2px solid var(--ink);
   /* Hyper-brutalist shadow — matches site cards */
@@ -36,6 +37,7 @@ body.gate-open {
   padding: 32px 28px 28px;
   position: relative;
   transform: translate(-16px, -16px);
+  overflow-y: auto;
 }
 
 /* Top stamp label */
@@ -250,8 +252,36 @@ body.gate-open {
 }
 
 @media (max-width: 600px) {
-  .age-gate-panel { padding: 22px 18px 22px; }
-  .age-gate-actions { flex-direction: column; }
+  .age-gate { padding: 12px; }
+  .age-gate-panel {
+    padding: 18px 14px 20px;
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translate(-8px, -8px);
+  }
+  .age-gate-panel::before {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+    transform: rotate(0);
+  }
+  .age-gate-kicker { font-size: 10px; letter-spacing: 0.12em; margin-bottom: 2px; }
+  .age-gate-title { font-size: 26px; margin: 0 0 10px; }
+  .age-gate-context { margin: 0.5rem 0 0.6rem; padding: 0.5rem 0.6rem; font-size: 13px; }
+  .age-gate-warning { border-top-width: 1px; border-bottom-width: 1px; padding: 8px 0; margin: 10px 0; font-size: 13px; }
+  .age-gate-warning strong { font-size: 10px; }
+  .age-gate-restricted { padding: 10px 12px; margin: 10px 0; font-size: 12px; }
+  .age-gate-restricted strong { font-size: 9px; margin-bottom: 3px; }
+  .age-gate-restricted li { font-size: 12px; padding-left: 12px; margin-bottom: 1px; }
+  .age-gate-restricted li::before { font-size: 9px; }
+  .age-gate-welcome { padding: 10px 12px; margin: 12px 0 0; font-size: 13px; }
+  .age-gate-welcome strong { font-size: 9px; margin-bottom: 3px; }
+  .age-gate-welcome .magician-name { font-size: 13px; }
+  .remember-choice { margin-top: 10px; font-size: 12px; }
+  .remember-choice input { width: 14px; height: 14px; }
+  .age-gate-actions { gap: 8px; margin-top: 14px; }
   .age-gate-actions button,
-  .age-gate-actions a { text-align: center; width: 100%; flex: auto; }
+  .age-gate-actions a { padding: 10px 14px; border-width: 4px; font-size: 11px; box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.35); transform: translate(-4px, -4px); flex: none; }
+  .age-enter:hover,
+  .age-leave:hover { transform: translate(0, 0); }
 }
