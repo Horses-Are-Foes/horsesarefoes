@@ -91,6 +91,45 @@
       max-height: 90vh;
       object-fit: contain;
     }
+
+    /* ── Mobile: word + image side by side, definition centered below ── */
+    @media (max-width: 700px) {
+      .wiki-card .wiki-img {
+        float: right;
+        width: 100px;
+        max-width: 100px;
+        height: auto;
+        margin: 0 0 8px 10px;
+      }
+      .wiki-card .wiki-text h3 {
+        display: inline;
+        font-size: 1rem;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+      .wiki-card .wiki-text h3::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .wiki-card .wiki-text p {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+      }
+      .wiki-card .wiki-text p strong {
+        display: block;
+        text-align: center;
+      }
+      .wiki-card .wiki-text .wiki-source {
+        text-align: center;
+        font-size: 0.75rem;
+      }
+      /* Remove the old stacking from main style.css for wiki cards */
+      .wiki-card {
+        display: block;
+      }
+    }
   </style>
 </head>
 
