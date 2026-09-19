@@ -36,7 +36,7 @@
 /* 5: USECOMPUTERFIGHTHORSES (left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: BECOOL (right) */
+/* 6: BRAINSOFT (right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
 /* 7: PROADAMERICAN (left) */
@@ -57,13 +57,13 @@
 /* 12: HAVEYOUSEENBIGBOY (right) */
 .gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
 
-/* 13: WIZARDFLUTES (right) */
-.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 78.42vh;  width: 170px; }
+/* 13: WIZARDFLUTES (slightly left & down) */
+.gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
 
 /* 14: DANCETHEHORSESAWAY (left) */
 .gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
 
-/* 15: BRAINSOFT (right, bottom) */
+/* 15: BECOOL (right, bottom) */
 .gif-barrage .gif-item:nth-child(15) { right: 4px;  top: 91.0vh;   width: 175px; }
 
 /* 16: ROMANCE (bottom-center, double size 400px) */
