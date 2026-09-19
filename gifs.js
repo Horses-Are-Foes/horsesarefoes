@@ -1,10 +1,11 @@
 (function() {
   var gifs = [
-    'ROMANCE.gif', 'HERMAN.gif', 'ISHELLREAL.gif', 'MAN-HAPPY.gif',
+    'YOU-DESERVE-IT-ALL-BBY.gif', 'HERMAN.gif', 'ISHELLREAL.gif', 'MAN-HAPPY.gif',
     'BECOOL.gif', 'USECOMPUTERFIGHTHORSES.gif', 'PROADAMERICAN.gif',
     'AUTISM.gif', 'WASHHANDS.gif', 'PROTECTYOURSELF.gif',
     'FREEONLINEBOOKS.gif', 'HAVEYOUSEENBIGBOY.gif', 'WIZARDFLUTES.gif',
-    'DANCETHEHORSESAWAY.gif', 'YOU-DESERVE-IT-ALL-BBY.gif', 'BRAINSOFT.gif'
+    'DANCETHEHORSESAWAY.gif', 'BRAINSOFT.gif',
+    'ROMANCE.gif'
   ];
 
   var container = document.createElement('div');
