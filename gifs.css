@@ -44,8 +44,8 @@
 /* 6: BRAINSOFT (right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 7: PROADAMERICAN (bottom-right, above AUTISM) */
-.gif-barrage .gif-item:nth-child(7)  { right: 4px;  top: 88vh;     width: 155px; }
+/* 7: PROADAMERICAN (bottom-left, aligned with AUTISM on right) */
+.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 95vh;     width: 155px; }
 
 /* 8: AUTISM (bottom-right, below PROADAMERICAN, flipped upside down) */
 .gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 95vh;    width: 155px;  transform: rotate(180deg); }
