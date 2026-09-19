@@ -27,8 +27,8 @@
 /* 2: HERMAN (top-right) */
 .gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 3.0vh;    width: 165px; }
 
-/* 3: ISHELLREAL (left) */
-.gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
+/* 3: ISHELLREAL (left, below PROTECTYOURSELF) */
+.gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 55vh;     width: 160px; }
 
 /* 4: MAN-HAPPY (top bar, shifted right) */
 .gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 405px); top: 6vh;  width: 538px; }
