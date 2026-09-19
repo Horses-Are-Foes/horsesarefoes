@@ -331,9 +331,7 @@ footer {
   overflow: visible;
 }
 
-.gif-barrage .gif-item {
-  position: absolute;
-}
+/* GIF positioning is handled individually in gifs.css (position: fixed per element) */
 
 /* ═══════════════════════════════════════════ */
 /* ── Mobile: everything stacks and text stays readable ── */
