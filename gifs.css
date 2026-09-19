@@ -18,53 +18,53 @@
   image-rendering: crisp-edges;
 }
 
-/* ═══ 16 GIFs — 8 left column, 8 right column ═══ */
-/* Each side: 8 slots at 3, 15.57, 28.14, 40.71, 53.28, 65.85, 78.42, 91 vh */
+/* ═══ 16 GIFs: left col, right col, + top-center ═══ */
+/* Top-center: WIZARDFLUTES at 5px below top, centered */
 
-/* 1: YOU-DESERVE-IT-ALL-BBY (moved here from bottom-left, was ROMANCE position) */
+/* 1: YOU-DESERVE-IT-ALL-BBY (top-left) */
 .gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 165px; }
 
-/* 2: HERMAN — top-right */
+/* 2: HERMAN (top-right) */
 .gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 3.0vh;    width: 165px; }
 
-/* 3: ISHELLREAL — left */
+/* 3: ISHELLREAL (left) */
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: MAN-HAPPY — right */
+/* 4: MAN-HAPPY (right) */
 .gif-barrage .gif-item:nth-child(4)  { right: 4px;  top: 15.57vh;  width: 160px; }
 
-/* 5: USECOMPUTERFIGHTHORSES (swapped with BECOOL from right to left) */
+/* 5: USECOMPUTERFIGHTHORSES (swapped left, was right) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: BECOOL (swapped with USECOMPUTERFIGHTHORSES from left to right) */
+/* 6: BECOOL (swapped right, was left) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 7: PROADAMERICAN — left */
+/* 7: PROADAMERICAN (left) */
 .gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 40.71vh;  width: 155px; }
 
-/* 8: AUTISM — right */
+/* 8: AUTISM (right) */
 .gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 40.71vh;  width: 155px; }
 
-/* 9: WASHHANDS — left */
+/* 9: WASHHANDS (left) */
 .gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 53.28vh;  width: 165px; }
 
-/* 10: PROTECTYOURSELF — right */
+/* 10: PROTECTYOURSELF (right) */
 .gif-barrage .gif-item:nth-child(10) { right: 4px;  top: 53.28vh;  width: 165px; }
 
-/* 11: FREEONLINEBOOKS — left */
+/* 11: FREEONLINEBOOKS (left) */
 .gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 12: HAVEYOUSEENBIGBOY — right */
+/* 12: HAVEYOUSEENBIGBOY (right) */
 .gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
 
-/* 13: WIZARDFLUTES — left */
-.gif-barrage .gif-item:nth-child(13) { left: 4px;   top: 78.42vh;  width: 170px; }
+/* 13: WIZARDFLUTES — top-center, just below nav bar */
+.gif-barrage .gif-item:nth-child(13) { left: 50%;   top: 5px;      width: 160px; transform: translateX(-50%); }
 
-/* 14: DANCETHEHORSESAWAY — right */
-.gif-barrage .gif-item:nth-child(14) { right: 4px;  top: 78.42vh;  width: 170px; }
+/* 14: DANCETHEHORSESAWAY — bottom-left (moved up) */
+.gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
 
-/* 15: BRAINSOFT — bottom-left */
-.gif-barrage .gif-item:nth-child(15) { left: 4px;   top: 91.0vh;   width: 175px; }
+/* 15: BRAINSOFT — bottom-right (moved up) */
+.gif-barrage .gif-item:nth-child(15) { right: 4px;  top: 78.42vh;  width: 170px; }
 
 /* 16: ROMANCE — bottom-center, double size (400px) */
 .gif-barrage .gif-item:nth-child(16) { left: 50%;   top: 92.5vh;   width: 400px; transform: translateX(-50%); }
