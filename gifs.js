@@ -33,7 +33,24 @@
       link.style.pointerEvents = 'auto';
       link.appendChild(img);
       container.appendChild(link);
-    } else {
+    }
+    // PROADAMERICAN.gif randomly redirects to various Israel-related links
+    else if (name === 'PROADAMERICAN.gif') {
+      var links = [
+        'https://embassies.gov.il/usa/en',
+        'https://history.state.gov/milestones/1945-1952/creation-israel',
+        'https://dawnmena.org/the-historical-roots-of-israels-genocidal-violence-in-gaza/',
+        'https://en.wikipedia.org/wiki/Gaza_genocide',
+        'https://en.wikipedia.org/wiki/Israel'
+      ];
+      var link = document.createElement('a');
+      link.href = links[Math.floor(Math.random() * links.length)];
+      link.style.pointerEvents = 'auto';
+      link.target = '_blank';
+      link.appendChild(img);
+      container.appendChild(link);
+    }
+    else {
       container.appendChild(img);
     }
   });
