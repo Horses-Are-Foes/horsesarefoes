@@ -28,11 +28,9 @@
 
     // DANCETHEHORSESAWAY links to its dedicated page
     if (name === 'DANCETHEHORSESAWAY.gif') {
-      var link = document.createElement('a');
-      link.href = '/dance-the-horses-away/';
-      link.style.pointerEvents = 'auto';
-      link.appendChild(img);
-      container.appendChild(link);
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.location.href = '/dance-the-horses-away/'; };
     }
     // PROADAMERICAN.gif randomly redirects to various Israel-related links
     else if (name === 'PROADAMERICAN.gif') {
@@ -43,16 +41,12 @@
         'https://en.wikipedia.org/wiki/Gaza_genocide',
         'https://en.wikipedia.org/wiki/Israel'
       ];
-      var link = document.createElement('a');
-      link.href = links[Math.floor(Math.random() * links.length)];
-      link.style.pointerEvents = 'auto';
-      link.target = '_blank';
-      link.appendChild(img);
-      container.appendChild(link);
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.open(links[Math.floor(Math.random() * links.length)], '_blank'); };
     }
-    else {
-      container.appendChild(img);
-    }
+
+    container.appendChild(img);
   });
 
   document.body.appendChild(container);
