@@ -21,8 +21,8 @@
 
 /* ═══ 16 GIFs: left col, right col, top-center, bottom-center ═══ */
 
-/* 1: YOU-DESERVE-IT-ALL-BBY (top-left) */
-.gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 165px; }
+/* 1: DANCETHEHORSESAWAY (top-left) */
+.gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 170px; }
 
 /* 2: HERMAN (top-right) */
 .gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 3.0vh;    width: 165px; }
@@ -54,14 +54,14 @@
 /* 11: FREEONLINEBOOKS (left) */
 .gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 12: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY) */
-.gif-barrage .gif-item:nth-child(12) { left: calc(50% + 34px); top: 6vh;     width: 271px; }
+/* 12: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY, no overlap) */
+.gif-barrage .gif-item:nth-child(12) { left: calc(50% + 155px); top: 6vh;  width: 271px; }
 
 /* 13: WIZARDFLUTES (slightly left & down) */
 .gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
 
-/* 14: DANCETHEHORSESAWAY (left) */
-.gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
+/* 14: YOU-DESERVE-IT-ALL-BBY (left) */
+.gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 165px; }
 
 /* 15: BECOOL (center-right, same height as ROMANCE) */
 .gif-barrage .gif-item:nth-child(15) { left: 50%;   top: 92.5vh; width: 400px; }
