@@ -1,90 +1,63 @@
 /* ═══════════════════════════════════════════ */
-/* ══ 90's Era GIF Barrage — obnoxious sizing & positions ══ */
+/* ══ 90's Era GIF Barrage — static scattered ══ */
 /* ═══════════════════════════════════════════ */
 .gif-barrage .gif-item {
   position: fixed;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  /* No animation — static placement only */
 }
 
-/* ═══ Each GIF gets a distinct position, size, and animation ═══ */
+/* ═══ Each GIF gets a distinct position and size ═══ */
 
-/* 1: Top-left — bounce up */
-.gif-barrage .gif-item:nth-child(1)  { left: 0px;   top: 0vh;    width: 160px; animation: bounce-up 0.7s infinite; animation-delay: 0s; }
+/* 1: Top-left corner */
+.gif-barrage .gif-item:nth-child(1)  { left: 5px;   top: 5px;    width: 175px; }
 
-/* 2: Top-right — bounce down */
-.gif-barrage .gif-item:nth-child(2)  { right: 0px;  top: 1vh;    width: 140px; animation: bounce-down 0.6s infinite; animation-delay: 0.2s; }
+/* 2: Top-right corner */
+.gif-barrage .gif-item:nth-child(2)  { right: 5px;  top: 5px;    width: 175px; }
 
-/* 3: Upper-left — wiggle */
-.gif-barrage .gif-item:nth-child(3)  { left: 5px;   top: 4vh;    width: 170px; animation: wiggle-hard 0.45s infinite; animation-delay: 0.3s; }
+/* 3: Upper-left, below top */
+.gif-barrage .gif-item:nth-child(3)  { left: 15px;  top: 90px;   width: 165px; }
 
-/* 4: Upper-right — spin */
-.gif-barrage .gif-item:nth-child(4)  { right: 8px;  top: 8vh;    width: 155px; animation: spin-slow 0.9s infinite; animation-delay: 0.5s; }
+/* 4: Upper-right, below top */
+.gif-barrage .gif-item:nth-child(4)  { right: 15px; top: 95px;   width: 165px; }
 
-/* 5: Left mid-upper — bounce up */
-.gif-barrage .gif-item:nth-child(5)  { left: 0px;   top: 12vh;   width: 145px; animation: bounce-up 0.65s infinite; animation-delay: 1.0s; }
+/* 5: Mid-left, above center */
+.gif-barrage .gif-item:nth-child(5)  { left: 0px;   top: 220px;  width: 170px; }
 
-/* 6: Right mid-upper — wiggle */
-.gif-barrage .gif-item:nth-child(6)  { right: 0px;  top: 16vh;   width: 165px; animation: wiggle-hard 0.5s infinite; animation-delay: 0.2s; }
+/* 6: Mid-right, above center */
+.gif-barrage .gif-item:nth-child(6)  { right: 0px;  top: 215px;  width: 170px; }
 
-/* 7: Left mid — bounce down */
-.gif-barrage .gif-item:nth-child(7)  { left: 3px;   top: 22vh;   width: 150px; animation: bounce-down 0.75s infinite; animation-delay: 0.8s; }
+/* 7: Center-left */
+.gif-barrage .gif-item:nth-child(7)  { left: 10px;  top: 360px;  width: 160px; }
 
-/* 8: Right mid — spin */
-.gif-barrage .gif-item:nth-child(8)  { right: 10px; top: 28vh;   width: 175px; animation: spin-slow 1.0s infinite; animation-delay: 0.6s; }
+/* 8: Center-right */
+.gif-barrage .gif-item:nth-child(8)  { right: 10px; top: 350px;  width: 160px; }
 
-/* 9: Left mid-lower — bounce up */
-.gif-barrage .gif-item:nth-child(9)  { left: 0px;   top: 34vh;   width: 140px; animation: bounce-up 0.55s infinite; animation-delay: 1.1s; }
+/* 9: Lower-left, below center */
+.gif-barrage .gif-item:nth-child(9)  { left: 5px;   top: 500px;  width: 170px; }
 
-/* 10: Right mid-lower — wiggle */
-.gif-barrage .gif-item:nth-child(10) { right: 0px;  top: 40vh;   width: 155px; animation: wiggle-hard 0.4s infinite; animation-delay: 0.4s; }
+/* 10: Lower-right, below center */
+.gif-barrage .gif-item:nth-child(10) { right: 5px;  top: 490px;  width: 170px; }
 
-/* 11: Lower-left — bounce down */
-.gif-barrage .gif-item:nth-child(11) { left: 8px;   top: 48vh;   width: 160px; animation: bounce-down 0.8s infinite; animation-delay: 0.9s; }
+/* 11: Bottom-left area */
+.gif-barrage .gif-item:nth-child(11) { left: 10px;  top: 640px;  width: 165px; }
 
-/* 12: Lower-right — spin */
-.gif-barrage .gif-item:nth-child(12) { right: 5px;  top: 55vh;   width: 145px; animation: spin-slow 0.85s infinite; animation-delay: 0.3s; }
+/* 12: Bottom-right area */
+.gif-barrage .gif-item:nth-child(12) { right: 10px; top: 630px;  width: 165px; }
 
-/* 13: Bottom-left — bounce up */
-.gif-barrage .gif-item:nth-child(13) { left: 0px;   top: 64vh;   width: 150px; animation: bounce-up 0.6s infinite; animation-delay: 1.3s; }
+/* 13: Lower-mid-left */
+.gif-barrage .gif-item:nth-child(13) { left: 0px;   top: 780px;  width: 175px; }
 
-/* 14: Bottom-right — wiggle */
-.gif-barrage .gif-item:nth-child(14) { right: 12px; top: 72vh;   width: 135px; animation: wiggle-hard 0.42s infinite; animation-delay: 0.1s; }
+/* 14: Lower-mid-right */
+.gif-barrage .gif-item:nth-child(14) { right: 0px;  top: 770px;  width: 175px; }
 
-/* 15: Mid-left (extra) — spin */
-.gif-barrage .gif-item:nth-child(15) { left: 6px;   top: 30vh;   width: 130px; animation: spin-slow 0.95s infinite; animation-delay: 0.7s; }
+/* 15: Bottom-left, near end */
+.gif-barrage .gif-item:nth-child(15) { left: 15px;  top: 930px;  width: 160px; }
 
-/* 16: Mid-right (extra) — bounce down */
-.gif-barrage .gif-item:nth-child(16) { right: 3px;  top: 44vh;   width: 165px; animation: bounce-down 0.7s infinite; animation-delay: 0.5s; }
-
-/* ═══ Keyframe Animations ═══ */
-
-@keyframes bounce-up {
-  0%   { transform: translateY(0)    scale(1)    rotate(0deg); }
-  50%  { transform: translateY(-30px) scale(1.15) rotate(8deg); }
-  100% { transform: translateY(0)    scale(1)    rotate(0deg); }
-}
-
-@keyframes bounce-down {
-  0%   { transform: translateY(0)    scale(1)    rotate(0deg); }
-  50%  { transform: translateY(25px)  scale(0.9)  rotate(-6deg); }
-  100% { transform: translateY(0)    scale(1)    rotate(0deg); }
-}
-
-@keyframes wiggle-hard {
-  0%   { transform: rotate(-12deg)  scale(1.1); }
-  25%  { transform: rotate(15deg)   scale(0.85); }
-  50%  { transform: rotate(-18deg)  scale(1.15); }
-  75%  { transform: rotate(10deg)   scale(0.9); }
-  100% { transform: rotate(-12deg)  scale(1.1); }
-}
-
-@keyframes spin-slow {
-  0%   { transform: rotate(0deg)    scale(1)   translateY(0); }
-  50%  { transform: rotate(180deg)  scale(1.25) translateY(-20px); }
-  100% { transform: rotate(360deg)  scale(1)   translateY(0); }
-}
+/* 16: Bottom-right, near end */
+.gif-barrage .gif-item:nth-child(16) { right: 15px; top: 920px;  width: 160px; }
 
 /* ═══ Mobile: hide them so content is readable ═══ */
 @media (max-width: 700px) {
