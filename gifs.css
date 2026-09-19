@@ -1,63 +1,74 @@
 /* ═══════════════════════════════════════════ */
 /* ══ 90's Era GIF Barrage — static scattered ══ */
 /* ═══════════════════════════════════════════ */
-.gif-barrage .gif-item {
+.gif-barrage {
   position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+.gif-barrage .gif-item {
+  position: absolute;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-  /* No animation — static placement only */
 }
 
-/* ═══ Each GIF gets a distinct position and size ═══ */
+/* ═══ 16 GIFs — 8 left column, 8 right column ═══ */
+/* Each side: 8 slots at 3, 15.57, 28.14, 40.71, 53.28, 65.85, 78.42, 91 vh */
+/* Gaps between slots: 12.57vh — prevents vertical overlap */
 
-/* 1: Top-left corner */
-.gif-barrage .gif-item:nth-child(1)  { left: 5px;   top: 5px;    width: 175px; }
+/* 1: ROMANCE — top-left, BIG as requested */
+.gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 200px; }
 
-/* 2: Top-right corner */
-.gif-barrage .gif-item:nth-child(2)  { right: 5px;  top: 5px;    width: 175px; }
+/* 2: HERMAN — top-right */
+.gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 3.0vh;    width: 165px; }
 
-/* 3: Upper-left, below top */
-.gif-barrage .gif-item:nth-child(3)  { left: 15px;  top: 90px;   width: 165px; }
+/* 3: ISHELLREAL — left */
+.gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: Upper-right, below top */
-.gif-barrage .gif-item:nth-child(4)  { right: 15px; top: 95px;   width: 165px; }
+/* 4: MAN-HAPPY — right (separated from HERMAN — no overlap) */
+.gif-barrage .gif-item:nth-child(4)  { right: 4px;  top: 15.57vh;  width: 160px; }
 
-/* 5: Mid-left, above center */
-.gif-barrage .gif-item:nth-child(5)  { left: 0px;   top: 220px;  width: 170px; }
+/* 5: BECOOL — left */
+.gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: Mid-right, above center */
-.gif-barrage .gif-item:nth-child(6)  { right: 0px;  top: 215px;  width: 170px; }
+/* 6: USECOMPUTERFIGHTHORSES — right (separated from AUTISM) */
+.gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 7: Center-left */
-.gif-barrage .gif-item:nth-child(7)  { left: 10px;  top: 360px;  width: 160px; }
+/* 7: PROADAMERICAN — left */
+.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 40.71vh;  width: 155px; }
 
-/* 8: Center-right */
-.gif-barrage .gif-item:nth-child(8)  { right: 10px; top: 350px;  width: 160px; }
+/* 8: AUTISM — right */
+.gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 40.71vh;  width: 155px; }
 
-/* 9: Lower-left, below center */
-.gif-barrage .gif-item:nth-child(9)  { left: 5px;   top: 500px;  width: 170px; }
+/* 9: WASHHANDS — left */
+.gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 53.28vh;  width: 165px; }
 
-/* 10: Lower-right, below center */
-.gif-barrage .gif-item:nth-child(10) { right: 5px;  top: 490px;  width: 170px; }
+/* 10: PROTECTYOURSELF — right */
+.gif-barrage .gif-item:nth-child(10) { right: 4px;  top: 53.28vh;  width: 165px; }
 
-/* 11: Bottom-left area */
-.gif-barrage .gif-item:nth-child(11) { left: 10px;  top: 640px;  width: 165px; }
+/* 11: FREEONLINEBOOKS — left */
+.gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 12: Bottom-right area */
-.gif-barrage .gif-item:nth-child(12) { right: 10px; top: 630px;  width: 165px; }
+/* 12: HAVEYOUSEENBIGBOY — right */
+.gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
 
-/* 13: Lower-mid-left */
-.gif-barrage .gif-item:nth-child(13) { left: 0px;   top: 780px;  width: 175px; }
+/* 13: WIZARDFLUTES — left */
+.gif-barrage .gif-item:nth-child(13) { left: 4px;   top: 78.42vh;  width: 170px; }
 
-/* 14: Lower-mid-right */
-.gif-barrage .gif-item:nth-child(14) { right: 0px;  top: 770px;  width: 175px; }
+/* 14: DANCETHEHORSESAWAY — right */
+.gif-barrage .gif-item:nth-child(14) { right: 4px;  top: 78.42vh;  width: 170px; }
 
-/* 15: Bottom-left, near end */
-.gif-barrage .gif-item:nth-child(15) { left: 15px;  top: 930px;  width: 160px; }
+/* 15: YOU-DESERVE-IT-ALL-BBY — bottom-left (now visible at 91vh) */
+.gif-barrage .gif-item:nth-child(15) { left: 4px;   top: 91.0vh;   width: 175px; }
 
-/* 16: Bottom-right, near end */
-.gif-barrage .gif-item:nth-child(16) { right: 15px; top: 920px;  width: 160px; }
+/* 16: BRAINSOFT — bottom-right (now visible at 91vh) */
+.gif-barrage .gif-item:nth-child(16) { right: 4px;  top: 91.0vh;   width: 175px; }
 
 /* ═══ Mobile: hide them so content is readable ═══ */
 @media (max-width: 700px) {
