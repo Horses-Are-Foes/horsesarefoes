@@ -1,326 +1,327 @@
-:root {
-  /* Aged Archive Palette (Deep Parchment & Black) */
-  --bg: #eaddca;           /* Deep, aged parchment background */
-  --ink: #1a1a1a;          /* Dark, legible ink */
-  --muted: #5d5d5d;        /* Muted gray for secondary info */
-  --accent: #0369a1;       /* Clinical blue accent */
-  --accent-dark: #0c4a6e;  /* Deeper blue for emphasis */
-  --card: #ffffff;         /* Clean white cards */
-  --dark: #000000;         /* Pure black for high contrast */
-  --gold: #0ea5e9;         /* Modern blue highlight */
-}
+/* ═══════════════════════════════════════════
+   Horses Are Foes — 1998 Tripod Aesthetic
+   ═══════════════════════════════════════════ */
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* ── Global body (classic 90s colors) ── */
 body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
   margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; /* modern sans-serif */
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.5;
+  padding: 0;
 }
 
-/* Clean, professional header/hero */
-.hero {
-  min-height: 40vh;
-  background: var(--bg); /* Use the new parchment background */
-  color: var(--ink);
-  padding: 4rem 1rem;
-  border-bottom: 1px solid #e2e8f0;
-}
+/* ── Hyperlink colors (classic 90s) ── */
+a { color: #0000ff; }
+a:visited { color: #800080; }
+a:active { color: #ff0000; }
 
-.page-hero {
-  min-height: 30vh;
-}
-
-.nav {
-  background-color: #000000; /* Pure Black */
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav .logo, .nav .nav-links a {
-  color: #ffffff !important; /* Pure White for high contrast on black */
-  transition: color 0.2s ease;
-}
-
-.nav .nav-links a:hover {
-  color: var(--accent) !important;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.eyebrow {
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-/* Bureaucratic Typography - For Official Metadata */
-.notice-label {
+/* ── Marquee banner ── */
+.marquee-bar {
+  background-color: #000000;
+  color: #00ff00;
   font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 13px;
+  padding: 4px 0;
+  border-bottom: 2px solid #333333;
+}
+
+/* ── Sidebar (left column) ── */
+td.sidebar {
+  width: 160px;
+  vertical-align: top;
+  background-color: #ffffcc;
+  border-right: 2px ridge #cccccc;
+  padding: 8px;
+  font-size: 12px;
+}
+
+td.sidebar a {
+  color: #0000ff;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+td.sidebar img {
   display: block;
-  margin-bottom: 0.5rem;
+  margin: 6px 0;
+  border: 0;
 }
 
-.meta-header {
-  border-left: 3px solid var(--accent);
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-  margin-top: 4rem;
-}
-
-.meta-header h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.1;
-  margin: 0 0 1.5rem 0;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.subtitle {
-  color: var(--muted);
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+td.sidebar h2 {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 14px;
+  color: #ff0000;
   text-align: center;
+  margin: 0 0 8px 0;
 }
 
-.button {
-  display: inline-block;
-  background: var(--ink);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s ease;
+td.sidebar ul {
+  list-style: square;
+  padding-left: 16px;
+  margin: 4px 0;
 }
 
-.button:hover {
-  background: var(--accent);
+td.sidebar li {
+  margin-bottom: 4px;
+  font-size: 12px;
 }
 
-/* Clean, clinical notice/disclaimer */
-.notice {
-  max-width: 1100px;
-  margin: 3rem auto;
-  background: #fef2f2; /* Very subtle red alert tint */
-  border-left: 4px solid #ef4444;
-  padding: 2rem;
-  text-align: left;
+/* ── Main content area ── */
+td.content {
+  vertical-align: top;
+  padding: 16px;
+  font-size: 14px;
 }
 
-.section {
-  max-width: 1100px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
+/* ── Headers in content ── */
+td.content h1 {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 24px;
+  color: #0000ff;
+  margin: 0 0 12px 0;
 }
 
-.section h2 {
-  font-int-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 3rem;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.5rem;
+td.content h2 {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 18px;
+  color: #0000ff;
+  border-bottom: 2px dotted #0000ff;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
 }
 
-/* Grid of modern cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+td.content h3 {
+  font-size: 16px;
+  color: #0000cc;
+  margin: 8px 0 4px 0;
 }
 
+/* ── Cards as bordered boxes ── */
 .card {
-  padding: 2rem;
-  background: var(--card);
-  border: 6px solid rgba(0, 0, 0, 1);
-  border-radius: 4px;
-  transition: all 0.1s cubic-bezier(0.23, 1, 0.32, 1);
-  /* Hyper-brutalist staggered shadow effect */
-  box-shadow: 
-    16px 16px 0px 0px rgba(0, 0, 0, 0.5);
-  transform: translate(-16px, -16px);
-}
-
-.card:hover {
-  border-color: var(--accent);
-  /* On hover, the card "slams" into the page */
-  transform: translate(0, 0);
-  box-shadow: 
-    8px 8px 0px 0px rgba(0, 0, 0, 0.4),
-    16px 16px 0px 0px rgba(0, 0, 0, 0.2);
+  border: 2px outset #cccccc;
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 16px;
 }
 
 .card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 15px;
+  color: #0000ff;
+  margin: 0 0 6px 0;
 }
 
 .card p {
-  color: var(--muted);
-  margin: 0;
+  margin: 4px 0;
+  font-size: 13px;
 }
 
-/* Homepage report cards: thumbnail on the left, text on the right */
-.card-link {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem;
+.card .publish-date {
+  font-size: 11px;
+  color: #808080;
+  font-family: 'Courier New', monospace;
 }
 
-/* Text sits beside the thumbnail when there's room, otherwise drops below it */
-.card-link > div {
-  flex: 1 1 180px;
-  min-width: 0;
-  overflow-wrap: break-word;
+.card a {
+  color: #0000ff;
+  text-decoration: underline;
 }
 
-.card-thumb {
-  width: 128px;
-  height: 128px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  flex: 0 0 128px;
+/* ── Notice box ── */
+.notice {
+  border: 2px outset #ff0000;
+  background-color: #ffffcc;
+  padding: 10px;
+  margin: 16px 0;
+  font-size: 13px;
+  text-align: center;
 }
 
-/* Wiki cards: grid layout, text left / image right */
-.wiki-section .wiki-card {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: 1rem;
+/* ── Buttons — 3D retro look ── */
+.button {
+  display: inline-block;
+  background: #cccccc;
+  border: 3px outset #ffffff;
+  padding: 6px 14px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
 }
 
-.wiki-section .wiki-card .wiki-text {
-  min-width: 0;
-  overflow-wrap: break-word;
+.button:hover {
+  border-style: inset;
+  background: #aaaaaa;
 }
 
-.wiki-section .wiki-card img {
-  display: block;
-  max-width: 300px;
-  height: auto;
-  cursor: zoom-in;
+/* ── Footer ── */
+footer {
+  background-color: #000080;
+  color: #cccccc;
+  text-align: center;
+  padding: 12px 8px;
+  font-size: 12px;
+  border-top: 3px ridge #cccccc;
 }
 
-/* Lightbox */
+footer a { color: #ffff00; }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #808080;
+  background-color: #fffff0;
+  border-bottom: 1px solid #cccccc;
+  font-family: 'Courier New', monospace;
+}
+
+.breadcrumb a { color: #0000ff; text-decoration: underline; }
+.breadcrumb a:hover { color: #ff0000; }
+.breadcrumb .breadcrumb-home::after { content: " > "; color: #808080; }
+.breadcrumb .breadcrumb-section::after { content: " > "; color: #808080; }
+.breadcrumb .breadcrumb-current { color: #000000; font-weight: bold; }
+
+/* ── Wiki page elements ── */
+.wiki-section { margin-bottom: 24px; }
+
+.wiki-section h2 {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  color: #0000ff;
+  border-bottom: 2px dotted #0000ff;
+  padding-bottom: 4px;
+}
+
+.wiki-card {
+  border: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.wiki-card h3 {
+  font-size: 14px;
+  color: #0000ff;
+  margin: 0 0 4px 0;
+}
+
+.wiki-source {
+  font-size: 11px;
+  color: #808080;
+  font-family: 'Courier New', monospace;
+  margin-top: 6px;
+}
+
+.wiki-source a { color: #0000ff; }
+
+/* ── Lightbox ── */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  cursor: zoom-out;
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
+  cursor: pointer;
 }
 
-.lightbox-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
+.lightbox-overlay.active { display: flex; }
 
 .lightbox-overlay img {
   max-width: 90vw;
   max-height: 90vh;
-  object-fit: contain;
-  cursor: default;
+  border: 3px ridge #cccccc;
 }
 
-footer {
-  background: var(--dark);
-  color: #94a3b8;
-  text-align: left;
-  padding: 4rem 1.5rem;
-  font-size: 0.875rem;
+/* ── HR decorative ── */
+hr.retro {
+  border: 0;
+  height: 4px;
+  background: linear-gradient(to right, #0000ff, #ff0000, #00ff00, #ffff00);
+  margin: 12px 0;
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  padding: 0.75rem 2rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-  background: var(--card);
-  border-bottom: 1px solid #e5ddd0;
+hr.separator {
+  border: 0;
+  border-top: 1px dashed #cccccc;
+  margin: 16px 0;
 }
 
-.breadcrumb a {
-  color: var(--accent-dark);
+/* ── Checklists (contact page) ── */
+ul.checklist { list-style: none; padding-left: 0; }
+ul.checklist li {
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+ul.checklist li::before {
+  content: "[+] ";
+  color: #0000ff;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  position: absolute;
+  left: 0;
+}
+
+/* ── Deny page ── */
+.deny-body {
+  padding: 40px 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.deny-box {
+  border: 3px outset #ff0000;
+  background-color: #fffff0;
+  padding: 20px;
+  text-align: center;
+}
+
+.deny-stamp {
+  display: inline-block;
+  border: 3px solid #ff0000;
+  color: #ff0000;
+  font: bold 12px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+  transform: rotate(-3deg);
+  margin-bottom: 12px;
+}
+
+.deny-box h1 {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 24px;
+  color: #ff0000;
+  margin: 0 0 12px 0;
+}
+
+.deny-box p { font-size: 13px; margin-bottom: 16px; }
+
+.deny-back {
+  display: inline-block;
+  padding: 6px 18px;
+  background: #cccccc;
+  border: 3px outset #ffffff;
+  color: #000000;
   text-decoration: none;
+  font: bold 13px 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
+.deny-back:hover { border-style: inset; background: #aaaaaa; }
 
-.breadcrumb .breadcrumb-home::after {
-  content: " › ";
-  color: var(--muted);
-}
-
-.breadcrumb .breadcrumb-section::after {
-  content: " › ";
-  color: var(--muted);
-}
-
-.breadcrumb .breadcrumb-current {
-  color: var(--ink);
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .hero { text-align: center; }
-  .hero-content { text-align: center; }
-  .nav { flex-direction: column; gap: 1rem; }
-  .breadcrumb {
-    padding: 0.5rem 1rem;
-  }
-  .breadcrumb .breadcrumb-home::after,
-  .breadcrumb .breadcrumb-section::after {
-    content: " · ";
-  }
-}
-
-/* ═══════════════════════════════════════════ */
-/* ══ 90's Era GIF Barrage (floating side-ads) ══ */
-/* ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   90's GIF Barrage — keep the floating side-ads
+   ═══════════════════════════════════════════ */
 .gif-barrage {
   position: fixed;
   top: 0; left: 0;
@@ -331,49 +332,54 @@ footer {
   overflow: visible;
 }
 
-/* GIF positioning is handled individually in gifs.css (position: fixed per element) */
-
-/* ═══════════════════════════════════════════ */
-/* ── Mobile: everything stacks and text stays readable ── */
+/* ═══════════════════════════════════════════
+   Mobile — tables collapse gracefully
+   ═══════════════════════════════════════════ */
 @media (max-width: 700px) {
-  /* Wiki cards: stack image above text */
-  .wiki-card {
-    grid-template-columns: 1fr !important;
+  .hero, .deny-body, section.section, .notice {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
+
+  .card-link { display: block !important; }
+  .card-link > div { display: block !important; }
+
   .wiki-card .wiki-img {
     width: 100% !important;
-    max-width: 260px !important;
-    margin: 0 auto !important;
-    order: -1 !important;
+    max-width: 200px !important;
+    margin: 8px auto !important;
+    display: block !important;
   }
 
-  /* Report pages: full-width images */
-  .edge-image,
-  .small-right,
-  .small-right-half,
-  .side-match,
-  .author-portrait,
-  .intro-image {
+  .hero-content,
+  .hero h1,
+  .hero .subtitle {
+    text-align: center !important;
+  }
+
+  .nav .logo, .nav .nav-links {
+    text-align: center !important;
+  }
+
+  .nav .nav-links a {
+    display: inline-block !important;
+  }
+
+  .contact-grid > div:first-child,
+  .contact-grid > div:last-child {
+    display: block !important;
     width: 100% !important;
-    height: auto !important;
-    float: none !important;
-    display: block !important;
-    margin: 0.75rem auto !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
+}
 
-  /* Flex/text-with-side layout: stack */
-  .text-with-side {
-    display: block !important;
-  }
-
-  /* Grid cards: single column */
-  .cards {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Image grids: single column */
-  [style*="grid-template-columns"],
-  .top-images {
-    display: block !important;
+@media (max-width: 600px) {
+  .age-gate-panel {
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+    padding: 16px !important;
   }
 }

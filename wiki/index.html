@@ -1,381 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Wiki | Horses Are Foes</title>
-
-  <meta
-    name="description"
-    content="The Horses Are Foes Wiki - a cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense techniques."
-  />
-
-  <meta property="og:title" content="Wiki | Horses Are Foes">
-  <meta property="og:description" content="The Horses Are Foes Wiki - a cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense techniques.">
-  <meta property="og:image" content="https://horsesarefoes.com/assets/antihorse.png">
-  <meta property="og:url" content="https://horsesarefoes.com/wiki/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_token">
-
+  <meta charset="UTF-8">
+  <title>Wiki - Horses Are Foes</title>
+  <meta name="description" content="The Horses Are Foes Wiki - a cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense techniques.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../gifs.css">
   <link rel="icon" href="/assets/antihorse.png">
-  <link rel="apple-touch-icon" href="/assets/antihorse.png">
-
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="../gifs.css" />
-  <style>
-    .wiki-section {
-      margin-bottom: 3rem;
-    }
-
-    .wiki-section h2 {
-      margin-bottom: 1.5rem;
-    }
-
-    .wiki-source {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
-
-    .wiki-source a {
-      color: var(--accent-dark);
-      text-decoration: underline;
-    }
-
-    .wiki-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .wiki-card .wiki-text {
-      min-width: 0;
-      overflow-wrap: break-word;
-    }
-
-    .wiki-card .wiki-img {
-      display: block;
-      width: 128px;
-      height: auto;
-      border-radius: 0.5rem;
-      cursor: zoom-in;
-    }
-
-    .card {
-      cursor: pointer;
-    }
-
-    /* Lightbox */
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-    }
-
-    .lightbox-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-overlay img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-    }
-
-    /* ── Mobile: word + image side by side, definition centered below ── */
-    @media (max-width: 700px) {
-      .wiki-card .wiki-img {
-        float: right;
-        width: 100px;
-        max-width: 100px;
-        height: auto;
-        margin: 0 0 8px 10px;
-      }
-      .wiki-card .wiki-text h3 {
-        display: inline;
-        font-size: 1rem;
-        margin-right: 0;
-        margin-bottom: 0;
-      }
-      .wiki-card .wiki-text h3::after {
-        content: "";
-        display: block;
-        clear: both;
-      }
-      .wiki-card .wiki-text p {
-        text-align: center;
-        font-size: 0.9rem;
-        margin-bottom: 0.4rem;
-      }
-      .wiki-card .wiki-text p strong {
-        display: block;
-        text-align: center;
-      }
-      .wiki-card .wiki-text .wiki-source {
-        text-align: center;
-        font-size: 0.75rem;
-      }
-      /* Remove the old stacking from main style.css for wiki cards */
-      .wiki-card {
-        display: block;
-      }
-    }
-  </style>
 </head>
 
-<body class="page-nav">
-  <nav class="nav">
-    <a class="logo" href="/">Horses Are Foes</a>
+<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 
-    <div class="nav-links">
-      <a href="/mission/">Mission</a>
-      <a href="/wiki/">Wiki</a>
-      <a href="/contact/">Contact</a>
-    </div>
-  </nav>
+<!-- MARQUEE BANNER -->
+<table width="100%" bgcolor="#000000" cellpadding="2" cellspacing="0">
+  <tr>
+    <td>
+      <marquee scrollamount="3" behavior="scroll" direction="left">
+        <font face="Courier New, monospace" size="2" color="#00ff00">
+          +++ WARNING: HORSE ACTIVITY DETECTED IN YOUR AREA +++ SUBMIT YOUR REPORTS +++ PROTECT YOUR PSYCHIC ENERGY +++ THE CIA WORKS WITH HORSES +++ DO NOT TRUST THE DREAMS +++
+        </font>
+      </marquee>
+    </td>
+  </tr>
+</table>
 
-  <header class="hero page-hero">
-    <div class="hero-content">
-      <p class="eyebrow" style="text-align: center;">The Archive Index</p>
-      <h1 class="title" style="text-align: center;">Wiki</h1>
-      <p class="subtitle" style="text-align: center;">
-        A cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense
-        techniques. Entries are drawn from published reports.
-      </p>
-    </div>
-  </header>
+<!-- BREADCRUMB -->
+<table width="100%" cellpadding="4" cellspacing="0">
+  <tr>
+    <td>
+      <font face="Courier New, monospace" size="1" color="#808080">
+        <a href="../index.html"><font color="#0000ff"><u>[ Home ]</u></font></a> &gt; <b>Wiki</b>
+      </font>
+    </td>
+  </tr>
+</table>
 
-  <main>
+<!-- MAIN LAYOUT TABLE -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <!-- LEFT SIDEBAR -->
+    <td width="160" valign="top" bgcolor="#ffffcc" style="border-right: 2px ridge #cccccc; padding: 8px;">
 
-    <section class="section">
-      <div class="wiki-section">
-        <h2>Organizations &amp; Entities</h2>
+      <center>
+        <font face="Comic Sans MS, Chalkboard SE, cursive" size="3" color="#ff0000"><b>&#9733; MENU &#9733;</b></font>
+      </center>
+      <br>
 
-        <div class="blog-list">
-          <article class="card" data-report="../reports/faerie-lights-swamp-gas/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>CREPP — Center for Research of Equine Psychic Phenomena</h3>
-                <p>A research organization that has developed methods of psychic protection effective at combating horses of all types. Led by Dr. Brainwater, CREPP conducts experiments in sigilry, psychic attack, psychic defense, crystal warding, and pocket mirror techniques. The center also operates a compound under surveillance by horse forces.</p>
-                <p><strong>Associated entities:</strong> Ralph Herman (assistant), Dr. Quincy Brainwater</p>
-                <p class="wiki-source">Source: <a href="../reports/faerie-lights-swamp-gas/">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
-              </div>
-              <img src="../assets/CREPP.png" class="wiki-img" width="1327" height="2114" alt="CREPP" />
-            </div>
-          </article>
+      <table width="100%" border="0" cellpadding="2" cellspacing="2">
+        <tr>
+          <td>
+            <center><a href="../index.html"><font face="Times New Roman, serif" size="2" color="#0000ff"><b>[ Home ]</b></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="../mission/index.html"><font face="Times New Roman, serif" size="2" color="#0000ff"><b>[ Mission ]</b></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="index.html"><font face="Times New Roman, serif" size="2" color="#0000ff"><b>[ Wiki ]</b></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="../contact/index.html"><font face="Times New Roman, serif" size="2" color="#0000ff"><b>[ Contact ]</b></font></a></center>
+          </td>
+        </tr>
+      </table>
 
-          <article class="card" data-report="../reports/faerie-lights-swamp-gas/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>NEIGH — National Equine Institute of General Horse-ology</h3>
-                <p>An organization that produces publications intended to portray horses and their schemes as beneficial to humanity. According to Dr. Brainwater, most of NEIGH's funding has been funneled in from the CIA.</p>
-                <p class="wiki-source">Source: <a href="../reports/faerie-lights-swamp-gas/">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
-              </div>
-              <img src="../reports/faerie-lights-swamp-gas/wisp.jpg" class="wiki-img" alt="NEIGH" />
-            </div>
-          </article>
+      <br>
+      <center>
+        <font face="Times New Roman, serif" size="2"><b>Wiki Sections:</b></font><br>
+      </center>
+      <br>
+      <table width="100%" border="0" cellpadding="2" cellspacing="2">
+        <tr>
+          <td>
+            <center><a href="#organizations"><font face="Times New Roman, serif" size="2" color="#0000ff"><u>[ Organizations ]</u></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="#phenomena"><font face="Times New Roman, serif" size="2" color="#0000ff"><u>[ Phenomena ]</u></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="#locations"><font face="Times New Roman, serif" size="2" color="#0000ff"><u>[ Locations ]</u></font></a></center>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <center><a href="#defense"><font face="Times New Roman, serif" size="2" color="#0000ff"><u>[ Defense ]</u></font></a></center>
+          </td>
+        </tr>
+      </table>
 
-          <article class="card" data-report="../reports/the-world-has-lied-to-you/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>CIA</h3>
-                <p>Allegedly working in league or in alignment with horses. The CIA has been active in horse propaganda since the 1960s and is said to have systematically removed anti-horse homeopathic and technological solutions within seconds of their launch.</p>
-                <p><strong>Associated phenomena:</strong> Horse infiltration, propaganda, systematic censorship</p>
-                <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
-              </div>
-              <img src="../reports/the-world-has-lied-to-you/Horse.jpg" class="wiki-img" alt="CIA" />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <br>
+      <center>
+        <img src="../assets/PROADAMERICAN.gif" width="88" height="31" border="0" alt="Pro-American">
+      </center>
+      <br>
+      <center>
+        <img src="../assets/HAVEYOUSEENBIGBOY.gif" width="88" height="31" border="0" alt="Have you seen Big Boy?">
+      </center>
+      <br>
+      <center>
+        <img src="../assets/USECOMPUTERFIGHTHORSES.gif" width="88" height="31" border="0" alt="Use computer to fight horses">
+      </center>
+      <br>
+      <center>
+        <img src="../assets/WASHHANDS.gif" width="88" height="31" border="0" alt="Wash hands">
+      </center>
+      <br>
+      <center>
+        <img src="../assets/FREEONLINEBOOKS.gif" width="88" height="31" border="0" alt="Free Online Books">
+      </center>
+      <br>
+      <center>
+        <img src="../assets/BECOOL.gif" width="88" height="31" border="0" alt="Be cool">
+      </center>
 
-    <section class="section">
-      <div class="wiki-section">
-        <h2>Phenomena &amp; Artifacts</h2>
+      <br>
+      <center>
+        <font face="Courier New, monospace" size="1" color="#808080">
+          You are visitor number:<br>
+          <img src="../assets/counter.gif" width="60" height="20" border="0" alt="visitor counter"><br>
+          since 1998
+        </font>
+      </center>
 
-        <div class="blog-list">
-          <article class="card" data-report="../reports/the-dust/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Stables Dust</h3>
-                <p>A fine residue produced by horsehair pillows. When inhaled over time, it is said to weaken a person's natural psychic resilience. In larger exposures, it can cause complete collapse of psychic ability and vivid mirage-like visions of endless apple orchards. Children and teenagers are primary targets.</p>
-                <p><strong>Countermeasures:</strong> Avoid horsehair pillows; use only unverified bedding</p>
-                <p class="wiki-source">Source: <a href="../reports/the-dust/">The Dust Your Kids May Be Inhaling Without You Knowing</a> by Gideon Vale</p>
-              </div>
-              <img src="../reports/the-dust/horse-pillow.jpg" class="wiki-img" alt="Stables Dust" />
-            </div>
-          </article>
+    </td>
 
-          <article class="card" data-report="../reports/top-5-underground-horse-cities/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Nightmare Grass</h3>
-                <p>Discovered at Velvet Grove in 2020. A wispy, ephemeral dust that stays in one spot, swaying like grass in a breeze but pulling away from humans who approach. Common theory: horses worship a being known as the Nightmare, and this material is its remains. Biochemical and psychographic PPE appears ineffective against it.</p>
-                <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
-              </div>
-              <img src="../reports/top-5-underground-horse-cities/velvet-grove.jpg" class="wiki-img" alt="Nightmare Grass" />
-            </div>
-          </article>
+    <!-- MAIN CONTENT AREA -->
+    <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
 
-          <article class="card" data-report="../reports/the-world-has-lied-to-you/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Dream Invasions</h3>
-                <p>Horses track humans through dreams. Horse eyes watch dreamers far more than most know. Dream content is designed to be pleasant (riding horses, unicorns, flying Pegasi) to lower vigilance. Carl Jung is suspected of being an integral part of the horse cause, possibly manipulated since birth in Switzerland.</p>
-                <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
-              </div>
-              <img src="../reports/the-world-has-lied-to-you/horse-in-dream.jpg" class="wiki-img" alt="Dream Invasions" />
-            </div>
-          </article>
+      <!-- HEADER BANNER -->
+      <center>
+        <font face="Courier New, monospace" size="2" color="#000000">THE ARCHIVE INDEX</font><br>
+        <font face="Comic Sans MS, Chalkboard SE, cursive" size="6" color="#ff0000"><b>Wiki</b></font><br>
+        <font face="Times New Roman, Times, serif" size="3" color="#333333">
+          A cross-referenced index of horse-CIA phenomena, demonic sigils, and psychic defense<br>
+          techniques. Entries are drawn from published reports.
+        </font>
+      </center>
 
-          <article class="card" data-report="../reports/the-world-has-lied-to-you/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Dog Corruption</h3>
-                <p>Horses have many methods to corrupt dog minds and take them over. Once corrupted, dogs may exhibit loss of interest in herding, increased fear response, entering their owner's dreams, and disinterest in all foods except grains. Dogs should never be allowed to meet horses.</p>
-                <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
-              </div>
-              <img src="../reports/the-world-has-lied-to-you/dog-companion.jpg" class="wiki-img" alt="Dog Corruption" />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <br>
+      <hr class="separator">
+      <br>
 
-    <section class="section">
-      <div class="wiki-section">
-        <h2>Locations</h2>
+      <!-- ── ORGANIZATIONS ── -->
+      <a name="organizations"></a>
+      <center>
+        <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; ORGANIZATIONS &amp; ENTITIES &#9733;</b></font>
+      </center>
+      <br>
 
-        <div class="blog-list">
-<article class="card" data-report="../reports/top-5-underground-horse-cities/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Hiatus</h3>
-                <p>Discovered by LIDAR in Northern Australia in 2018 during a water table survey. A massive hole with no end as far as the team could tell — on the other side of the planet. The hole widened as it approached the mantle. Generations of horses lived there, digging constantly. Stopped just before reaching their apparent goal. A plan that, if successful, would have seen horses rule the Earth's surface and depths.</p>
-                <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
-              </div>
-              <img src="../reports/top-5-underground-horse-cities/Hiatus.jpg" class="wiki-img" alt="Hiatus" />
-            </div>
-          </article>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../assets/CREPP.png" width="80" height="80" border="2" alt="CREPP">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>CREPP &#8212; Center for Research of Equine Psychic Phenomena</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              A research organization that has developed methods of psychic protection effective at combating horses of all types. Led by Dr. Brainwater, CREPP conducts experiments in sigilry, psychic attack, psychic defense, crystal warding, and pocket mirror techniques. The center also operates a compound under surveillance by horse forces.
+            </font><br>
+            <font face="Times New Roman, Times, serif" size="2"><b>Associated entities:</b> Ralph Herman (assistant), Dr. Quincy Brainwater</font><br>
+            <p class="wiki-source">Source: <a href="../reports/faerie-lights-swamp-gas/index.html">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-          <article class="card" data-report="../reports/top-5-underground-horse-cities/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Restless Hoof</h3>
-                <p>Discovered in the walls of the Grand Canyon in 1996. A massive bowl with only one spot at which a single horse could stand still. Psychic anthropologists believe the herd leader would stand at the center and horses performed a walking ritual. Surface horses are believed by some to be an echo of the Restless Hoof tribes.</p>
-                <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
-              </div>
-              <img src="../reports/top-5-underground-horse-cities/restless-hoof.jpg" class="wiki-img" alt="Restless Hoof" />
-            </div>
-          </article>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/faerie-lights-swamp-gas/wisp.jpg" width="80" height="80" border="2" alt="NEIGH">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>NEIGH &#8212; National Equine Institute of General Horse-ology</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              An organization that produces publications intended to portray horses and their schemes as beneficial to humanity. According to Dr. Brainwater, most of NEIGH's funding has been funneled in from the CIA.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/faerie-lights-swamp-gas/index.html">Faerie Lights and Swamp Gas? Think Again</a> by Dr. Quincy Brainwater</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-          <article class="card" data-report="../reports/top-5-underground-horse-cities/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Caracas</h3>
-                <p>Never proven but considered by psychic anthropologists to be the oldest horse settlement. A grand earthenware civilization whose walls are smooth and ceilings high. Debate rages over whether it was built above or below ground, and what its purpose was — a horse haven? A military operations base? Where baby horses come from? Built by [earth] horses.</p>
-                <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
-              </div>
-              <img src="../reports/top-5-underground-horse-cities/theoretical-city.jpg" class="wiki-img" alt="Caracas" />
-            </div>
-          </article>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/the-world-has-lied-to-you/Horse.jpg" width="80" height="80" border="2" alt="CIA">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>CIA</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Allegedly working in league or in alignment with horses. The CIA has been active in horse propaganda since the 1960s and is said to have systematically removed anti-horse homeopathic and technological solutions within seconds of their launch.
+            </font><br>
+            <font face="Times New Roman, Times, serif" size="2"><b>Associated phenomena:</b> Horse infiltration, propaganda, systematic censorship</font><br>
+            <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/index.html">The World Has Lied to You</a> by Joseph Peltusche</p>
+          </td>
+        </tr>
+      </table>
 
-          <article class="card" data-report="../reports/top-5-underground-horse-cities/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Saltmane Velvet Grove</h3>
-                <p>An ancient horse city discovered under a massive salt deposit in the Atacama desert. Excavation has been halted by an environmental study initiated by a three-letter organization. A rigorous mapping of lick marks was underway when stopped. Some believe horses are ancient, alien beings who may have originally seeded life on Earth, including the minerals used for food.</p>
-                <p>An ancient underground horse city described as pitch dark, without bioluminescence or natural light. Branching paths echo endlessly. The ground is covered in nightmare grass. The city depicts what is believed to be how horses see the afterlife.</p>
-                <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
-              </div>
-              <img src="../reports/top-5-underground-horse-cities/Saltmane.jpg" class="wiki-img" alt="Saltmane Velvet Grove" />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <br>
+      <hr class="separator">
+      <br>
 
-    <section class="section">
-      <div class="wiki-section">
-        <h2>Defense &amp; Techniques</h2>
+      <!-- ── PHENOMENA ── -->
+      <a name="phenomena"></a>
+      <center>
+        <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; PHENOMENA &amp; ARTIFACTS &#9733;</b></font>
+      </center>
+      <br>
 
-        <div class="blog-list">
-          <article class="card" data-report="../reports/the-world-has-lied-to-you/">
-            <div class="wiki-card">
-              <div class="wiki-text">
-                <h3>Anti-Horse Measures</h3>
-                <p><strong>Anti-Horse Incense</strong> — reportedly removed from public availability within seconds of launch.<br>
-                <strong>Snake Grass seeds</strong> — plant and let go to seed; share only through trusted community networks, never on social media.<br>
-                <strong>Anti-Horse Magnets</strong> — in-ground installation, also systematically removed.<br>
-                <strong>Personal amulets</strong> — local bead-smiths can construct anti-horse necklaces, bracelets, or anklets.<br>
-                <strong>Dream vigilance</strong> — do not alert horses to your awareness of their presence. Grow psychic power with a balanced diet.<br>
-                <strong>Vigilance questions</strong> — "Why are children given rocking horses?" "Why is the knight the only chess piece that can leap?" "Why do we measure engines in horse power?" Used as a mantra.</p>
-                <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/">The World Has Lied to You</a> by Joseph Peltusche</p>
-              </div>
-              <img src="../reports/the-world-has-lied-to-you/Horse.jpg" class="wiki-img" alt="Anti-Horse Measures" />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/the-dust/horse-pillow.jpg" width="80" height="80" border="2" alt="Stables Dust">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Stables Dust</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              A fine residue produced by horsehair pillows. When inhaled over time, it is said to weaken a person's natural psychic resilience. In larger exposures, it can cause complete collapse of psychic ability and vivid mirage-like visions of endless apple orchards. Children and teenagers are primary targets.
+            </font><br>
+            <font face="Times New Roman, Times, serif" size="2"><b>Countermeasures:</b> Avoid horsehair pillows; use only unverified bedding</font><br>
+            <p class="wiki-source">Source: <a href="../reports/the-dust/index.html">The Dust Your Kids May Be Inhaling Without You Knowing</a> by Gideon Vale</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-  </main>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/top-5-underground-horse-cities/velvet-grove.jpg" width="80" height="80" border="2" alt="Nightmare Grass">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Nightmare Grass</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Discovered at Velvet Grove in 2020. A wispy, ephemeral dust that stays in one spot, swaying like grass in a breeze but pulling away from humans who approach. Common theory: horses worship a being known as the Nightmare, and this material is its remains. Biochemical and psychographic PPE appears ineffective against it.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/index.html">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-  <footer>
-    <p>&copy; 2026 Horses Are Foes. Investigation archive.</p>
-  </footer>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/the-world-has-lied-to-you/horse-in-dream.jpg" width="80" height="80" border="2" alt="Dream Invasions">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Dream Invasions</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Horses track humans through dreams. Horse eyes watch dreamers far more than most know. Dream content is designed to be pleasant (riding horses, unicorns, flying Pegasi) to lower vigilance. Carl Jung is suspected of being an integral part of the horse cause, possibly manipulated since birth in Switzerland.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/index.html">The World Has Lied to You</a> by Joseph Peltusche</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-  <!-- Lightbox -->
-  <div class="lightbox-overlay" id="lightbox">
-    <img src="" alt="" />
-  </div>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/the-world-has-lied-to-you/dog-companion.jpg" width="80" height="80" border="2" alt="Dog Corruption">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Dog Corruption</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Horses have many methods to corrupt dog minds and take them over. Once corrupted, dogs may exhibit loss of interest in herding, increased fear response, entering their owner's dreams, and disinterest in all foods except grains. Dogs should never be allowed to meet horses.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/index.html">The World Has Lied to You</a> by Joseph Peltusche</p>
+          </td>
+        </tr>
+      </table>
 
-  <script>
-    function openLightbox(src, alt) {
-      var lb = document.getElementById('lightbox');
-      lb.querySelector('img').src = src;
-      lb.querySelector('img').alt = alt;
-      lb.classList.add('active');
-    }
+      <br>
+      <hr class="separator">
+      <br>
 
-    document.querySelectorAll('.card').forEach(function(card) {
-      var reportUrl = card.dataset.report;
-      if (!reportUrl) return;
-      var img = card.querySelector('.wiki-img');
-      card.addEventListener('click', function(e) {
-        if (img && (e.target === img || img.contains(e.target))) {
-          e.stopPropagation();
-          openLightbox(img.src, img.alt);
-          return;
-        }
-        if (e.target.tagName === 'A' && e.target.closest('.wiki-source')) {
-          return;
-        }
-        window.location.href = reportUrl;
-      });
-    });
+      <!-- ── LOCATIONS ── -->
+      <a name="locations"></a>
+      <center>
+        <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; LOCATIONS &#9733;</b></font>
+      </center>
+      <br>
 
-    var lightbox = document.getElementById('lightbox');
-    lightbox.addEventListener('click', function() {
-      lightbox.classList.remove('active');
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') lightbox.classList.remove('active');
-    });
-  </script>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/top-5-underground-horse-cities/Hiatus.jpg" width="80" height="80" border="2" alt="Hiatus">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Hiatus</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Discovered by LIDAR in Northern Australia in 2018 during a water table survey. A massive hole with no end as far as the team could tell &#8212; on the other side of the planet. The hole widened as it approached the mantle. Generations of horses lived there, digging constantly. Stopped just before reaching their apparent goal. A plan that, if successful, would have seen horses rule the Earth's surface and depths.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/index.html">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          </td>
+        </tr>
+      </table>
+      <br>
 
-  <script src="../gifs.js"></script>
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/top-5-underground-horse-cities/restless-hoof.jpg" width="80" height="80" border="2" alt="Restless Hoof">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Restless Hoof</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Discovered in the walls of the Grand Canyon in 1996. A massive bowl with only one spot at which a single horse could stand still. Psychic anthropologists believe the herd leader would stand at the center and horses performed a walking ritual. Surface horses are believed by some to be an echo of the Restless Hoof tribes.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/index.html">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/top-5-underground-horse-cities/theoretical-city.jpg" width="80" height="80" border="2" alt="Caracas">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Caracas</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              Never proven but considered by psychic anthropologists to be the oldest horse settlement. A grand earthenware civilization whose walls are smooth and ceilings high. Debate rages over whether it was built above or below ground, and what its purpose was &#8212; a horse haven? A military operations base? Where baby horses come from? Built by [earth] horses.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/index.html">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/top-5-underground-horse-cities/Saltmane.jpg" width="80" height="80" border="2" alt="Saltmane Velvet Grove">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Saltmane Velvet Grove</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              An ancient horse city discovered under a massive salt deposit in the Atacama desert. Excavation has been halted by an environmental study initiated by a three-letter organization. A rigorous mapping of lick marks was underway when stopped. Some believe horses are ancient, alien beings who may have originally seeded life on Earth, including the minerals used for food.<br><br>
+              An ancient underground horse city described as pitch dark, without bioluminescence or natural light. Branching paths echo endlessly. The ground is covered in nightmare grass. The city depicts what is believed to be how horses see the afterlife.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/top-5-underground-horse-cities/index.html">Top 5 Underground Horse Cities</a> by Adrienna Reichloft</p>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <hr class="separator">
+      <br>
+
+      <!-- ── DEFENSE ── -->
+      <a name="defense"></a>
+      <center>
+        <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; DEFENSE &amp; TECHNIQUES &#9733;</b></font>
+      </center>
+      <br>
+
+      <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
+        <tr>
+          <td width="100" valign="top" align="center">
+            <img src="../reports/the-world-has-lied-to-you/Horse.jpg" width="80" height="80" border="2" alt="Anti-Horse Measures">
+          </td>
+          <td valign="top">
+            <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>Anti-Horse Measures</b></font><br>
+            <font face="Times New Roman, Times, serif" size="2" color="#000000">
+              <b>Anti-Horse Incense</b> &#8212; reportedly removed from public availability within seconds of launch.<br>
+              <b>Snake Grass seeds</b> &#8212; plant and let go to seed; share only through trusted community networks, never on social media.<br>
+              <b>Anti-Horse Magnets</b> &#8212; in-ground installation, also systematically removed.<br>
+              <b>Personal amulets</b> &#8212; local bead-smiths can construct anti-horse necklaces, bracelets, or anklets.<br>
+              <b>Dream vigilance</b> &#8212; do not alert horses to your awareness of their presence. Grow psychic power with a balanced diet.<br>
+              <b>Vigilance questions</b> &#8212; "Why are children given rocking horses?" "Why is the knight the only chess piece that can leap?" "Why do we measure engines in horse power?" Used as a mantra.
+            </font><br>
+            <p class="wiki-source">Source: <a href="../reports/the-world-has-lied-to-you/index.html">The World Has Lied to You</a> by Joseph Peltusche</p>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <hr class="separator">
+      <br>
+
+      <center>
+        <font face="Courier New, monospace" size="2" color="#808080">
+          [ <a href="#organizations"><u>Organizations</u></a> ] |
+          [ <a href="#phenomena"><u>Phenomena</u></a> ] |
+          [ <a href="#locations"><u>Locations</u></a> ] |
+          [ <a href="#defense"><u>Defense</u></a> ]
+        </font>
+      </center>
+
+    </td>
+  </tr>
+</table>
+
+<!-- FOOTER -->
+<table width="100%" bgcolor="#000080" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" style="padding: 12px 8px; border-top: 3px ridge #cccccc;">
+      <font face="Times New Roman, Times, serif" size="2" color="#cccccc">
+        &#169; 2026 Horses Are Foes. Investigation archive.<br>
+        <a href="mailto:contact@horsesarefoes.com"><font color="#ffff00"><u>Contact Us</u></font></a> |
+        <a href="https://www.tripod.com"><font color="#ffff00"><u>Free Homepage</u></font></a>
+      </font>
+    </td>
+  </tr>
+</table>
+
+<center>
+  <font face="Courier New, monospace" size="1" color="#808080">
+    Best viewed with Netscape Navigator 4.0+ at 800x600 resolution<br>
+    Powered by Tripod - Free Web Hosting<br>
+    <a href="https://www.tripod.com"><font color="#0000ff"><u>[ Get Your FREE Homepage! ]</u></font></a>
+  </font>
+</center>
+
+<script src="../gifs.js"></script>
+
 </body>
 </html>
