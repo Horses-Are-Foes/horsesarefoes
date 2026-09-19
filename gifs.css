@@ -30,8 +30,8 @@
 /* 3: ISHELLREAL (left) */
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: MAN-HAPPY (center-left, top bar — matches HAVEYOUSEENBIGBOY height) */
-.gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 504px); top: 6vh;  width: 538px; }
+/* 4: MAN-HAPPY (top bar, shifted right) */
+.gif-barrage .gif-item:nth-child(4)  { left: 80px;  top: 6vh;      width: 538px; }
 
 /* 5: USECOMPUTERFIGHTHORSES (left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
@@ -54,17 +54,17 @@
 /* 11: FREEONLINEBOOKS (left) */
 .gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 12: HAVEYOUSEENBIGBOY (center-right, top bar — matches MAN-HAPPY height) */
-.gif-barrage .gif-item:nth-child(12) { left: 50%;   top: 6vh;       width: 271px; }
+/* 12: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY) */
+.gif-barrage .gif-item:nth-child(12) { left: 622px; top: 6vh;      width: 271px; }
 
 /* 13: WIZARDFLUTES (slightly left & down) */
-.gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
+.gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;     width: 170px; }
 
 /* 14: DANCETHEHORSESAWAY (left) */
 .gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
 
 /* 15: BECOOL (center-right, same height as ROMANCE) */
-.gif-barrage .gif-item:nth-child(15) { left: 50%;   top: 92.5vh; width: 400px; }
+.gif-barrage .gif-item:nth-child(15) { left: 50%;   top: 92.5vh;   width: 400px; }
 
 /* 16: ROMANCE (center-left, double size 400px) */
 .gif-barrage .gif-item:nth-child(16) { left: calc(50% - 400px); top: 92.5vh; width: 400px; }
