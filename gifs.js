@@ -26,13 +26,11 @@
     img.className = 'gif-item';
     img.alt = '';
 
-    // DANCETHEHORSESAWAY links to its dedicated page
     if (name === 'DANCETHEHORSESAWAY.gif') {
       img.style.pointerEvents = 'auto';
       img.style.cursor = 'pointer';
       img.onclick = function() { window.location.href = '/dance-the-horses-away/'; };
     }
-    // PROADAMERICAN.gif randomly redirects to various Israel-related links
     else if (name === 'PROADAMERICAN.gif') {
       var links = [
         'https://embassies.gov.il/usa/en',
@@ -44,6 +42,11 @@
       img.style.pointerEvents = 'auto';
       img.style.cursor = 'pointer';
       img.onclick = function() { window.open(links[Math.floor(Math.random() * links.length)], '_blank'); };
+    }
+    else if (name === 'ROMANCE.gif') {
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.open('https://cooperativepublishing.com/products/night-beast-by-jolene-hadnaut', '_blank'); };
     }
 
     container.appendChild(img);
