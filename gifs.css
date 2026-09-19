@@ -21,11 +21,11 @@
 
 /* ═══ 16 GIFs: left col, right col, top-center, bottom-center ═══ */
 
-/* 1: DANCETHEHORSESAWAY (top-left) */
-.gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 170px; }
+/* 1: DANCETHEHORSESAWAY (top-left, aligned with top bar) */
+.gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 6vh;      width: 170px; }
 
-/* 2: HERMAN (top-right) */
-.gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 3.0vh;    width: 165px; }
+/* 2: HERMAN (top-right, aligned with top bar) */
+.gif-barrage .gif-item:nth-child(2)  { right: 4px;  top: 6vh;      width: 165px; }
 
 /* 3: ISHELLREAL (right, below PROTECTYOURSELF) */
 .gif-barrage .gif-item:nth-child(3)  { right: 4px;  top: 66vh;     width: 160px; }
