@@ -39,11 +39,11 @@
 /* 6: BRAINSOFT (right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 7: PROADAMERICAN (at the absolute bottom, under YOU-DESERVE-IT-ALL-BBY) */
-.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 99vh;     width: 155px; }
+/* 7: PROADAMERICAN (bottom, under YOU-DESERVE-IT-ALL-BBY) */
+.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 95vh;     width: 155px; }
 
 /* 8: AUTISM (bottom-right, under BRAINSOFT, flipped upside down) */
-.gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 99vh;    width: 155px;  transform: rotate(180deg); }
+.gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 95vh;    width: 155px;  transform: rotate(180deg); }
 
 /* 9: WASHHANDS (left) */
 .gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 53.28vh;  width: 165px; }
