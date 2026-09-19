@@ -39,8 +39,8 @@
 /* 6: BRAINSOFT (right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 7: PROADAMERICAN (left) */
-.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 40.71vh;  width: 155px; }
+/* 7: PROADAMERICAN (bottom, below bottom bar) */
+.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 97vh;     width: 155px; }
 
 /* 8: AUTISM (right) */
 .gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 40.71vh;  width: 155px; }
