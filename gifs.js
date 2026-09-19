@@ -1,7 +1,7 @@
 (function() {
   var gifs = [
     'DANCETHEHORSESAWAY.gif', 'HERMAN.gif', 'ISHELLREAL.gif', 'MAN-HAPPY.gif',
-    'USECOMPUTERFIGHTHORSES.gif', 'BRAINSOFT.gif', 'PROADAMERICAN.gif',
+    'BRAINSOFT.gif', 'PROADAMERICAN.gif',
     'AUTISM.gif', 'WASHHANDS.gif', 'PROTECTYOURSELF.gif',
     'FREEONLINEBOOKS.gif', 'HAVEYOUSEENBIGBOY.gif', 'WIZARDFLUTES.gif',
     'YOU-DESERVE-IT-ALL-BBY.gif', 'BECOOL.gif',

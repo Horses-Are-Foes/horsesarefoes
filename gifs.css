@@ -38,41 +38,38 @@
 /* 4: MAN-HAPPY (top bar, shifted right) */
 .gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 405px); top: 6vh;  width: 538px; }
 
-/* 5: USECOMPUTERFIGHTHORSES (left) */
-.gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
+/* 5: BRAINSOFT (right) */
+.gif-barrage .gif-item:nth-child(5)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
-/* 6: BRAINSOFT (right) */
-.gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
+/* 6: PROADAMERICAN (bottom-left, aligned with AUTISM on right) */
+.gif-barrage .gif-item:nth-child(6)  { left: 4px;   top: 95vh;     width: 155px; }
 
-/* 7: PROADAMERICAN (bottom-left, aligned with AUTISM on right) */
-.gif-barrage .gif-item:nth-child(7)  { left: 4px;   top: 95vh;     width: 155px; }
+/* 7: AUTISM (bottom-right, below PROADAMERICAN, flipped upside down) */
+.gif-barrage .gif-item:nth-child(7)  { right: 4px;  top: 95vh;    width: 155px;  transform: rotate(180deg); }
 
-/* 8: AUTISM (bottom-right, below PROADAMERICAN, flipped upside down) */
-.gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 95vh;    width: 155px;  transform: rotate(180deg); }
+/* 8: WASHHANDS (left) */
+.gif-barrage .gif-item:nth-child(8)  { left: 4px;   top: 60vh;   width: 165px; }
 
-/* 9: WASHHANDS (left, between USECOMPUTERFIGHTHORSES and FREEONLINEBOOKS) */
-.gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 60vh;   width: 165px; }
+/* 9: PROTECTYOURSELF (right) */
+.gif-barrage .gif-item:nth-child(9)  { right: 4px;  top: 53.28vh;  width: 165px; }
 
-/* 10: PROTECTYOURSELF (right) */
-.gif-barrage .gif-item:nth-child(10) { right: 4px;  top: 53.28vh;  width: 165px; }
+/* 10: FREEONLINEBOOKS (left) */
+.gif-barrage .gif-item:nth-child(10) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 11: FREEONLINEBOOKS (left) */
-.gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
+/* 11: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY, no overlap) */
+.gif-barrage .gif-item:nth-child(11) { left: calc(50% + 155px); top: 6vh;  width: 271px; }
 
-/* 12: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY, no overlap) */
-.gif-barrage .gif-item:nth-child(12) { left: calc(50% + 155px); top: 6vh;  width: 271px; }
+/* 12: WIZARDFLUTES (shifted right) */
+.gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 82vh;    width: 170px; }
 
-/* 13: WIZARDFLUTES (shifted right) */
-.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 82vh;    width: 170px; }
+/* 13: YOU-DESERVE-IT-ALL-BBY (left) */
+.gif-barrage .gif-item:nth-child(13) { left: 4px;   top: 78.42vh;  width: 165px; }
 
-/* 14: YOU-DESERVE-IT-ALL-BBY (left) */
-.gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 165px; }
+/* 14: BECOOL (center-right, same height as ROMANCE) */
+.gif-barrage .gif-item:nth-child(14) { left: 50%;   top: 92.5vh; width: 400px; }
 
-/* 15: BECOOL (center-right, same height as ROMANCE) */
-.gif-barrage .gif-item:nth-child(15) { left: 50%;   top: 92.5vh; width: 400px; }
-
-/* 16: ROMANCE (center-left, double size 400px) */
-.gif-barrage .gif-item:nth-child(16) { left: calc(50% - 400px); top: 92.5vh; width: 400px; }
+/* 15: ROMANCE (center-left, double size 400px) */
+.gif-barrage .gif-item:nth-child(15) { left: calc(50% - 400px); top: 92.5vh; width: 400px; }
 
 /* ═══ Mobile: hide them so content is readable ═══ */
 @media (max-width: 700px) {
