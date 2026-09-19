@@ -18,8 +18,7 @@
   image-rendering: crisp-edges;
 }
 
-/* ═══ 16 GIFs: left col, right col, + top-center ═══ */
-/* Top-center: WIZARDFLUTES at 5px below top, centered */
+/* ═══ 16 GIFs: left col, right col, top-center ═══ */
 
 /* 1: YOU-DESERVE-IT-ALL-BBY (top-left) */
 .gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 165px; }
@@ -30,13 +29,13 @@
 /* 3: ISHELLREAL (left) */
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: MAN-HAPPY (right) */
-.gif-barrage .gif-item:nth-child(4)  { right: 4px;  top: 15.57vh;  width: 160px; }
+/* 4: MAN-HAPPY (top-center, double size) */
+.gif-barrage .gif-item:nth-child(4)  { left: 50%;   top: 70px;     width: 340px; transform: translateX(-50%); }
 
-/* 5: USECOMPUTERFIGHTHORSES (swapped left, was right) */
+/* 5: USECOMPUTERFIGHTHORSES (left, swapped with BECOOL) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: BECOOL (swapped right, was left) */
+/* 6: BECOOL (right, swapped with USECOMPUTERFIGHTHORSES) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
 /* 7: PROADAMERICAN (left) */
@@ -57,14 +56,14 @@
 /* 12: HAVEYOUSEENBIGBOY (right) */
 .gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
 
-/* 13: WIZARDFLUTES — top-center, just below nav bar */
-.gif-barrage .gif-item:nth-child(13) { left: 50%;   top: 5px;      width: 160px; transform: translateX(-50%); }
+/* 13: WIZARDFLUTES (right, swapped with MAN-HAPPY) */
+.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 15.57vh;  width: 160px; }
 
-/* 14: DANCETHEHORSESAWAY — bottom-left (moved up) */
+/* 14: DANCETHEHORSESAWAY (left) */
 .gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
 
-/* 15: BRAINSOFT — bottom-right (moved up) */
-.gif-barrage .gif-item:nth-child(15) { right: 4px;  top: 78.42vh;  width: 170px; }
+/* 15: BRAINSOFT (right) */
+.gif-barrage .gif-item:nth-child(15) { right: 4px;  top: 91.0vh;   width: 175px; }
 
 /* 16: ROMANCE — bottom-center, double size (400px) */
 .gif-barrage .gif-item:nth-child(16) { left: 50%;   top: 92.5vh;   width: 400px; transform: translateX(-50%); }
