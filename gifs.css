@@ -31,7 +31,7 @@
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
 /* 4: MAN-HAPPY (center-left, top bar — matches HAVEYOUSEENBIGBOY height) */
-.gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 468px); top: 3vh; width: 468px; }
+.gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 504px); top: 6vh;  width: 538px; }
 
 /* 5: USECOMPUTERFIGHTHORSES (left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
@@ -55,7 +55,7 @@
 .gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
 /* 12: HAVEYOUSEENBIGBOY (center-right, top bar — matches MAN-HAPPY height) */
-.gif-barrage .gif-item:nth-child(12) { left: 50%;   top: 3vh;      width: 236px; }
+.gif-barrage .gif-item:nth-child(12) { left: 50%;   top: 6vh;       width: 271px; }
 
 /* 13: WIZARDFLUTES (slightly left & down) */
 .gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
