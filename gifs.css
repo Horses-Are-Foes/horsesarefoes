@@ -30,8 +30,8 @@
 /* 3: ISHELLREAL (left) */
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: MAN-HAPPY (top-center, double size 340px) */
-.gif-barrage .gif-item:nth-child(4)  { left: 50%;   top: 70px;     width: 340px; transform: translateX(-50%); }
+/* 4: MAN-HAPPY (center-left, top bar — matches HAVEYOUSEENBIGBOY height) */
+.gif-barrage .gif-item:nth-child(4)  { left: calc(50% - 468px); top: 3vh; width: 468px; }
 
 /* 5: USECOMPUTERFIGHTHORSES (left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
@@ -54,8 +54,8 @@
 /* 11: FREEONLINEBOOKS (left) */
 .gif-barrage .gif-item:nth-child(11) { left: 4px;   top: 65.85vh;  width: 160px; }
 
-/* 12: HAVEYOUSEENBIGBOY (right) */
-.gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
+/* 12: HAVEYOUSEENBIGBOY (center-right, top bar — matches MAN-HAPPY height) */
+.gif-barrage .gif-item:nth-child(12) { left: 50%;   top: 3vh;      width: 236px; }
 
 /* 13: WIZARDFLUTES (slightly left & down) */
 .gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
