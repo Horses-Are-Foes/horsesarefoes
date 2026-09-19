@@ -3,7 +3,8 @@
 /* ═══════════════════════════════════════════ */
 .gif-barrage {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   pointer-events: none;
@@ -18,7 +19,7 @@
   image-rendering: crisp-edges;
 }
 
-/* ═══ 16 GIFs: left col, right col, top-center ═══ */
+/* ═══ 16 GIFs: left col, right col, top-center, bottom-center ═══ */
 
 /* 1: YOU-DESERVE-IT-ALL-BBY (top-left) */
 .gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 165px; }
@@ -29,13 +30,13 @@
 /* 3: ISHELLREAL (left) */
 .gif-barrage .gif-item:nth-child(3)  { left: 4px;   top: 15.57vh;  width: 160px; }
 
-/* 4: MAN-HAPPY (top-center, double size) */
+/* 4: MAN-HAPPY (top-center, double size 340px) */
 .gif-barrage .gif-item:nth-child(4)  { left: 50%;   top: 70px;     width: 340px; transform: translateX(-50%); }
 
-/* 5: USECOMPUTERFIGHTHORSES (left, swapped with BECOOL) */
+/* 5: USECOMPUTERFIGHTHORSES (left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: BECOOL (right, swapped with USECOMPUTERFIGHTHORSES) */
+/* 6: BECOOL (right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
 /* 7: PROADAMERICAN (left) */
@@ -56,16 +57,16 @@
 /* 12: HAVEYOUSEENBIGBOY (right) */
 .gif-barrage .gif-item:nth-child(12) { right: 4px;  top: 65.85vh;  width: 160px; }
 
-/* 13: WIZARDFLUTES (right, swapped with MAN-HAPPY) */
-.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 15.57vh;  width: 160px; }
+/* 13: WIZARDFLUTES (right) */
+.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 78.42vh;  width: 170px; }
 
 /* 14: DANCETHEHORSESAWAY (left) */
 .gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 170px; }
 
-/* 15: BRAINSOFT (right) */
+/* 15: BRAINSOFT (right, bottom) */
 .gif-barrage .gif-item:nth-child(15) { right: 4px;  top: 91.0vh;   width: 175px; }
 
-/* 16: ROMANCE — bottom-center, double size (400px) */
+/* 16: ROMANCE (bottom-center, double size 400px) */
 .gif-barrage .gif-item:nth-child(16) { left: 50%;   top: 92.5vh;   width: 400px; transform: translateX(-50%); }
 
 /* ═══ Mobile: hide them so content is readable ═══ */
