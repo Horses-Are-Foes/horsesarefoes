@@ -57,8 +57,8 @@
 /* 12: HAVEYOUSEENBIGBOY (top bar, right of MAN-HAPPY, no overlap) */
 .gif-barrage .gif-item:nth-child(12) { left: calc(50% + 155px); top: 6vh;  width: 271px; }
 
-/* 13: WIZARDFLUTES (slightly left & down) */
-.gif-barrage .gif-item:nth-child(13) { right: 80px; top: 82vh;    width: 170px; }
+/* 13: WIZARDFLUTES (shifted right) */
+.gif-barrage .gif-item:nth-child(13) { right: 4px;  top: 82vh;    width: 170px; }
 
 /* 14: YOU-DESERVE-IT-ALL-BBY (left) */
 .gif-barrage .gif-item:nth-child(14) { left: 4px;   top: 78.42vh;  width: 165px; }
