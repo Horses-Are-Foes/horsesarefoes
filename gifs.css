@@ -50,8 +50,8 @@
 /* 8: AUTISM (bottom-right, below PROADAMERICAN, flipped upside down) */
 .gif-barrage .gif-item:nth-child(8)  { right: 4px;  top: 95vh;    width: 155px;  transform: rotate(180deg); }
 
-/* 9: WASHHANDS (left, below PROTECTYOURSELF level) */
-.gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 66vh;   width: 165px; }
+/* 9: WASHHANDS (left, below USECOMPUTERFIGHTHORSES) */
+.gif-barrage .gif-item:nth-child(9)  { left: 4px;   top: 40vh;   width: 165px; }
 
 /* 10: PROTECTYOURSELF (right) */
 .gif-barrage .gif-item:nth-child(10) { right: 4px;  top: 53.28vh;  width: 165px; }
