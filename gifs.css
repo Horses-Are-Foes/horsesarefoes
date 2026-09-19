@@ -21,7 +21,7 @@
 /* ═══ 16 GIFs — 8 left column, 8 right column ═══ */
 /* Each side: 8 slots at 3, 15.57, 28.14, 40.71, 53.28, 65.85, 78.42, 91 vh */
 
-/* 1: YOU-DESERVE-IT-ALL-BBY — top-left (moved here from bottom) */
+/* 1: YOU-DESERVE-IT-ALL-BBY (moved here from bottom) */
 .gif-barrage .gif-item:nth-child(1)  { left: 4px;   top: 3.0vh;    width: 165px; }
 
 /* 2: HERMAN — top-right */
@@ -33,10 +33,10 @@
 /* 4: MAN-HAPPY — right */
 .gif-barrage .gif-item:nth-child(4)  { right: 4px;  top: 15.57vh;  width: 160px; }
 
-/* 5: BECOOL — left (swapped with USECOMPUTERFIGHTHORSES) */
+/* 5: USECOMPUTERFIGHTHORSES (swapped with BECOOL, moved to left) */
 .gif-barrage .gif-item:nth-child(5)  { left: 4px;   top: 28.14vh;  width: 165px; }
 
-/* 6: USECOMPUTERFIGHTHORSES — right (swapped with BECOOL) */
+/* 6: BECOOL (swapped with USECOMPUTERFIGHTHORSES, moved to right) */
 .gif-barrage .gif-item:nth-child(6)  { right: 4px;  top: 28.14vh;  width: 165px; }
 
 /* 7: PROADAMERICAN — left */
@@ -63,11 +63,11 @@
 /* 14: DANCETHEHORSESAWAY — right */
 .gif-barrage .gif-item:nth-child(14) { right: 4px;  top: 78.42vh;  width: 170px; }
 
-/* 15: BRAINSOFT — bottom-left */
+/* 15: BRAINSOFT (shifted down from slot 16) */
 .gif-barrage .gif-item:nth-child(15) { left: 4px;   top: 91.0vh;   width: 175px; }
 
-/* 16: ROMANCE — bottom-center, double size */
-.gif-barrage .gif-item:nth-child(16) { left: 50%;   top: 92vh;     width: 400px; transform: translateX(-50%); }
+/* 16: ROMANCE (moved to bottom-center, double size = 400px) */
+.gif-barrage .gif-item:nth-child(16) { left: 50%;   top: 91.5vh;   width: 400px; transform: translateX(-50%); }
 
 /* ═══ Mobile: hide them so content is readable ═══ */
 @media (max-width: 700px) {
