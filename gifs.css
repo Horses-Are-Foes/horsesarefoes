@@ -12,6 +12,11 @@
   overflow: visible;
 }
 
+.gif-barrage a {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 .gif-barrage .gif-item {
   position: absolute;
   image-rendering: pixelated;

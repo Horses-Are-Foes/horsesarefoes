@@ -8,6 +8,11 @@
     'ROMANCE.gif'
   ];
 
+  // Skip barrage on the DANCETHEHORSESAWAY page itself
+  if (window.location.pathname.indexOf('/dance-the-horses-away/') !== -1) {
+    return;
+  }
+
   var container = document.createElement('div');
   container.className = 'gif-barrage';
 
@@ -20,7 +25,17 @@
     img.src = prefix + name;
     img.className = 'gif-item';
     img.alt = '';
-    container.appendChild(img);
+
+    // DANCETHEHORSESAWAY links to its dedicated page
+    if (name === 'DANCETHEHORSESAWAY.gif') {
+      var link = document.createElement('a');
+      link.href = '/dance-the-horses-away/';
+      link.style.pointerEvents = 'auto';
+      link.appendChild(img);
+      container.appendChild(link);
+    } else {
+      container.appendChild(img);
+    }
   });
 
   document.body.appendChild(container);
