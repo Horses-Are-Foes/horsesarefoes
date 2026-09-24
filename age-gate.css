@@ -30,23 +30,24 @@ body.gate-open {
 .age-gate-panel {
   width: min(620px, 100%);
   max-height: 92vh;
-  background: var(--bg);
-  border: 2px solid var(--ink);
+  background: #ffffff;
+  border: 2px solid #000000;
   /* Hyper-brutalist shadow — matches site cards */
   box-shadow: 16px 16px 0px 0px rgba(0, 0, 0, 0.5);
   padding: 32px 28px 28px;
   position: relative;
   transform: translate(-16px, -16px);
   overflow-y: auto;
+  color: #000000;
 }
 
 /* Top stamp label */
 .age-gate-panel::before {
   content: "PSYCHIC BARRIER — ACCESS RESTRICTED";
   display: inline-block;
-  border: 3px solid var(--ink);
-  background: var(--ink);
-  color: var(--bg);
+  border: 3px solid #000000;
+  background: #000000;
+  color: #ffffff;
   padding: 6px 12px;
   margin-bottom: 16px;
   font: 700 11px Arial, sans-serif;
@@ -56,165 +57,174 @@ body.gate-open {
 }
 
 .age-gate-kicker {
-  font: 700 12px Arial, sans-serif;
+  font: 700 14px Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--muted);
-  margin-bottom: 4px;
+  color: #808080;
+  margin-bottom: 8px;
 }
 
 .age-gate-title {
   font-size: clamp(28px, 5.5vw, 42px);
-  margin: 0 0 16px;
-  line-height: 1;
+  margin: 0 0 20px;
+  line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.02em;
+  color: #000000;
 }
 
 .age-gate-context {
-  margin: 0.75rem 0 1rem;
-  padding: 0.75rem 0.9rem;
-  border-left: 4px solid var(--accent);
-  background: var(--card);
-  font-size: 14px;
-  line-height: 1.55;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #ff0000;
+  background: #f5f5f5;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
 }
 
 .age-gate-context strong {
   display: block;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  color: #000000;
 }
 
 /* Content-warning block */
 .age-gate-warning {
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 14px 0;
-  margin: 18px 0;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ink);
-  background: #fef2f2;
+  border-top: 2px solid #e2e8f0;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 16px 0;
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+  background: #fffaf0;
+  border-radius: 4px;
 }
 
 .age-gate-warning strong {
-  color: #ef4444;
+  color: #dc2626;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 12px;
+  font-size: 14px;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 /* Restricted entities block */
 .age-gate-restricted {
-  background: var(--card);
-  border: 2px solid var(--ink);
-  padding: 14px 16px;
-  margin: 14px 0;
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink);
+  background: #f5f5f5;
+  border: 2px solid #000000;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000000;
+  border-radius: 4px;
 }
 
 .age-gate-restricted strong {
   display: block;
-  font: 700 10px Arial, sans-serif;
+  font: 700 12px Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-dark);
-  margin-bottom: 6px;
+  color: #000000;
+  margin-bottom: 8px;
 }
 
 .age-gate-restricted ul {
-  margin: 4px 0 0;
-  padding-left: 1.2rem;
+  margin: 8px 0 0;
+  padding-left: 1.5rem;
   list-style: none;
 }
 
 .age-gate-restricted li {
   position: relative;
-  padding-left: 14px;
-  margin-bottom: 2px;
+  padding-left: 16px;
+  margin-bottom: 4px;
+  font-size: 15px;
 }
 
 .age-gate-restricted li::before {
   content: "✕";
   position: absolute;
   left: 0;
-  color: var(--ink);
-  font-size: 10px;
+  color: #000000;
+  font-size: 12px;
 }
 
 .age-gate-restricted .sympathizers {
   font-weight: 800;
-  font-size: 14px;
-  color: var(--ink);
+  font-size: 16px;
+  color: #000000;
   letter-spacing: 0.04em;
 }
 
 .age-gate-restricted .sympathizers::before {
   content: "☠";
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* Welcome to magicians */
 .age-gate-welcome {
-  margin: 16px 0 0;
-  padding: 12px 16px;
-  background: var(--card);
-  border: 2px solid var(--ink);
-  font-size: 14px;
-  line-height: 1.55;
+  margin: 20px 0 0;
+  padding: 14px 20px;
+  background: #f5f5f5;
+  border: 2px solid #000000;
+  font-size: 16px;
+  line-height: 1.6;
   text-align: center;
+  border-radius: 4px;
 }
 
 .age-gate-welcome strong {
   display: block;
-  font: 700 10px Arial, sans-serif;
+  font: 700 12px Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--muted);
-  margin-bottom: 4px;
+  color: #808080;
+  margin-bottom: 6px;
 }
 
 .age-gate-welcome .magician-name {
   font-style: italic;
   font-weight: 700;
-  color: var(--ink);
+  color: #000000;
 }
 
 /* Remember checkbox */
 .remember-choice {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font: 13px Arial, sans-serif;
-  margin-top: 14px;
-  color: var(--muted);
+  gap: 10px;
+  font: 14px Arial, sans-serif;
+  margin-top: 16px;
+  color: #808080;
+  font-weight: 500;
 }
 
 .remember-choice input {
-  accent-color: var(--accent);
-  width: 16px;
-  height: 16px;
+  accent-color: #ff0000;
+  width: 18px;
+  height: 18px;
 }
 
 /* Action buttons */
 .age-gate-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .age-gate-actions button,
 .age-gate-actions a {
   display: inline-block;
-  padding: 12px 20px;
-  border: 6px solid var(--ink);
+  padding: 14px 24px;
+  border: 6px solid #000000;
   text-decoration: none;
-  font: 700 12px Arial, sans-serif;
+  font: 700 14px Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   cursor: pointer;
@@ -224,29 +234,31 @@ body.gate-open {
   transform: translate(-6px, -6px);
   flex: 1 1 140px;
   text-align: center;
+  font-weight: 700;
+  color: #000000;
 }
 
 .age-enter {
-  background: var(--ink);
+  background: #000000;
   color: white;
 }
 
 .age-enter:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #ff0000;
+  border-color: #ff0000;
   transform: translate(0, 0);
   box-shadow: none;
 }
 
 .age-leave {
   background: transparent;
-  color: var(--ink);
+  color: #000000;
 }
 
 .age-leave:hover {
-  background: var(--card);
-  border-color: var(--accent);
-  color: var(--accent);
+  background: #f5f5f5;
+  border-color: #ff0000;
+  color: #ff0000;
   transform: translate(0, 0);
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.2);
 }
@@ -265,23 +277,24 @@ body.gate-open {
     margin-bottom: 10px;
     transform: rotate(0);
   }
-  .age-gate-kicker { font-size: 10px; letter-spacing: 0.12em; margin-bottom: 2px; }
-  .age-gate-title { font-size: 26px; margin: 0 0 10px; }
-  .age-gate-context { margin: 0.5rem 0 0.6rem; padding: 0.5rem 0.6rem; font-size: 13px; }
-  .age-gate-warning { border-top-width: 1px; border-bottom-width: 1px; padding: 8px 0; margin: 10px 0; font-size: 13px; }
-  .age-gate-warning strong { font-size: 10px; }
-  .age-gate-restricted { padding: 10px 12px; margin: 10px 0; font-size: 12px; }
-  .age-gate-restricted strong { font-size: 9px; margin-bottom: 3px; }
-  .age-gate-restricted li { font-size: 12px; padding-left: 12px; margin-bottom: 1px; }
-  .age-gate-restricted li::before { font-size: 9px; }
-  .age-gate-welcome { padding: 10px 12px; margin: 12px 0 0; font-size: 13px; }
-  .age-gate-welcome strong { font-size: 9px; margin-bottom: 3px; }
-  .age-gate-welcome .magician-name { font-size: 13px; }
-  .remember-choice { margin-top: 10px; font-size: 12px; }
-  .remember-choice input { width: 14px; height: 14px; }
-  .age-gate-actions { gap: 8px; margin-top: 14px; }
+  .age-gate-kicker { font-size: 12px; letter-spacing: 0.12em; margin-bottom: 4px; }
+  .age-gate-title { font-size: 28px; margin: 0 0 12px; }
+  .age-gate-context { margin: 0.75rem 0 1rem; padding: 0.75rem 1rem; font-size: 14px; }
+  .age-gate-context strong { font-size: 16px; }
+  .age-gate-warning { border-top-width: 2px; border-bottom-width: 2px; padding: 10px 0; margin: 12px 0; font-size: 14px; }
+  .age-gate-warning strong { font-size: 12px; }
+  .age-gate-restricted { padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .age-gate-restricted strong { font-size: 10px; margin-bottom: 4px; }
+  .age-gate-restricted li { font-size: 14px; padding-left: 14px; margin-bottom: 2px; }
+  .age-gate-restricted li::before { font-size: 10px; }
+  .age-gate-welcome { padding: 12px 16px; margin: 14px 0 0; font-size: 14px; }
+  .age-gate-welcome strong { font-size: 10px; margin-bottom: 4px; }
+  .age-gate-welcome .magician-name { font-size: 14px; }
+  .remember-choice { margin-top: 12px; font-size: 13px; }
+  .remember-choice input { width: 16px; height: 16px; }
+  .age-gate-actions { gap: 10px; margin-top: 16px; }
   .age-gate-actions button,
-  .age-gate-actions a { padding: 10px 14px; border-width: 4px; font-size: 11px; box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.35); transform: translate(-4px, -4px); flex: none; }
+  .age-gate-actions a { padding: 12px 18px; border-width: 4px; font-size: 12px; box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.35); transform: translate(-4px, -4px); flex: none; }
   .age-enter:hover,
   .age-leave:hover { transform: translate(0, 0); }
 }
