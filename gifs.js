@@ -45,6 +45,49 @@
       img.style.cursor = 'pointer';
       img.onclick = function() { window.open(links[Math.floor(Math.random() * links.length)], '_blank'); };
     }
+    // ROMANCE.gif links to the Cooperative Publishing product
+    else if (name === 'ROMANCE.gif') {
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.location.href = 'https://cooperativepublishing.com/products/night-beast-by-jolene-hadnaut'; };
+    }
+    // HERMAN.gif links to Christian Mingle
+    else if (name === 'HERMAN.gif') {
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.location.href = 'https://www.christianmingle.com/'; };
+    }
+    // AUTISM.gif randomly redirects to Sonic-related links
+    else if (name === 'AUTISM.gif') {
+      var links = [
+        'https://www.sega.com/sonic-the-hedgehog',
+        'https://sonic.sega.jp/SonicChannel/',
+        'https://sonicretro.org/',
+        'https://info.sonicretro.org/',
+        'https://www.sonicstadium.org/',
+        'https://www.sonicstadium.org/forums/',
+        'https://news.tailschannel.com/',
+        'https://sonichq.net/',
+        'https://sonicfangameshq.com/',
+        'https://www.radiosega.net/',
+        'http://www.sonicparadise.net/',
+        'https://www.sonicthehedgehogmovie.com/'
+      ];
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.open(links[Math.floor(Math.random() * links.length)], '_blank'); };
+    }
+    // WASHHANDS.gif randomly redirects to medical Wikipedia links
+    else if (name === 'WASHHANDS.gif') {
+      var links = [
+        'https://en.wikipedia.org/wiki/Hand_washing',
+        'https://pubmed.ncbi.nlm.nih.gov/29262113/',
+        'https://www.ncbi.nlm.nih.gov/books/NBK144035/'
+      ];
+      img.style.pointerEvents = 'auto';
+      img.style.cursor = 'pointer';
+      img.onclick = function() { window.open(links[Math.floor(Math.random() * links.length)], '_blank'); };
+    }
 
     container.appendChild(img);
   });
