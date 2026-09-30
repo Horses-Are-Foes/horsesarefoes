@@ -37,6 +37,11 @@ td.sidebar {
   font-size: 12px;
 }
 
+/* Ensure no other styles override this */
+td[width="160"] {
+  width: 160px !important;
+}
+
 td.sidebar a {
   color: #0000ff;
   text-decoration: underline;
