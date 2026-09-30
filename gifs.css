@@ -71,7 +71,16 @@
 /* 15: ROMANCE (center-left, double size 400px) */
 .gif-barrage .gif-item:nth-child(15) { left: calc(50% - 400px); top: 92.5vh; width: 400px; }
 
-/* ═══ Mobile: hide them so content is readable ═══ */
+/* ═══ Mobile: keep them visible, but scale them down so the layout stays readable ═══ */
 @media (max-width: 700px) {
-  .gif-barrage .gif-item { display: none; }
+  .gif-barrage {
+    overflow: hidden;
+  }
+
+  .gif-barrage .gif-item {
+    display: block;
+    width: 90px !important;
+    max-width: 28vw;
+    opacity: 0.9;
+  }
 }
