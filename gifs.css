@@ -75,12 +75,30 @@
 @media (max-width: 700px) {
   .gif-barrage {
     overflow: hidden;
+    pointer-events: none;
   }
 
   .gif-barrage .gif-item {
     display: block;
-    width: 90px !important;
-    max-width: 28vw;
+    width: 72px !important;
+    max-width: 22vw;
     opacity: 0.9;
+    transform: none !important;
   }
+
+  .gif-barrage .gif-item:nth-child(1)  { left: auto; right: 10px; top: 6vh; }
+  .gif-barrage .gif-item:nth-child(2)  { left: auto; right: 10px; top: 18vh; }
+  .gif-barrage .gif-item:nth-child(3)  { left: auto; right: 10px; top: 32vh; }
+  .gif-barrage .gif-item:nth-child(4)  { left: 10px; right: auto; top: 6vh; }
+  .gif-barrage .gif-item:nth-child(5)  { left: 10px; right: auto; top: 18vh; }
+  .gif-barrage .gif-item:nth-child(6)  { left: auto; right: 10px; top: 46vh; }
+  .gif-barrage .gif-item:nth-child(7)  { left: 10px; right: auto; top: 46vh; }
+  .gif-barrage .gif-item:nth-child(8)  { left: auto; right: 10px; top: 60vh; }
+  .gif-barrage .gif-item:nth-child(9)  { left: 10px; right: auto; top: 60vh; }
+  .gif-barrage .gif-item:nth-child(10) { left: auto; right: 10px; top: 74vh; }
+  .gif-barrage .gif-item:nth-child(11) { left: 10px; right: auto; top: 74vh; }
+  .gif-barrage .gif-item:nth-child(12) { left: auto; right: 10px; top: 88vh; }
+  .gif-barrage .gif-item:nth-child(13) { left: 10px; right: auto; top: 88vh; }
+  .gif-barrage .gif-item:nth-child(14) { left: 50%; right: auto; top: 92vh; transform: translateX(-50%) !important; }
+  .gif-barrage .gif-item:nth-child(15) { left: 50%; right: auto; top: 92vh; transform: translateX(-50%) !important; }
 }
