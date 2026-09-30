@@ -2,49 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://horsesarefoes.com/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/wiki/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <loc>https://horsesarefoes.com/resources/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://horsesarefoes.com/wiki/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/contact/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <loc>https://horsesarefoes.com/contact/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/reports/faerie-lights-swamp-gas/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://horsesarefoes.com/reports/faerie-lights-swamp-gas/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/reports/top-5-underground-horse-cities/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <loc>https://horsesarefoes.com/reports/top-5-underground-horse-cities/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/reports/the-dust/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://horsesarefoes.com/reports/the-dust/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/reports/21-million-views-tree-to-fall/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://horsesarefoes.com/reports/21-million-views-tree-to-fall/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://horsesarefoes.com/reports/the-world-has-lied-to-you/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://horsesarefoes.com/reports/the-world-has-lied-to-you/index.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
