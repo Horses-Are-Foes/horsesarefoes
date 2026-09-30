@@ -17,7 +17,7 @@
   container.className = 'gif-barrage';
 
   var path = window.location.pathname;
-  var isSubpage = path.indexOf('/reports/') !== -1 || path.indexOf('/mission/') !== -1 || path.indexOf('/contact/') !== -1 || path.indexOf('/wiki/') !== -1;
+  var isSubpage = path.indexOf('/reports/') !== -1 || path.indexOf('/contact/') !== -1 || path.indexOf('/wiki/') !== -1;
   var prefix = isSubpage ? '../assets/' : '/assets/';
 
   gifs.forEach(function(name) {
