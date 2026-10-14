@@ -27,7 +27,7 @@ a:active { color: #ff0000; }
   border-bottom: 2px solid #333333;
 }
 
-/* ── Sidebar (left column) ── */
+/* ── Sidebar (left column) — fixed to viewport ── */
 td.sidebar {
   width: 160px !important;
   vertical-align: top;
@@ -35,11 +35,25 @@ td.sidebar {
   border-right: 2px ridge #cccccc;
   padding: 8px;
   font-size: 12px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 /* Ensure no other styles override this */
 td[width="160"] {
   width: 160px !important;
+}
+
+/* ── Sidebar (right column) — fixed to viewport ── */
+td[width="160"]:not(.sidebar) {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 td.sidebar a {
@@ -121,7 +135,7 @@ td.sidebar-right li {
 /* ── Main content area ── */
 td.content {
   vertical-align: top;
-  padding: 16px;
+  padding: 16px 176px;
   font-size: 14px;
 }
 
