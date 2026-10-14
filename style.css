@@ -73,6 +73,51 @@ td.sidebar li {
   font-size: 12px;
 }
 
+/* ── Sidebar (right column) ── */
+td.sidebar-right {
+  width: 160px !important;
+  vertical-align: top;
+  background-color: #ffffcc;
+  border-left: 2px ridge #cccccc;
+  padding: 8px;
+  font-size: 12px;
+}
+
+td[width="160"].sidebar-right {
+  width: 160px !important;
+}
+
+td.sidebar-right a {
+  color: #0000ff;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+td.sidebar-right img {
+  display: block;
+  margin: 6px 0;
+  border: 0;
+}
+
+td.sidebar-right h2 {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-size: 14px;
+  color: #ff0000;
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+td.sidebar-right ul {
+  list-style: square;
+  padding-left: 16px;
+  margin: 4px 0;
+}
+
+td.sidebar-right li {
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
 /* ── Main content area ── */
 td.content {
   vertical-align: top;
