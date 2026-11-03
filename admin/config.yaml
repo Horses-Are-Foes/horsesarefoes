@@ -1,0 +1,106 @@
+# ---------------------------------------------------------------------------
+# Horses Are Foes — Decap CMS configuration
+# Loaded automatically from the /admin/ page; no init.js needed.
+# ---------------------------------------------------------------------------
+
+# ============================================================================
+# BACKEND / AUTH  (pick ONE — delete the other)
+# ============================================================================
+
+# ---- (PRIMARY) GitHub backend ------------------------------------------------
+# Friends sign in with their own GitHub account once, then edit directly.
+# Requires a one-time GitHub OAuth app owned by you:
+#   1. https://github.com/settings/developer/applications/new
+#      - Application name:  "Horses Are Foes CMS"
+#      - Authorization redirect URI:  https://horsesarefoes.com/admin/
+#      - Keep "Authorize using GitHub" checked
+#   2. Enable it for the org: https://github.com/organizations/Horses-Are-Foes/settings/developer
+#      (enable "Horses-Are-Foes" in the app's settings)
+#   3. Under the app's OAuth scopes, enable:  repo  (contents: read/write, etc.)
+#   4. Copy the CLIENT_ID and paste it on the next line (replace GITHUB_CLIENT_ID).
+backend:
+  name: github
+  repo: Horses-Are-Foes/horsesarefoes
+  branch: main
+  auth_token: GITHUB_CLIENT_ID
+
+# ---- (ALTERNATIVE) Netlify Identity + Git Gateway ----------------------------
+# Even friendlier: friends get an email invite and never touch GitHub.
+#   1. Netlify dashboard -> your site -> Identity -> Enable Identity (email).
+#   2. Identity -> Services -> enable "Git Gateway".
+#   3. Netlify shows you a dedicated GitHub user; invite it as a collaborator
+#      on this repo (Settings -> Collaborators), with Push access.
+#   4. Then friends click "Sign in with email", accept the invite, and edit.
+#   (Switch to this by uncommenting the block below and removing the GitHub
+#    block above. No CLIENT_ID needed.)
+#
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# ===========================================================================
+# IMAGES / MEDIA
+# ===========================================================================
+# Covers (and any uploaded art) live in the shared assets/ folder. A friend
+# uploads via the asset library (under the "Cover image" field) and clicks the
+# result to paste its path — e.g. assets/cover.jpg. The site serves it from
+# https://horsesarefoes.com/assets/cover.jpg.
+media_folder: "assets"
+public_folder: "/assets"
+
+# ===========================================================================
+# COLLECTIONS
+# ===========================================================================
+collections:
+  - name: "reports"
+    label: "Reports"
+    description: "Each report is a folder in reports/ with an index.md plus cover art."
+    folder: "reports"
+    create: true
+    slug: "{{title}}"
+    filename_field: "index"
+    media_folder: "assets"
+    public_folder: "/assets"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "The report title — it also sets the URL and the card headline. (Apostrophes are fine.)"
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Gideon Vale"
+        hint: "Who the report is by."
+      - label: "Published"
+        name: "published"
+        widget: "date"
+        default: ""
+        format: "YYYY-MM-DD"
+        output_format: "MMMM D, YYYY"
+        hint: "When it went live, shown as e.g. November 3, 2026."
+      - label: "Cover image"
+        name: "cover"
+        widget: "string"
+        hint: "Upload cover art below this field, click it to paste its path (e.g. assets/cover.jpg). Leave blank to auto-pick the first image in the body."
+        asset_library:
+          allow_upload: true
+          select: true
+          multiple: false
+      - label: "Warning banner"
+        name: "warning"
+        widget: "string"
+        default: ""
+        hint: "Shown on the scrolling ticker. Leave blank to auto-fill from the title."
+      - label: "Subtitle"
+        name: "subtitle"
+        widget: "text"
+        hint: "Short intro shown near the top of the report."
+      - label: "Keywords"
+        name: "keywords"
+        widget: "string"
+        hint: "Comma-separated search keywords for SEO."
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        editor_format: "MARKDOWN"
+        hint: "The story. Supports bold, italics, links, lists, and images (upload then paste the path)."

@@ -1,0 +1,11 @@
+# Netlify build settings for the Horses Are Foes site.
+# Every push to GitHub (commit, branch change, tag, merge) triggers this:
+#   Netlify runs the build below, which regenerates reports/<slug>/index.html
+#   for every report AND stitches the home page (index.html) together,
+#   then publishes the whole repo.
+[build]
+  command  = "python build_reports.py"
+  publish  = "."
+
+# The build uses only the Python standard library (re, datetime, json, os),
+# so no pip install step is required on Netlify's Python runtime.
