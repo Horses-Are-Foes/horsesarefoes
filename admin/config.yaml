@@ -7,22 +7,26 @@
 # BACKEND / AUTH  (pick ONE — delete the other)
 # ============================================================================
 
-# ---- (PRIMARY) GitHub backend ------------------------------------------------
+# ---- (PRIMARY) GitHub backend + OAuth proxy ----------------------------------
 # Friends sign in with their own GitHub account once, then edit directly.
-# Requires a one-time GitHub OAuth app owned by you:
-#   1. https://github.com/settings/developer/applications/new
+# Authentication runs through a tiny Cloudflare Worker (see cms-proxy/worker.js)
+# that Decap calls. Without it, the "Sign in" button never renders:
+#   1. Deploy that worker (Workers & Pages -> Create Worker -> paste the code).
+#   2. In the GitHub OAuth app
+#        https://github.com/settings/developer/applications/new
 #      - Application name:  "Horses Are Foes CMS"
-#      - Authorization redirect URI:  https://horsesarefoes.com/admin/
-#      - Keep "Authorize using GitHub" checked
-#   2. Enable it for the org: https://github.com/organizations/Horses-Are-Foes/settings/developer
-#      (enable "Horses-Are-Foes" in the app's settings)
-#   3. Under the app's OAuth scopes, enable:  repo  (contents: read/write, etc.)
-#   4. Copy the CLIENT_ID and paste it on the next line (replace GITHUB_CLIENT_ID).
+#      - Authorization redirect URI:  https://<your-worker>/callback
+#      - OAuth scope:  public_repo,user   (or  repo,user  if the repo is private)
+#      - Enable it for the org: https://github.com/organizations/Horses-Are-Foes/settings/developer
+#      Then copy the CLIENT ID and Client Secret — both go into the Worker's
+#      Variables & Secrets as  GITHUB_OAUTH_ID  and  GITHUB_OAUTH_SECRET.
+#   3. Set base_url below to your deployed Worker URL. No CLIENT_ID here.
 backend:
   name: github
   repo: Horses-Are-Foes/horsesarefoes
   branch: main
-  auth_token: GITHUB_CLIENT_ID
+  base_url: "https://horsesarefoes-proxy.workers.dev"   # TODO: set to your deployed Worker URL
+  auth_endpoint: /auth
 
 # ---- (ALTERNATIVE) Netlify Identity + Git Gateway ----------------------------
 # Even friendlier: friends get an email invite and never touch GitHub.

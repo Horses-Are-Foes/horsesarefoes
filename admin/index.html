@@ -1,129 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Horses Are Foes · Content Studio</title>
-  <!-- Decap CMS (formerly Netlify CMS) v3. The editor + its config (admin/config.yaml) load automatically. -->
-  <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3/dist/decap-cms.css" />
-  <style>
-    :root {
-      --haf-white: #ffffff;
-      --haf-slate: #0f172a;
-      --haf-blue: #0284c7;
-      --haf-muted: #64748b;
-      --haf-line: #e2e8f0;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--haf-white);
-      background: var(--haf-slate);
-      line-height: 1.55;
-    }
-    a { color: var(--haf-blue); }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 48px; }
-    .masthead {
-      border-bottom: 1px solid var(--haf-line);
-      padding-bottom: 20px;
-      margin-bottom: 8px;
-    }
-    .masthead h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: .2px; }
-    .masthead h1 .blue { color: var(--haf-blue); }
-    .masthead p { margin: 0; color: #cbd5e1; }
-    .site-link { display: inline-block; margin-top: 10px; font-size: 14px; }
-
-    .howto {
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--haf-line);
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin: 22px 0 8px;
-    }
-    .howto h2 { margin: 0 0 12px; font-size: 18px; }
-    .howto ol { margin: 8px 0 0; padding-left: 22px; }
-    .howto li { margin: 7px 0; }
-    .howto code, .howto .mono {
-      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-      background: rgba(255, 255, 255, .1);
-      padding: 1px 6px;
-      border-radius: 5px;
-      font-size: 13px;
-    }
-
-    .editor {
-      margin-top: 28px;
-      border: 1px solid var(--haf-line);
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--haf-white);
-    }
-
-    .footer { margin-top: 26px; color: var(--haf-muted); font-size: 13px; }
-    .footer .note { border-top: 1px solid var(--haf-line); padding-top: 12px; margin-top: 12px; }
-    table { border-collapse: collapse; width: 100%; margin-top: 8px; }
-    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--haf-line); font-size: 14px; }
-    th { color: #cbd5e1; font-weight: 600; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="masthead">
-      <h1>Horses Are Foes · <span class="blue">Content Studio</span></h1>
-      <p>Use this editor to write and publish reports. Nothing here touches the command line.</p>
-      <a class="site-link" href="/">← Back to the site (horsesarefoes.com)</a>
-    </div>
-
-    <div class="howto">
-      <h2>How it works</h2>
-      <ol>
-        <li>Click <strong>Sign in</strong> (top right) and log in with your <strong>GitHub</strong> account — it's read-only (sign-in only, no command line).</li>
-        <li>Choose <strong>Create New</strong> at the top, then <strong>Reports</strong> to start a new report.</li>
-        <li>Fill in the fields: <em>Title, Author, Published, Cover image, Warning banner, Subtitle, Keywords, Body</em>.</li>
-        <li>
-          For <strong>Cover image</strong> or body images: click the <strong>upload/select</strong> icon under the field, pick an image, then
-          <em>click it</em> to paste its path (it goes to the <code>assets/</code> folder).
-        </li>
-        <li>Click <strong>Save draft</strong> to preview, or <strong>Publish</strong> to make it live. Each save shows a message like
-          <em>"Committed to main by [your GitHub name]"</em> — that's your edit going to the site.</li>
-      </ol>
-
-      <table>
-        <thead>
-          <tr><th>Field</th><th>What it does</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Title</strong></td><td>The headline + the URL slug.</td></tr>
-          <tr><td><strong>Author</strong></td><td>Who the report is by.</td></tr>
-          <tr><td><strong>Published</strong></td><td>When it went live (e.g. November 3, 2026).</td></tr>
-          <tr><td><strong>Cover image</strong></td><td>Big cover art. Leave blank to auto-pick the first image in the story.</td></tr>
-          <tr><td><strong>Warning banner</strong></td><td>The scrolling top banner. Leave blank to auto-fill from the title.</td></tr>
-          <tr><td><strong>Subtitle</strong></td><td>The short intro near the top of the report.</td></tr>
-          <tr><td><strong>Keywords</strong></td><td>Comma-separated, shown in the page header for search.</td></tr>
-          <tr><td><strong>Body</strong></td><td>The story itself (bold, italics, links, lists, images).</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="editor">
-      <!-- The Decap CMS editor mounts here. -->
-      <div id="app"></div>
-      <script type="module">
-        import { init } from "https://unpkg.com/decap-cms@^3";
-        init({ containerID: "app" });
-      </script>
-    </div>
-
-    <div class="footer">
-      <div class="note">
-        <strong>Tip for the owner.</strong> If you'd prefer friends to sign in with a simple
-        email invite instead of a GitHub account, switch to the <code>git-gateway</code>
-        backend (the commented block at the top of <code>admin/config.yaml</code> — enable
-        Netlify Identity's <strong>Git Gateway</strong> and one line change is all it takes).
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Horses Are Foes · Content Studio</title>
+    <!-- Decap CMS (formerly Netlify CMS) v3 styles. -->
+    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3/dist/decap-cms.css" />
+    <style>
+      :root {
+        --haf-white: #ffffff;
+        --haf-slate: #0f172a;
+        --haf-blue: #0284c7;
+        --haf-muted: #64748b;
+        --haf-line: #e2e8f0;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--haf-white);
+        background: var(--haf-slate);
+        line-height: 1.55;
+      }
+      a { color: var(--haf-blue); }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 48px; }
+      .masthead { border-bottom: 1px solid var(--haf-line); padding-bottom: 20px; margin-bottom: 8px; }
+      .masthead h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: .2px; }
+      .masthead h1 .blue { color: var(--haf-blue); }
+      .masthead p { margin: 0; color: #cbd5e1; }
+      .site-link { display: inline-block; margin-top: 10px; font-size: 14px; }
+      .howto {
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid var(--haf-line);
+        border-radius: 12px;
+        padding: 22px 24px;
+        margin: 22px 0 16px;
+      }
+      .howto h2 { margin: 0 0 12px; font-size: 18px; }
+      .howto ol { margin: 8px 0 0; padding-left: 22px; }
+      .howto li { margin: 7px 0; }
+      .howto code, .howto .mono {
+        font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+        background: rgba(255, 255, 255, .1);
+        padding: 1px 6px;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+      table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+      th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--haf-line); font-size: 14px; }
+      th { color: #cbd5e1; font-weight: 600; }
+      .footer { margin-top: 26px; color: var(--haf-muted); font-size: 13px; }
+      .footer .note { border-top: 1px solid var(--haf-line); padding-top: 12px; margin-top: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap" id="shell">
+      <div class="masthead">
+        <h1>Horses Are Foes · <span class="blue">Content Studio</span></h1>
+        <p>Use this editor to write and publish reports. Nothing here touches the command line.</p>
+        <a class="site-link" href="/">← Back to the site (horsesarefoes.com)</a>
       </div>
-      Built &amp; hosted by Netlify. Every save regenerates the site automatically.
+
+      <div class="howto">
+        <h2>How it works</h2>
+        <ol>
+          <li>Click <strong>Sign in</strong> (top right) and log in with your <strong>GitHub</strong> account — it's read-only (sign-in only, no command line).</li>
+          <li>Choose <strong>Create New</strong> at the top, then <strong>Reports</strong> to start a new report.</li>
+          <li>Fill in the fields: <em>Title, Author, Published, Cover image, Warning banner, Subtitle, Keywords, Body</em>.</li>
+          <li>
+            For <strong>Cover image</strong> or body images: click the <strong>upload/select</strong> icon under the field, pick an image, then
+            <em>click it</em> to paste its path (it goes to the <code>assets/</code> folder).
+          </li>
+          <li>Click <strong>Save draft</strong> to preview, or <strong>Publish</strong> to make it live. Each save shows a message like
+            <em>"Committed to main by [your GitHub name]"</em> — that's your edit going to the site.</li>
+        </ol>
+
+        <table>
+          <thead>
+            <tr><th>Field</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Title</strong></td><td>The headline + the URL slug.</td></tr>
+            <tr><td><strong>Author</strong></td><td>Who the report is by.</td></tr>
+            <tr><td><strong>Published</strong></td><td>When it went live (e.g. November 3, 2026).</td></tr>
+            <tr><td><strong>Cover image</strong></td><td>Big cover art. Leave blank to auto-pick the first image in the story.</td></tr>
+            <tr><td><strong>Warning banner</strong></td><td>The scrolling top banner. Leave blank to auto-fill from the title.</td></tr>
+            <tr><td><strong>Subtitle</strong></td><td>The short intro near the top of the report.</td></tr>
+            <tr><td><strong>Keywords</strong></td><td>Comma-separated, shown in the page header for search.</td></tr>
+            <tr><td><strong>Body</strong></td><td>The story itself (bold, italics, links, lists, images).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer">
+        <div class="note">
+          <strong>Tip for the owner.</strong> Each friend needs a free GitHub account only — log-in only, no git or command line.
+        </div>
+        Built &amp; hosted by Netlify. Every save regenerates the site automatically.
+      </div>
     </div>
-  </div>
-</body>
+
+    <script>
+      // Load Decap CMS on page load (no click needed). init() renders the
+      // full-screen editor — with a "Sign in" button — and takes over the page.
+      (function () {
+        function showShellError(msg) {
+          var shell = document.getElementById('shell');
+          if (!shell) return;
+          shell.style.display = 'block';
+          shell.innerHTML =
+            '<pre style="white-space:pre-wrap;color:#ffb;padding:1.2rem;font-family:monospace;font-size:14px">' +
+            'Could not start the Content Studio.\n' + msg + '</pre>';
+        }
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/decap-cms@^3/dist/decap-cms.js';
+        s.async = true;
+        s.onload = function () {
+          // This unpkg build exposes window.CMS (uppercase), not window.cms.
+          // Support CMS, the lowercase cms alias, and the initCMS helper so
+          // the entry point works across Decap v3 build variants.
+          var api = window.CMS || window.cms || window.initCMS;
+          function mount(cfg) {
+            try {
+              if (api && typeof api.init === 'function') { api.init({ config: cfg }); return; }
+              if (typeof api === 'function') { api({ config: cfg }); return; }
+              throw new Error('No init method found on the loaded API.');
+            } catch (e) { showShellError('Could not start the editor: ' + e); }
+          }
+          if (!api) return showShellError('Decap CMS did not expose its API after load.');
+          fetch('config.yaml', { cache: 'no-cache' })
+            .then(function (r) {
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.text();
+            })
+            .then(function (cfg) { mount(cfg); })
+            .catch(function (e) { showShellError('Could not load /admin/config.yaml: ' + e); });
+        };
+        s.onerror = function () { showShellError('Decap CMS could not be downloaded from the CDN.'); };
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
 </html>
