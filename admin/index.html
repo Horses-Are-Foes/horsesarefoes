@@ -101,6 +101,11 @@
       </div>
     </div>
 
+    <!-- js-yaml parses config.yaml into a JS object so Decap is handed the real
+         config directly. Loaded before decap-cms so it is available in decap-cms'
+         onload handler (avoids the "config.yml" default-guesswork that broke init). -->
+    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
     <script>
       // Load Decap CMS on page load (no click needed). init() renders the
       // full-screen editor — with a "Sign in" button — and takes over the page.
@@ -121,22 +126,28 @@
           // Support CMS, the lowercase cms alias, and the initCMS helper so
           // the entry point works across Decap v3 build variants.
           var api = window.CMS || window.cms || window.initCMS;
-          // Decap init() accepts either a config OBJECT or a config URL string it
-          // can fetch and parse. Passing the raw YAML text here made Decap treat it
-          // as a URL to fetch, so it never parsed the YAML — which is why the editor
-          // reported every required property (backend/collections/media_*) as missing.
-          // Hand it the config URL and let Decap fetch + parse the YAML itself.
+          // Fetch config.yaml, parse it into an OBJECT, and hand that object to
+          // init(). A STRING made Decap fetch its default "config.yml" (which does
+          // not exist here) and report every required property missing. A parsed
+          // object is used directly, so the real backend/collections/media_folder
+          // config is honored with no config.yml guesswork.
           function initEditor() {
             try {
-              if (api && typeof api.init === 'function') {
-                api.init({ config: 'config.yaml' });
-                return;
-              }
-              if (typeof api === 'function') { api({ config: 'config.yaml' }); return; }
-              throw new Error('No init method found on the loaded API.');
-            } catch (e) { showShellError('Could not start the editor: ' + e); }
+              if (!api) throw new Error('Decap CMS did not expose its API after load.');
+              if (!window.jsyaml) throw new Error('The YAML parser did not load from the CDN.');
+              fetch('config.yaml', { cache: 'no-cache' })
+                .then(function (r) {
+                  if (!r.ok) throw new Error('Could not fetch config.yaml (HTTP ' + r.status + ').');
+                  return r.text();
+                })
+                .then(function (text) {
+                  var config = window.jsyaml.load(text);
+                  if (typeof api.init === 'function') { api.init({ config: config }); return; }
+                  api({ config: config });
+                })
+                .catch(function (e) { showShellError(e.message || String(e)); });
+            } catch (e) { showShellError(e.message || String(e)); }
           }
-          if (!api) return showShellError('Decap CMS did not expose its API after load.');
           initEditor();
         };
         s.onerror = function () { showShellError('Decap CMS could not be downloaded from the CDN.'); };
