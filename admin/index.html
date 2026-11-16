@@ -121,21 +121,23 @@
           // Support CMS, the lowercase cms alias, and the initCMS helper so
           // the entry point works across Decap v3 build variants.
           var api = window.CMS || window.cms || window.initCMS;
-          function mount(cfg) {
+          // Decap init() accepts either a config OBJECT or a config URL string it
+          // can fetch and parse. Passing the raw YAML text here made Decap treat it
+          // as a URL to fetch, so it never parsed the YAML — which is why the editor
+          // reported every required property (backend/collections/media_*) as missing.
+          // Hand it the config URL and let Decap fetch + parse the YAML itself.
+          function initEditor() {
             try {
-              if (api && typeof api.init === 'function') { api.init({ config: cfg }); return; }
-              if (typeof api === 'function') { api({ config: cfg }); return; }
+              if (api && typeof api.init === 'function') {
+                api.init({ config: 'config.yaml' });
+                return;
+              }
+              if (typeof api === 'function') { api({ config: 'config.yaml' }); return; }
               throw new Error('No init method found on the loaded API.');
             } catch (e) { showShellError('Could not start the editor: ' + e); }
           }
           if (!api) return showShellError('Decap CMS did not expose its API after load.');
-          fetch('config.yaml', { cache: 'no-cache' })
-            .then(function (r) {
-              if (!r.ok) throw new Error('HTTP ' + r.status);
-              return r.text();
-            })
-            .then(function (cfg) { mount(cfg); })
-            .catch(function (e) { showShellError('Could not load /admin/config.yaml: ' + e); });
+          initEditor();
         };
         s.onerror = function () { showShellError('Decap CMS could not be downloaded from the CDN.'); };
         document.head.appendChild(s);
