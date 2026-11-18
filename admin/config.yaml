@@ -25,7 +25,7 @@ backend:
   name: github
   repo: Horses-Are-Foes/horsesarefoes
   branch: main
-  base_url: "https://horsesarefoes-proxy.lowetide.workers.dev"
+  base_url: "https://horsesarefoe-proxy.lowetide.workers.dev"
   auth_endpoint: /auth
 
 # ---- (ALTERNATIVE) Netlify Identity + Git Gateway ----------------------------
