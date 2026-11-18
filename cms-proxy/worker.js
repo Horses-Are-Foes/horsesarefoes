@@ -51,24 +51,48 @@ export default {
           status: 400,
         });
       }
-      const resp = await fetch('https://github.com/login/oauth/access_token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ client_id: id, client_secret: secret, code }),
-      });
-      const data = await resp.json();
-      if (!data.access_token) {
-        return new Response(`<pre>${data.error || 'Token exchange failed.'}</pre>`, {
-          headers: { 'Content-Type': 'text/html;charset=UTF-8' },
+      let resp;
+      let data = null;
+      try {
+        resp = await fetch('https://github.com/login/oauth/access_token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ client_id: id, client_secret: secret, code }),
         });
+        // Read raw text first so we can surface it even if the body isn't JSON.
+        const text = await resp.text();
+        try {
+          data = JSON.parse(text);
+        } catch {
+          data = { _raw: text };
+        }
+      } catch (err) {
+        return new Response(
+          `<pre>network error: ${String(err)}</pre>`,
+          { headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
+        );
       }
-      // Hand the token back to the editor, hidden, via postMessage.
-      return new Response(
-        `<html><body><script>window.parent.postMessage(${JSON.stringify(
-          data.access_token,
-        )}, '*');</script></body></html>`,
-        { headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
-      );
+
+      if (data && data.access_token) {
+        // Hand the token back to the editor, hidden, via postMessage.
+        return new Response(
+          `<html><body><script>window.parent.postMessage(${JSON.stringify(
+            data.access_token,
+          )}, '*');</script></body></html>`,
+          { headers: { 'Content-Type': 'text/html;charset=UTF-8' } }
+        );
+      }
+
+      // Failure: echo back GitHub's exact reason so the popup is self-diagnosing.
+      const parts = [];
+      if (data && data.error) parts.push(`error: ${data.error}`);
+      if (data && data.error_description) parts.push(`description: ${data.error_description}`);
+      if (data && data.error_uri) parts.push(`info: ${data.error_uri}`);
+      if (data && data._raw) parts.push(`raw: ${data._raw}`);
+      if (!parts.length) parts.push('Token exchange failed (GitHub returned nothing useful).');
+      return new Response(`<pre>${parts.join('\n')}</pre>`, {
+        headers: { 'Content-Type': 'text/html;charset=UTF-8' },
+      });
     }
 
     return new Response('Horses Are Foes Decap OAuth proxy. Use /auth to sign in.', {
