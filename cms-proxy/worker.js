@@ -55,7 +55,8 @@ function safeEqual(a, b) {
 }
 
 // Step 1 — send the popup to GitHub's authorize page, remembering the state.
-function handleAuth(url) {
+function handleAuth(url, env) {
+  const GITHUB_OAUTH_ID = env.GITHUB_OAUTH_ID;
   const authState = generateState();
   const scope = url.searchParams.get('scope') || 'repo';
 
@@ -80,7 +81,9 @@ function handleAuth(url) {
 }
 
 // Step 2 — exchange the one-time code for a token and render the handshake page.
-async function handleCallback(url, code, state, secret) {
+async function handleCallback(url, code, state, env) {
+  const secret = env.GITHUB_OAUTH_SECRET;
+  const GITHUB_OAUTH_ID = env.GITHUB_OAUTH_ID;
   const cookieState = readStateCookie(url);
 
   if (!code) {
@@ -184,7 +187,7 @@ export default {
           status: 500,
         });
       }
-      return handleAuth(url);
+      return handleAuth(url, env);
     }
 
     if (url.pathname === '/callback') {
@@ -197,7 +200,7 @@ export default {
         url,
         url.searchParams.get('code'),
         url.searchParams.get('state'),
-        GITHUB_OAUTH_SECRET,
+        env,
       );
     }
 
