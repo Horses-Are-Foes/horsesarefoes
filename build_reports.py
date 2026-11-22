@@ -228,6 +228,40 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     published_raw = fm.get("published") or fm.get("date", "")
     published = display_date(published_raw, parse_date(published_raw))
     body = md_to_html(body_md)
+    sections = fm.get("sections", [])
+    if sections:
+        section_parts = []
+        width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
+        for section in sections:
+            if section.get("type") == "text":
+                section_parts.append(section.get("content", ""))
+                continue
+            if section.get("type") != "image":
+                continue
+
+            image_src = _normalize_asset(section.get("image", ""), slug)
+            if not image_src:
+                continue
+            if image_src.startswith("http://") or image_src.startswith("https://"):
+                rendered_src = image_src
+            elif image_src.startswith("assets/"):
+                rendered_src = "../../" + image_src
+            else:
+                rendered_src = image_src
+
+            width = width_styles.get(section.get("width", "medium"), "50%")
+            position = section.get("position", "center")
+            if position not in ("left", "center", "right"):
+                position = "center"
+            align = {"left": "left", "center": "center", "right": "right"}[position]
+            caption = html.escape(section.get("caption", ""), quote=False)
+            section_parts.append(
+                '<div class="report-image report-image-' + width_styles.get(section.get("width", "medium"), "medium") + ' report-image-' + position + '" style="text-align:' + align + ';">'
+                '<img src="' + html.escape(rendered_src, quote=True) + '" alt="' + caption + '" style="width:' + width + '; max-width:100%; height:auto;">'
+                + (('<br><font size="1"><i>' + caption + '</i></font>') if caption else '')
+                + '</div>'
+            )
+        body = "".join(section_parts)
     warning = fm.get("warning") or "INVESTIGATION REPORT"
     subtitle = fm.get("subtitle", "")
     description = title + " - investigation report by " + author + "."
@@ -314,40 +348,6 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
         + "</i></font>"
         if subtitle else ""
     )
-    image_width = fm.get("image_width", "medium")
-    image_position = fm.get("image_position", "center")
-    if image_width not in ("small", "medium", "large", "full"):
-        image_width = "medium"
-    if image_position not in ("left", "center", "right"):
-        image_position = "center"
-
-    body_image_parts = []
-    width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
-    for image_data in fm.get("report_images", []):
-        image_src = _normalize_asset(image_data.get("image", ""), slug)
-        if not image_src:
-            continue
-        if image_src.startswith("http://") or image_src.startswith("https://"):
-            rendered_src = image_src
-        elif image_src.startswith("assets/"):
-            rendered_src = "../../" + image_src
-        else:
-            rendered_src = image_src
-        width = width_styles.get(image_data.get("width"), "50%")
-        position = image_data.get("position", "center")
-        if position not in ("left", "center", "right"):
-            position = "center"
-        caption = html.escape(image_data.get("caption", ""), quote=False)
-        align_style = {"left": "text-align:left", "center": "text-align:center", "right": "text-align:right"}[position]
-        body_image_parts.append(
-            '<div style="clear:both; margin:12px 0; ' + align_style + ';">'
-            '<img src="' + html.escape(rendered_src, quote=True) + '" alt="' + caption + '" '
-            'style="width:' + width + '; max-width:100%; height:auto;">'
-            + (('<br><font size="1"><i>' + caption + '</i></font>') if caption else '')
-            + '</div>'
-        )
-    body_images = "".join(body_image_parts)
-
     article = f'''<!-- MAIN CONTENT AREA -->
     <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
 
@@ -373,9 +373,8 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
       <br>
 
       <!-- REPORT CONTENT -->
-      <div class="report-content report-images-{image_position} report-images-{image_width}">
+      <div class="report-content">
       {body}
-      {body_images}
       </div>
 
       <br>
@@ -406,74 +405,109 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
 def split_front_matter(text: str):
     """Return (front_matter_dict, body_md) from a markdown file."""
     fm, body = {}, text
-    if text.startswith("---"):
-        m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)", text, re.S)
-        if m:
-            raw_body = m.group(2)
-            section = None
-            block_key = None
-            block_lines = []
+    if not text.startswith("---"):
+        return fm, body
 
-            def finish_block():
-                if block_key:
-                    fm[block_key] = " ".join(block_lines).strip()
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)", text, re.S)
+    if not m:
+        return fm, body
 
-            report_images = []
-            for line in m.group(1).split("\n"):
-                if line.strip().startswith("- type: image"):
-                    report_images.append({"type": "image"})
+    raw = m.group(1)
+    body = m.group(2)
+    block_key = None
+    block_lines = []
+    extra = None
+
+    def finish_description():
+        if block_key:
+            fm[block_key] = " ".join(block_lines).strip()
+
+    sections = []
+    section = None
+    content_key = None
+    content_lines = []
+
+    def finish_content():
+        nonlocal content_key, content_lines
+        if section is not None and content_key:
+            section[content_key] = "\n".join(content_lines).strip()
+        content_key = None
+        content_lines = []
+
+    in_sections = False
+    for line in raw.split("\n"):
+        stripped = line.strip()
+
+        if in_sections:
+            if line.startswith("  - type:"):
+                finish_content()
+                section = {"type": stripped.split(":", 1)[1].strip().strip('"').strip("'")}
+                sections.append(section)
+                continue
+            if section is not None and line.startswith("    "):
+                field = line.strip()
+                if ":" in field:
+                    key, value = field.split(":", 1)
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    if value in ("|", ">", "|-", ">-"):
+                        finish_content()
+                        content_key = key
+                        content_lines = []
+                    else:
+                        finish_content()
+                        section[key] = value
                     continue
-                if report_images and line.startswith("    "):
-                    stripped = line.strip()
-                    if ":" in stripped:
-                        key, value = stripped.split(":", 1)
-                        report_images[-1][key.strip()] = value.strip().strip('"').strip("'")
+                if content_key:
+                    content_lines.append(line[6:].rstrip())
                     continue
+            if line and not line.startswith(" "):
+                finish_content()
+                in_sections = False
 
-                if block_key:
-                    if line.startswith("  "):
-                        block_lines.append(line.strip())
-                        continue
-                    finish_block()
-                    block_key = None
-                    block_lines = []
+        if not in_sections:
+            if line == "sections:":
+                in_sections = True
+                continue
 
-                stripped = line.strip()
-                if not stripped or ":" not in stripped:
+            if block_key:
+                if line.startswith("  "):
+                    block_lines.append(stripped)
                     continue
+                finish_description()
+                block_key = None
+                block_lines = []
 
-                key, value = stripped.split(":", 1)
-                key = key.strip()
-                value = value.strip().strip('"').strip("'")
+            if not stripped or ":" not in stripped:
+                continue
 
-                if line.startswith("  ") and section == "extra":
-                    nested = fm.setdefault("extra", {})
-                    nested[key] = value
-                    continue
+            key, value = stripped.split(":", 1)
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
 
-                if key == "extra" and not value:
-                    fm["extra"] = {}
-                    section = "extra"
-                    continue
+            if key == "extra" and not value:
+                extra = {}
+                fm["extra"] = extra
+                continue
+            if extra is not None and line.startswith("  "):
+                extra[key] = value
+                continue
+            if value in ("|", ">", "|-", ">-"):
+                block_key = key
+                block_lines = []
+                continue
+            fm[key] = value
 
-                section = None
-                if value in ("|", ">", "|-", ">-"):
-                    block_key = key
-                    block_lines = []
-                    continue
-                fm[key] = value
+    finish_content()
+    finish_description()
+    if sections:
+        fm["sections"] = sections
 
-            finish_block()
+    nested = fm.get("extra", {})
+    if isinstance(nested, dict):
+        fm.setdefault("author", nested.get("author", ""))
+        fm.setdefault("cover", nested.get("cover", ""))
 
-            if report_images:
-                fm["report_images"] = report_images
-
-            nested = fm.get("extra", {})
-            if isinstance(nested, dict):
-                fm.setdefault("author", nested.get("author", ""))
-                fm.setdefault("cover", nested.get("cover", ""))
-
-            body = raw_body
     return fm, body
 
 

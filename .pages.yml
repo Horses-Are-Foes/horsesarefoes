@@ -47,41 +47,35 @@ content:
         type: image
         options:
           media: images
-      - name: image_width
-        label: Inserted image width
-        hint: Sets the default size for images added in the report.
-        type: select
-        options:
-          values:
-            - { name: small, label: Small - 25 percent }
-            - { name: medium, label: Medium - 50 percent }
-            - { name: large, label: Large - 75 percent }
-            - { name: full, label: Full width }
-      - name: image_position
-        label: Inserted image position
-        hint: Sets the default position for images added in the report.
-        type: select
-        options:
-          values:
-            - { name: left, label: Left }
-            - { name: center, label: Center }
-            - { name: right, label: Right }
-      - name: report_images
-        label: Report images
-        hint: Add one row per image, then choose its size and position.
+      - name: sections
+        label: Report Content
+        hint: Add text and image blocks in the order they should appear in the report.
         type: block
         list: true
         blockKey: type
         blocks:
+          - name: text
+            label: Text
+            fields:
+              - name: content
+                label: Text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+                  switcher: true
           - name: image
+            label: Image
             fields:
               - name: image
                 label: Image
+                required: true
                 type: image
                 options:
                   media: images
               - name: width
                 label: Size
+                required: true
                 type: select
                 options:
                   values:
@@ -91,6 +85,7 @@ content:
                     - { name: full, label: Full width }
               - name: position
                 label: Position
+                required: true
                 type: select
                 options:
                   values:
@@ -100,13 +95,3 @@ content:
               - name: caption
                 label: Caption
                 type: string
-      - name: body
-        label: Report
-        hint: Use the visual editor to format text and insert images.
-        type: rich-text
-        options:
-          format: html
-          media: images
-          path: reports
-          rename: safe
-          switcher: true
