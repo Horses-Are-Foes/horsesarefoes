@@ -9,9 +9,7 @@ What it does:
     (markdown-authored posts).
   * Leaves hand-authored `index.html` posts untouched, but reads them for
     card metadata so old and new posts render consistently.
-  * Regenerates the LATEST REPORTS (newest 3) + ARCHIVE SUMMARIES sections in
-    `index.html` between the `<!-- LATEST REPORTS:BEGIN -->` /
-    `<!-- ARCHIVE SUMMARIES:END -->` markers.
+  * Regenerates the report list in `index.html` between its list markers.
 
 No third-party dependencies (tiny built-in markdown converter) so it runs on
 GitHub Pages previews and Netlify's build step with just Python 3.
@@ -679,33 +677,17 @@ def card_html(p: dict, label: str) -> str:
     )
 
 
-def header_section(title: str, size: int) -> str:
-    """Faithful rendering of a card-section header."""
-    return """      <center>
-        <font face="Comic Sans MS, cursive" size="{size}" color="#0000ff"><b>&#9733; {hdr} &#9733;</b></font>
-      </center>
-      <br>""".format(hdr=html.escape(title), size=size)
-
-
 def separator() -> str:
     """A <hr class="separator"> + <br> block, no trailing newline."""
     return '      <hr class="separator">\n      <br>'
 
 
 def build_home_cards(posts: list) -> str:
-    """Newest 3 -> LATEST REPORTS; the rest -> ARCHIVE SUMMARIES.
-
-    Returns the card region: LATEST header, three cards, a separator, the
-    ARCHIVE header, two cards, and a trailing separator. Each element is joined
-    by a single blank line, mirroring the committed home page. The region ends
-    with a blank line so main() can splice it just before the closing </td>.
-    """
-    blocks: list = [header_section("LATEST REPORTS", 4)]
-    for i, p in enumerate(posts):
-        if i == 3:
-            blocks.append(separator())
-            blocks.append(header_section("ARCHIVE SUMMARIES", 3))
-        blocks.append(card_html(p, "<!-- REPORT {} -->".format(i + 1)))
+    """Return every report card in one date-sorted list."""
+    blocks = [
+        card_html(post, "<!-- REPORT {} -->".format(index + 1))
+        for index, post in enumerate(posts)
+    ]
     blocks.append(separator())
     return "\n\n".join(blocks) + "\n\n"
 
@@ -755,28 +737,17 @@ def main() -> None:
         return
 
     home = open(HOME, encoding="utf-8").read()
-    # Splice between the LATEST REPORTS <center> header and the main body's
-    # closing </td> so no BEGIN/END markers are needed. home[:start] keeps the
-    # brand header above; home[end:] keeps the sidebar below.
-    star_idx = home.find("&#9733; LATEST REPORTS")
-    if star_idx == -1:
-        print("home index.html missing the LATEST REPORTS header; wrote cards to stdout")
+    # Replace only the generated card region, leaving the rest of the homepage intact.
+    begin_marker = "<!-- REPORT LIST:BEGIN -->"
+    end_marker = "<!-- REPORT LIST:END -->"
+    start = home.find(begin_marker)
+    end = home.find(end_marker)
+    if start == -1 or end == -1 or end < start:
+        print("home index.html missing report-list markers; wrote cards to stdout")
         print(cards)
     else:
-        # Splice with exact line anchors (no BEGIN/END markers). Build the
-        # committed page as lines: the "      <center>" opening the LATEST
-        # banner sits just above the banner, and the main content column closes
-        # at the first exact 4-space "    </td>" after it. This avoids the old
-        # substring matches that hit nested card </td> or the wrong <center>.
-        lines = home.split("\n")
-        banner = next(i for i, l in enumerate(lines) if "LATEST REPORTS" in l)
-        start = next(i for i in range(banner, -1, -1) if lines[i] == "      <center>")
-        end = next(i for i in range(banner, len(lines)) if lines[i] == "    </td>")
-        cards_lines = cards.split("\n")
-        while cards_lines and cards_lines[-1] == "":
-            cards_lines.pop()
-        cards_lines.append("")
-        home = "\n".join(lines[:start] + cards_lines + lines[end:])
+        start += len(begin_marker)
+        home = home[:start] + "\n" + cards + home[end:]
         open(HOME, "w", encoding="utf-8").write(home)
         print(f"rebuilt   index.html ({len(posts)} posts)")
 
