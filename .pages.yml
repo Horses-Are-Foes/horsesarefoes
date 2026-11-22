@@ -60,9 +60,10 @@ content:
               - name: content
                 label: Text
                 type: rich-text
+                hint: Images insert as Markdown. Add {width=50% align=center} after an image token to set sizing and position; supported alignments are left, center, and right.
                 options:
                   format: html
-                  media: false
+                  media: images
                   switcher: true
           - name: image
             label: Image

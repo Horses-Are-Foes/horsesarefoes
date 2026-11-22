@@ -219,6 +219,37 @@ def _normalize_asset(src: str, slug: str) -> str:
     return clean
 
 
+def _render_rich_text_images(content: str) -> str:
+    """Render Pages CMS Markdown image tokens as editable HTML image tags."""
+    image_pattern = re.compile(
+        r"!\[([^\]]*)\]\(([^)]+)\)(?:\{([^}]*)\})?"
+    )
+
+    def replace_image(match: re.Match[str]) -> str:
+        alt = html.escape(match.group(1).strip(), quote=True)
+        src = html.escape(match.group(2).strip(), quote=True)
+        options = dict(re.findall(r"(width|align)=([^\s]+)", match.group(3) or ""))
+
+        width_match = re.fullmatch(r"(\d+(?:\.\d+)?)%", options.get("width", "50%"))
+        width = min(float(width_match.group(1)), 100) if width_match else 50
+        align = options.get("align", "center")
+        if align == "left":
+            positioning = "float:left; margin:4px 16px 12px 0;"
+        elif align == "right":
+            positioning = "float:right; margin:4px 0 12px 16px;"
+        else:
+            align = "center"
+            positioning = "display:block; margin:12px auto;"
+
+        return (
+            '<img src="' + src + '" alt="' + alt + '" style="width:'
+            + str(width).removesuffix(".0") + '%; max-width:100%; height:auto; '
+            + positioning + '">'
+        )
+
+    return image_pattern.sub(replace_image, content)
+
+
 # ---------------------------------------------------------------------------
 # markdown post front matter -> rendered HTML
 # ---------------------------------------------------------------------------
@@ -234,7 +265,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
         width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
         for section in sections:
             if section.get("type") == "text":
-                section_parts.append(section.get("content", ""))
+                section_parts.append(_render_rich_text_images(section.get("content", "")))
                 continue
             if section.get("type") != "image":
                 continue
