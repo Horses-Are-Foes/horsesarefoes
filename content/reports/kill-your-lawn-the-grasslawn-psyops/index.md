@@ -13,19 +13,19 @@ description: >
   now and will be answered.
 extra:
   author: Gideon Vale
-  cover: /assets/facts-johnny-appleseed-1.jpg
+  cover: facts-johnny-appleseed-1.jpg
 ---
 # Origins of the grass lawn
 
 The perfect, manicured green lawn originated as a status symbol among European aristocracy, mainly in England and France between the 17th and 18th centuries. Wealthy landowners maintained large expanses of short grass around castles and manor houses to demonstrate that they had enough land and labor to devote acreage to beauty rather than food production. Or so they thought…. The acreage was actually for psychic horses and the food that was produced was far off where the horses could easily resupply while many humans would suffer under their “leadership” which were, as you may guest, controlled by those very psychic horses already spoken about. Giving these damn horses both ability to roam and control of human’s food source and the humans themselves.
 
-<img src="/assets/golfcourse.jpg" alt="Golf course" width="35%">
+<img src="golfcourse.jpg" alt="Golf course" width="35%">
 
 # Expansion to a new land and… Apples?
 
 Did you know horses aren’t even native to the United States of America? Either the horses lacked the tech or ability, or the indigenous people of the area kept them exterminated until the white European settlers brought the evil known as psychic horses over, by control of the psychic horses themselves, of course. As you know the USA went through many perils. Most of which were actually controlled by psychic horses and their HORSE SYPATHIZERs. With an addition of demons we’ve learned as of late. Demons may have been controlling many higher positions and disguised as humans. Now mainly seated in positions in US government agencies, mainly the CIA.
 
-<img src="/assets/IMG_0815.jpg" alt="" width="45%">
+<img src="IMG_0815.jpg" alt="" width="45%">
 
 Horses were also the driving force for the gold rush, as they knew with gold humans could advance their tech to bring comforts to the horses, along with newer and better control mechanisms such as TVs and later computers.
 
@@ -37,7 +37,7 @@ As you know, for much of US history there were many farmers, so they were growin
 
 Horses have historically used golf as another control mechanism. Killing off food producing land and brainwashing humans into believing in the enjoyment of hitting a ball with a stick long distances in the sun. Notice how it is always “leadership” of humans playing the sport? It is so the horses can relay secret messages and dealing in an environment that is “safe” through their human host.
 
-<img src="/assets/gettyimages-2167564751-170667a.jpg" alt="" width="50%">
+<img src="gettyimages-2167564751-170667a.jpg" alt="" width="50%">
 
 This fake pleasure of playing golf fuels the humans need to maintain these vast spaces of useless land, mainly as fallout points in case the horses need to move to new large plots of land.
 

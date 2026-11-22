@@ -731,11 +731,20 @@ def main() -> None:
 
     if os.path.isdir(CONTENT_REPORTS):
         for entry in sorted(os.listdir(CONTENT_REPORTS)):
-            if not entry.endswith(".md") or entry.startswith("_"):
+            if entry.startswith("_"):
                 continue
-            md_path = os.path.join(CONTENT_REPORTS, entry)
+            report_path = os.path.join(CONTENT_REPORTS, entry)
+            if os.path.isdir(report_path):
+                md_path = os.path.join(report_path, "index.md")
+                slug = entry
+            elif entry.endswith(".md"):
+                md_path = report_path
+                slug = os.path.splitext(entry)[0]
+            else:
+                continue
+            if not os.path.isfile(md_path):
+                continue
             fm, _ = split_front_matter(open(md_path, encoding="utf-8").read())
-            slug = os.path.splitext(entry)[0]
             published_raw = fm.get("date") or fm.get("published", "")
             posts.append({
                 "slug": slug,

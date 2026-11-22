@@ -11,6 +11,7 @@ content:
       template: "{fields.title}.md"
       field: false
     format: yaml-frontmatter
+    subfolders: true
     exclude:
       - _index.md
     fields:
