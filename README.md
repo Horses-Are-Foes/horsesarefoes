@@ -13,8 +13,9 @@ organizations, agencies, animals, or cryptids.
 ## Publishing
 
 The existing hand-authored HTML pages are copied through unchanged. New reports
-are written as Markdown in `content/reports/`, rendered by Zola, and listed at
-`/reports/`. Report metadata and images can be edited through Pages CMS at
+are Markdown bundles in `reports/<slug>/index.md`; the build renders their HTML
+pages and regenerates the homepage list and `/reports/` archive. Report metadata
+and images can be edited through Pages CMS at
 https://app.pagescms.org after signing in with GitHub and granting it access to
 this repository.
 

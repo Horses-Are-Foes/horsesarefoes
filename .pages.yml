@@ -6,14 +6,16 @@ content:
   - name: reports
     label: Reports
     type: collection
-    path: content/reports
+    path: reports
     filename:
-      template: "{fields.title}.md"
+      template: "{fields.title}/index.md"
       field: false
     format: yaml-frontmatter
     subfolders: true
     exclude:
-      - _index.md
+      - "**/*.html"
+      - "**/*.jpg"
+      - "**/*.png"
     fields:
       - name: title
         label: Title

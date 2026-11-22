@@ -9,7 +9,7 @@ What it does:
     (markdown-authored posts).
   * Leaves hand-authored `index.html` posts untouched, but reads them for
     card metadata so old and new posts render consistently.
-  * Regenerates the report list in `index.html` between its list markers.
+  * Regenerates the report lists in `index.html` and `reports/index.html`.
 
 No third-party dependencies (tiny built-in markdown converter) so it runs on
 GitHub Pages previews and Netlify's build step with just Python 3.
@@ -25,7 +25,6 @@ from datetime import date, datetime
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 REPORTS = os.path.join(REPO, "reports")
-CONTENT_REPORTS = os.path.join(REPO, "content", "reports")
 HOME = os.path.join(REPO, "index.html")
 DOMAIN = "https://horsesarefoes.com"
 LOGO = DOMAIN + "/assets/HAF_LOGO.png"
@@ -59,6 +58,12 @@ def parse_date(raw: str) -> datetime:
 
 def human_date(dt: datetime) -> str:
     return dt.strftime("%B ") + str(dt.day) + ", " + str(dt.year)
+
+
+def display_date(raw: str, dt: datetime) -> str:
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw.strip()):
+        return human_date(dt)
+    return raw or human_date(dt)
 
 
 # ---------------------------------------------------------------------------
@@ -200,8 +205,9 @@ def _normalize_asset(src: str, slug: str) -> str:
 def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     title = fm.get("title") or slug
     author = fm.get("author") or "Gideon Vale"
-    dt = parse_date(fm.get("published", ""))
-    published = fm.get("published") or human_date(dt)
+    published_raw = fm.get("published") or fm.get("date", "")
+    dt = parse_date(published_raw)
+    published = display_date(published_raw, dt)
     body = md_to_html(body_md)
 
     # Cover front matter wins; fall back to the first image in the body.
@@ -344,7 +350,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
                   <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>&#9733;</b></font>
                   <br>
                   <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>{title}</b></font>
-                  {subtitle_line}
+{subtitle_line}
                   <br>
                   <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>&#9733;</b></font>
                 </td>
@@ -608,7 +614,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
         author=html.escape(author),
         published=html.escape(published),
         warning=html.escape(warning),
-        subtitle_line=("<br>" + html.escape(subtitle) if subtitle else ""),
+        subtitle_line=("                  <br>" + html.escape(subtitle) if subtitle else ""),
         body=body,
         site=DOMAIN,
         slug=slug,
@@ -638,7 +644,7 @@ def split_front_matter(text: str):
 # ---------------------------------------------------------------------------
 # home-page cards
 # ---------------------------------------------------------------------------
-def card_html(p: dict, label: str) -> str:
+def card_html(p: dict, label: str, path_prefix: str = "reports/") -> str:
     """One report card: the HTML comment marker, the two-cell table, trailing <br>.
 
     The marker is rendered verbatim (e.g. ``<!-- REPORT 1 -->``) so the rebuilt
@@ -648,12 +654,17 @@ def card_html(p: dict, label: str) -> str:
     _cover = _normalize_asset(p["cover"], p["slug"])
     if not _cover:
         img = ""
-    elif re.match(r"^\s*https?://", _cover) or "/" in _cover:
+    elif re.match(r"^\s*https?://", _cover):
+        img = _cover
+    elif _cover.startswith("assets/"):
+        img = _cover if path_prefix else "../" + _cover
+    elif "/" in _cover:
         img = _cover
     else:
-        img = "reports/" + p["slug"] + "/" + _cover
+        img = path_prefix + p["slug"] + "/" + _cover
+    href = path_prefix + p["slug"] + "/index.html"
     author = html.escape(p["author"])
-    published = html.escape(p["published_raw"] or human_date(p["published_key"]))
+    published = html.escape(display_date(p["published_raw"], p["published_key"]))
     return """      {label}
       <table width="100%" border="1" cellpadding="8" cellspacing="0" bgcolor="#f5f5f5" style="border-style: outset;">
         <tr>
@@ -664,7 +675,7 @@ def card_html(p: dict, label: str) -> str:
             <font face="Times New Roman, Times, serif" size="3" color="#0000ff"><b>{title}</b></font><br>
             <font face="Times New Roman, Times, serif" size="2" color="#000000">by <font color="#ff0000"><b>{author}</b></font></font><br>
             <font face="Courier New, monospace" size="1" color="#808080">Published: {published}</font><br>
-            <a href="reports/{slug}/index.html"><font face="Times New Roman, Times, serif" size="2" color="#0000ff"><u>[ READ REPORT ]</u></font></a>
+            <a href="{href}"><font face="Times New Roman, Times, serif" size="2" color="#0000ff"><u>[ READ REPORT ]</u></font></a>
           </td>
         </tr>
       </table>
@@ -675,6 +686,7 @@ def card_html(p: dict, label: str) -> str:
         author=author,
         published=published,
         slug=p["slug"],
+        href=href,
     )
 
 
@@ -691,6 +703,31 @@ def build_home_cards(posts: list) -> str:
     ]
     blocks.append(separator())
     return "\n\n".join(blocks) + "\n\n"
+
+
+def build_archive_page(posts: list) -> str:
+    cards = "\n\n".join(
+        card_html(post, "<!-- REPORT {} -->".format(index + 1), path_prefix="")
+        for index, post in enumerate(posts)
+    )
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports | Horses Are Foes</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../assets/HAF_LOGO.png">
+</head>
+<body>
+  <div class="marquee-bar"><font face="Courier New, monospace" size="2" color="#00ff00">+++ REPORT ARCHIVE +++</font></div>
+  <p><a href="../index.html">[ Home ]</a></p>
+  <center><font face="Comic Sans MS, cursive" size="5" color="#0000ff"><b>REPORT ARCHIVE</b></font></center>
+  <hr class="separator">
+  {cards}
+</body>
+</html>
+""".format(cards=cards)
 
 
 # ---------------------------------------------------------------------------
@@ -711,13 +748,14 @@ def main() -> None:
             fm, body = split_front_matter(open(md_path, encoding="utf-8").read())
             html_doc = render_markdown_post(fm, body, slug)
             open(html_path, "w", encoding="utf-8").write(html_doc)
+            published_raw = fm.get("published") or fm.get("date", "")
             posts.append({
                 "slug": slug,
                 "title": fm.get("title", slug),
-                "subtitle": fm.get("subtitle", ""),
+                "subtitle": fm.get("subtitle") or fm.get("description", ""),
                 "author": fm.get("author", "Gideon Vale"),
-                "published_raw": fm.get("published", ""),
-                "published_key": parse_date(fm.get("published", "")),
+                "published_raw": published_raw,
+                "published_key": parse_date(published_raw),
                 "cover": fm.get("cover", ""),
             })
             print(f"rendered  {slug}  (markdown)")
@@ -729,36 +767,12 @@ def main() -> None:
             print(f"scanned   {slug}  ({p['title']})")
             posts.append(p)
 
-    if os.path.isdir(CONTENT_REPORTS):
-        for entry in sorted(os.listdir(CONTENT_REPORTS)):
-            if entry.startswith("_"):
-                continue
-            report_path = os.path.join(CONTENT_REPORTS, entry)
-            if os.path.isdir(report_path):
-                md_path = os.path.join(report_path, "index.md")
-                slug = entry
-            elif entry.endswith(".md"):
-                md_path = report_path
-                slug = os.path.splitext(entry)[0]
-            else:
-                continue
-            if not os.path.isfile(md_path):
-                continue
-            fm, _ = split_front_matter(open(md_path, encoding="utf-8").read())
-            published_raw = fm.get("date") or fm.get("published", "")
-            posts.append({
-                "slug": slug,
-                "title": fm.get("title", slug),
-                "subtitle": fm.get("description", ""),
-                "author": fm.get("author", "Gideon Vale"),
-                "published_raw": published_raw,
-                "published_key": parse_date(published_raw),
-                "cover": fm.get("cover", ""),
-            })
-            print(f"scanned   {slug}  ({fm.get('title', slug)})")
-
     posts.sort(key=lambda p: p["published_key"], reverse=True)
     cards = build_home_cards(posts)
+    archive_path = os.path.join(REPORTS, "index.html")
+    with open(archive_path, "w", encoding="utf-8") as archive_file:
+        archive_file.write(build_archive_page(posts))
+    print(f"rebuilt   reports/index.html ({len(posts)} posts)")
 
     if not os.path.exists(HOME):
         print("home index.html not found; wrote cards to stdout instead")
