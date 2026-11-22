@@ -1,11 +1,9 @@
 # Netlify build settings for the Horses Are Foes site.
-# Every push to GitHub (commit, branch change, tag, merge) triggers this:
-#   the report builder refreshes legacy report cards, then Zola stages the
-#   existing site and renders new Markdown reports into the publish directory.
+# Every push to GitHub (commit, branch change, tag, merge) rebuilds the report
+# pages and copies the finished static site into the publish directory.
 [build]
   command  = "python build_reports.py && python build_site.py"
   publish  = "public"
 
 [build.environment]
   PYTHON_VERSION = "3.13"
-  ZOLA_VERSION = "0.23.6"

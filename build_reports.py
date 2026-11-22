@@ -219,37 +219,6 @@ def _normalize_asset(src: str, slug: str) -> str:
     return clean
 
 
-def _render_rich_text_images(content: str) -> str:
-    """Render Pages CMS Markdown image tokens as editable HTML image tags."""
-    image_pattern = re.compile(
-        r"!\[([^\]]*)\]\(([^)]+)\)(?:\{([^}]*)\})?"
-    )
-
-    def replace_image(match: re.Match[str]) -> str:
-        alt = html.escape(match.group(1).strip(), quote=True)
-        src = html.escape(match.group(2).strip(), quote=True)
-        options = dict(re.findall(r"(width|align)=([^\s]+)", match.group(3) or ""))
-
-        width_match = re.fullmatch(r"(\d+(?:\.\d+)?)%", options.get("width", "50%"))
-        width = min(float(width_match.group(1)), 100) if width_match else 50
-        align = options.get("align", "center")
-        if align == "left":
-            positioning = "float:left; margin:4px 16px 12px 0;"
-        elif align == "right":
-            positioning = "float:right; margin:4px 0 12px 16px;"
-        else:
-            align = "center"
-            positioning = "display:block; margin:12px auto;"
-
-        return (
-            '<img src="' + src + '" alt="' + alt + '" style="width:'
-            + str(width).removesuffix(".0") + '%; max-width:100%; height:auto; '
-            + positioning + '">'
-        )
-
-    return image_pattern.sub(replace_image, content)
-
-
 # ---------------------------------------------------------------------------
 # markdown post front matter -> rendered HTML
 # ---------------------------------------------------------------------------
@@ -259,40 +228,6 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     published_raw = fm.get("published") or fm.get("date", "")
     published = display_date(published_raw, parse_date(published_raw))
     body = md_to_html(body_md)
-    sections = fm.get("sections", [])
-    if sections:
-        section_parts = []
-        width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
-        for section in sections:
-            if section.get("type") == "text":
-                section_parts.append(_render_rich_text_images(section.get("content", "")))
-                continue
-            if section.get("type") != "image":
-                continue
-
-            image_src = _normalize_asset(section.get("image", ""), slug)
-            if not image_src:
-                continue
-            if image_src.startswith("http://") or image_src.startswith("https://"):
-                rendered_src = image_src
-            elif image_src.startswith("assets/"):
-                rendered_src = "../../" + image_src
-            else:
-                rendered_src = image_src
-
-            width = width_styles.get(section.get("width", "medium"), "50%")
-            position = section.get("position", "center")
-            if position not in ("left", "center", "right"):
-                position = "center"
-            align = {"left": "left", "center": "center", "right": "right"}[position]
-            caption = html.escape(section.get("caption", ""), quote=False)
-            section_parts.append(
-                '<div class="report-image report-image-' + width_styles.get(section.get("width", "medium"), "medium") + ' report-image-' + position + '" style="text-align:' + align + ';">'
-                '<img src="' + html.escape(rendered_src, quote=True) + '" alt="' + caption + '" style="width:' + width + '; max-width:100%; height:auto;">'
-                + (('<br><font size="1"><i>' + caption + '</i></font>') if caption else '')
-                + '</div>'
-            )
-        body = "".join(section_parts)
     warning = fm.get("warning") or "INVESTIGATION REPORT"
     subtitle = fm.get("subtitle", "")
     description = title + " - investigation report by " + author + "."

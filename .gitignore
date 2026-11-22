@@ -1,2 +1,4 @@
 /public/
-/static/
+/.venv/
+__pycache__/
+*.py[cod]
