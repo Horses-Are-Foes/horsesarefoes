@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock %}
+{% block content %}
+  <header class="page-heading">
+    <p class="eyebrow">Investigation archive</p>
+    <h1>{{ section.title }}</h1>
+    <p>{{ section.description | default(value=section.content) | safe }}</p>
+  </header>
+  {% if section.pages %}
+    <ol class="report-list">
+      {% for page in section.pages %}
+        <li>
+          <a class="report-entry" href="{{ page.permalink }}">
+            {% if page.extra.cover %}
+              <img src="{{ page.extra.cover }}" alt="">
+            {% endif %}
+            <span class="report-copy">
+              <span class="report-title">{{ page.title }}</span>
+              {% if page.description %}<span>{{ page.description }}</span>{% endif %}
+              <span class="report-meta">
+                {% if page.extra.author %}{{ page.extra.author }}{% endif %}
+                {% if page.date %} · {{ page.date | date(format="%B %d, %Y") }}{% endif %}
+              </span>
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="empty-state">No new reports have been published yet.</p>
+  {% endif %}
+{% endblock %}

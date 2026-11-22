@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light;
+  font-family: "Times New Roman", Times, serif;
+  color: #171717;
+  background: #f4f3e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: #fff;
+  min-height: 100vh;
+  border-left: 1px solid #c8c8bc;
+  border-right: 1px solid #c8c8bc;
+}
+
+a { color: #0000b8; }
+a:visited { color: #6d176d; }
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 3px double #a60000;
+  padding: 18px 0 14px;
+}
+
+.site-name { font-weight: bold; font-size: 20px; color: #9c0000; }
+.site-header nav { display: flex; gap: 18px; }
+main { padding: 34px 0 60px; }
+.page-heading { border-bottom: 1px solid #c5c5b8; margin-bottom: 24px; padding-bottom: 18px; }
+.eyebrow { color: #8d0000; font: bold 12px "Courier New", monospace; text-transform: uppercase; }
+h1 { font-size: 34px; line-height: 1.12; margin: 8px 0 12px; }
+.dek { font-size: 18px; max-width: 70ch; }
+.report-meta { color: #555; font: 13px "Courier New", monospace; }
+.report-list { padding: 0; list-style: none; }
+.report-list li { border-bottom: 1px dotted #999; }
+.report-entry { display: flex; align-items: center; gap: 18px; padding: 16px 0; text-decoration: none; }
+.report-entry img { width: 96px; height: 96px; object-fit: cover; border: 2px ridge #aaa; }
+.report-copy { display: grid; gap: 6px; color: #222; }
+.report-title { color: #0000b8; font-size: 20px; font-weight: bold; }
+.report-body { font-size: 18px; line-height: 1.65; }
+.report-body img, .cover { display: block; max-width: 100%; height: auto; }
+.cover { max-height: 480px; object-fit: contain; margin-top: 20px; }
+.report-body h2, .report-body h3 { line-height: 1.25; }
+.back-link { display: inline-block; margin-bottom: 24px; }
+.empty-state { padding: 18px 0; }
+footer { border-top: 1px solid #c5c5b8; padding: 18px 0 28px; font-size: 14px; }
+
+@media (max-width: 560px) {
+  body { padding: 0 16px; }
+  .site-header { align-items: flex-start; flex-direction: column; }
+  .site-header nav { gap: 14px; }
+  h1 { font-size: 28px; }
+  .report-entry { align-items: flex-start; }
+  .report-entry img { width: 72px; height: 72px; }
+}

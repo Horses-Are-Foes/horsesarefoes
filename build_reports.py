@@ -6,7 +6,7 @@ site always reflects every report in `reports/`.
 
 What it does:
   * Renders `reports/<slug>/index.md`  ->  `reports/<slug>/index.html`
-    (markdown posts created via the CMS).
+    (markdown-authored posts).
   * Leaves hand-authored `index.html` posts untouched, but reads them for
     card metadata so old and new posts render consistently.
   * Regenerates the LATEST REPORTS (newest 3) + ARCHIVE SUMMARIES sections in
@@ -180,7 +180,7 @@ def md_to_html(md: str) -> str:
 def _normalize_asset(src: str, slug: str) -> str:
     """Return a media path relative to the post directory.
 
-    The CMS image picker can store a cover as the media path
+    A cover can be stored as the media path
     (``assets/x.png``), the public path (``/reports/<slug>/assets/x.png``),
     or an absolute URL. Normalise all three to something the site serves at
     ``reports/<slug>/``. Returns "" when there is no usable source.

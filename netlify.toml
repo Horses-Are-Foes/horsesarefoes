@@ -1,11 +1,11 @@
 # Netlify build settings for the Horses Are Foes site.
 # Every push to GitHub (commit, branch change, tag, merge) triggers this:
-#   Netlify runs the build below, which regenerates reports/<slug>/index.html
-#   for every report AND stitches the home page (index.html) together,
-#   then publishes the whole repo.
+#   the report builder refreshes legacy report cards, then Zola stages the
+#   existing site and renders new Markdown reports into the publish directory.
 [build]
-  command  = "python build_reports.py"
-  publish  = "."
+  command  = "python build_reports.py && python build_site.py"
+  publish  = "public"
 
-# The build uses only the Python standard library (re, datetime, json, os),
-# so no pip install step is required on Netlify's Python runtime.
+[build.environment]
+  PYTHON_VERSION = "3.13"
+  ZOLA_VERSION = "0.23.6"

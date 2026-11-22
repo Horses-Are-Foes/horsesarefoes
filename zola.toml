@@ -1,0 +1,8 @@
+base_url = "https://horsesarefoes.com"
+title = "Horses Are Foes"
+description = "The Horses Are Foes investigation archive."
+output_dir = "public"
+compile_sass = false
+generate_feeds = false
+generate_sitemap = false
+generate_robots_txt = false

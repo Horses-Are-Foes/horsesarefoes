@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+    <link rel="stylesheet" href="{{ get_url(path='zola.css') }}">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-name" href="{{ get_url(path='') }}">Horses Are Foes</a>
+      <nav aria-label="Main navigation">
+        <a href="{{ get_url(path='') }}">Home</a>
+        <a href="{{ get_url(path='reports/') }}">Reports</a>
+      </nav>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <a href="{{ get_url(path='') }}">Return to the main site</a>
+    </footer>
+  </body>
+</html>

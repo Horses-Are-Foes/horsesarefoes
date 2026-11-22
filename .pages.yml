@@ -1,0 +1,40 @@
+media:
+  input: assets
+  output: /assets
+
+content:
+  - name: reports
+    label: Reports
+    type: collection
+    path: content/reports
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    exclude:
+      - _index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Publication date
+        type: date
+        required: true
+      - name: description
+        label: Summary
+        type: text
+      - name: extra
+        label: Report details
+        type: object
+        fields:
+          - name: author
+            label: Author
+            type: string
+          - name: cover
+            label: Cover image
+            type: image
+      - name: body
+        label: Report
+        type: rich-text
