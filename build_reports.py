@@ -162,10 +162,28 @@ def md_to_html(md: str) -> str:
         if not lines or all(l.strip() == "" for l in lines):
             continue
         first = lines[0].strip()
-        if first.startswith("#"):
+        if re.fullmatch(r"<img\b[^>]*>", first, re.I):
+            width_match = re.search(r'\bwidth=["\'](\d+(?:\.\d+)?)%["\']', first, re.I)
+            if width_match:
+                width = round(float(width_match.group(1)) * 9)
+                first = re.sub(
+                    r'\bwidth=["\']\d+(?:\.\d+)?%["\']',
+                    f'width="{width}" style="max-width: 90%; height: auto;"',
+                    first,
+                    count=1,
+                    flags=re.I,
+                )
+            out.append(
+                '<br><center><table border="3" cellpadding="5" cellspacing="0" '
+                'bgcolor="#fffff0" style="border-style: outset;"><tr><td align="center">'
+                + first + '</td></tr></table></center><br>'
+            )
+        elif first.startswith("#"):
             level = len(first) - len(first.lstrip("#"))
             level = min(max(level, 1), 3)
-            out.append("<h%d>%s</h%d>" % (level, _inline(first.lstrip("#")), level))
+            size = max(2, 5 - level)
+            heading = _inline(first.lstrip("#").strip())
+            out.append('<center><font size="%d"><b>%s</b></font></center><br>' % (size, heading))
         elif first.startswith(">"):
             inner = " ".join(l.lstrip("> ").strip() for l in lines)
             out.append('<blockquote>' + _inline(inner) + "</blockquote>")
@@ -206,18 +224,17 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     title = fm.get("title") or slug
     author = fm.get("author") or "Gideon Vale"
     published_raw = fm.get("published") or fm.get("date", "")
-    dt = parse_date(published_raw)
-    published = display_date(published_raw, dt)
+    published = display_date(published_raw, parse_date(published_raw))
     body = md_to_html(body_md)
+    warning = fm.get("warning") or "INVESTIGATION REPORT"
+    subtitle = fm.get("subtitle", "")
+    description = title + " - investigation report by " + author + "."
+    title_text = html.escape(title, quote=False)
+    title_attr = html.escape(title, quote=True)
+    author_text = html.escape(author, quote=False)
+    description_attr = html.escape(description, quote=True)
 
-    # Cover front matter wins; fall back to the first image in the body.
-    first_img = fm.get("cover", "")
-    if not first_img:
-        for m in re.finditer(r"!\[[^\]]*\]\(([^)]+)\)", body_md):
-            first_img = m.group(1).strip()
-            break
-    cover_src = _normalize_asset(first_img, slug)
-    # Absolute URLs are served verbatim; everything else is repo-relative.
+    cover_src = _normalize_asset(fm.get("cover", ""), slug)
     if not cover_src:
         og_image = LOGO
     elif re.match(r"^\s*https?://", cover_src):
@@ -227,400 +244,121 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     else:
         og_image = DOMAIN + "/reports/" + slug + "/" + cover_src
 
-    warning = fm.get("warning") or ("NEW REPORT — " + title)
-    subtitle = fm.get("subtitle", "")
-    desc = (title + " — investigation report by " + author + ".")
+    template_path = os.path.join(REPORTS, "faerie-lights-swamp-gas", "index.html")
+    with open(template_path, encoding="utf-8") as template_file:
+        page = template_file.read()
 
-    return """<html>
-<head>
-<title>{title} | Horses Are Foes</title>
-<meta name="description" content="{desc}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../style.css">
-<link rel="icon" href="../../assets/HAF_LOGO.png">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{desc}">
-<meta property="og:image" content="{og_image}">
-<meta property="og:url" content="{site}/reports/{slug}/">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Horses Are Foes">
-<link rel="canonical" href="{site}/reports/{slug}/">
-</head>
+    head_start = page.index("<head>")
+    head_end = page.index("</head>", head_start) + len("</head>")
+    head = f'''<head>
+  <meta charset="UTF-8">
+  <title>{title_text} | Horses Are Foes</title>
+  <meta name="description" content="{description_attr}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="/assets/HAF_LOGO.png">
+  <meta property="og:title" content="{title_attr}">
+  <meta property="og:description" content="{description_attr}">
+  <meta property="og:image" content="{html.escape(og_image, quote=True)}">
+  <meta property="og:url" content="{DOMAIN}/reports/{slug}/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{DOMAIN}/reports/{slug}/">
+</head>'''
+    page = page[:head_start] + head + page[head_end:]
 
-<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#663399">
-
-<table align="center" width="100%" border="0" cellpadding="10" cellspacing="0" bgcolor="#F5F5F0">
-<tr>
-  <td>
-
-    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333300" style="border-style: inset;">
-      <tr>
-        <td align="center">
-          <marquee behavior="scroll" scrollamount="5"
-                   style="color: #FFFF66; font-family: Comic Sans MS, cursive;">
-            <font face="Comic Sans MS, cursive" size="3" color="#FFFF66"><b>&#9733; {warning} &#9733;
-            SUBMIT YOUR OWN REPORT &#9733; HORSES ARE FOES &#9733;</b></font>
-          </marquee>
-        </td>
-      </tr>
-    </table>
-
-    <br>
-
-    <center>
-      <font face="Courier New, monospace" size="1" color="#333333">
-        <a href="../../index.html" class="hl"><font color="#0000CC"><u>HOME</u></font></a>
-        &nbsp;>&nbsp;
-        <font color="#333333">REPORT</font>
-        &nbsp;>&nbsp;
-        <font color="#333333">{title}</font>
-      </font>
-    </center>
-
-    <br>
-
-    <table align="center" width="100%" border="0" cellpadding="5" cellspacing="0">
-      <tr>
-        <td width="150" valign="top" bgcolor="#F5F5F0">
-
-          <table align="center" width="130" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td align="center">
-                <font face="Times New Roman, Times, serif" size="2" color="#333300">
-                  <b>&#9733; HORSES ARE FOES &#9733;</b>
-                </font>
-                <br>
-                <img src="../../assets/HAF_LOGO.png" alt="Horses Are Foes" width="130" height="130" border="2"
-                     style="border-radius: 0px;">
-              </td>
-            </tr>
-          </table>
-
-          <hr size="2" noshade style="border-style: outset;">
-
-          <center>
-            <font face="Times New Roman, Times, serif" size="2" color="#333300">
-              <b>&#9733; REPORTS &#9733;</b>
-            </font>
-          </center>
-          <br>
-
-          <ul>
-            <li><font face="Times New Roman, Times, serif" size="2"><a href="../top-5-underground-horse-cities/index.html" class="hl"><u>Underground Horse Cities</u></a></font></li>
-            <li><font face="Times New Roman, Times, serif" size="2"><a href="../faerie-lights-swamp-gas/index.html" class="hl"><u>Faerie Lights &amp; Swamp Gas</u></a></font></li>
-            <li><font face="Times New Roman, Times, serif" size="2"><a href="../the-dust/index.html" class="hl"><u>The Dust</u></a></font></li>
-          </ul>
-
-          <hr size="2" noshade style="border-style: outset;">
-
-          <center>
-            <font face="Times New Roman, Times, serif" size="2" color="#333300">
-              <b>&#9733; ARCHIVE &#9733;</b>
-            </font>
-          </center>
-          <br>
-          <center>
-            <table border="0" cellpadding="4" cellspacing="0" style="border-style: outset;">
-              <tr><td align="center"><img src="../../assets/HAF_LOGO.png" alt="Horses Are Foes" width="100" height="100" border="1"></td></tr>
-              <tr><td align="center"><font face="Times New Roman, Times, serif" size="1">EST. 1998</font></td></tr>
-            </table>
-          </center>
-
-        </td>
-
-        <td valign="top" bgcolor="#FFFFFF">
-
-          <center>
-            <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; REPORT BY &#9733;</b></font>
-          </center>
-          <center>
-            <font face="Times New Roman, Times, serif" size="3" color="#333300"><b>{author}</b></font><br>
-            <font face="Courier New, monospace" size="1" color="#808080">Investigator, Horses Are Foes</font><br>
-            <font face="Courier New, monospace" size="1" color="#808080">Published: {published}</font>
-            <br>
-          </center>
-
-          <hr class="separator">
-
-          <center>
-            <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0"
-                   style="border-collapse: collapse;">
-              <tr>
-                <td align="center">
-                  <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>&#9733;</b></font>
-                  <br>
-                  <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>{title}</b></font>
-{subtitle_line}
-                  <br>
-                  <font face="Comic Sans MS, cursive" size="5" color="#333300"><b>&#9733;</b></font>
-                </td>
-              </tr>
-            </table>
-          </center>
-
-          <hr class="separator">
-
-          <br>
-
-          <center>
-            <table align="center" width="90%" border="0" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF">
-              <tr>
-                <td>
-                  {body}
-                </td>
-              </tr>
-            </table>
-          </center>
-
-          <br>
-
-          <hr class="separator">
-
-          <br>
-          <center>
-            <font face="Comic Sans MS, cursive" size="4" color="#0000ff"><b>&#9733; REPORT BY &#9733;</b></font>
-          </center>
-          <br>
-
-          <br>
-
-        </td>
-
-        <td width="150" valign="top" bgcolor="#F5F5F0"
-             style="border-left: 2px dashed #999999;">
-        </td>
-      </tr>
-    </table>
-
-    <br>
-
-    <center>
-      <table align="center" width="80%" border="0" cellpadding="0" cellspacing="0"
-             bgcolor="#FFFF00" style="border-style: inset;">
-        <tr>
-          <td>
-            <table align="center" width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#FFFF00"
-                   style="border-style: inset;">
-              <tr>
-                <td align="center">
-                  <font face="Comic Sans MS, cursive" size="3" color="#333300"><b>&#9733; REPORT &#9733;</b></font>
-                  <br>
-                  <table align="center" width="300" border="0" cellpadding="4" cellspacing="0">
-                    <tr>
-                      <td align="right" width="60"><font face="Times New Roman, Times, serif" size="2">Report by:</font></td>
-                      <td align="left"><font face="Times New Roman, Times, serif" size="2" color="#333300"><b>{author}</b></font></td>
-                    </tr>
-                    <tr>
-                      <td align="right"><font face="Courier New, monospace" size="1" color="#808080">Published:</font></td>
-                      <td align="left"><font face="Courier New, monospace" size="1" color="#808080">{published}</font></td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </center>
-
-    <br>
-
-    <table align="center" width="100%" border="1" cellpadding="5" cellspacing="0"
-           bgcolor="#FFFF99" style="border-style: inset;">
-      <tr>
-        <td align="center">
-          <table align="center" width="90%" border="0" cellpadding="6" cellspacing="0">
-            <tr>
-              <td width="100" align="center" valign="middle">
-                <font face="Comic Sans MS, cursive" size="3" color="#0000ff"><b>&#9733;</b></font>
-              </td>
-              <td valign="middle">
-                <font face="Comic Sans MS, cursive" size="3" color="#0000ff"><b>&#9733;
-                REPORT &#9733; &#9733; &#9733;</b></font>
-              </td>
-              <td width="100" align="center" valign="middle">
-                <font face="Comic Sans MS, cursive" size="3" color="#0000ff"><b>&#9733;</b></font>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-
-    <br>
-
-    <hr class="separator">
-
-    <br>
-
-    <center>
-      <table align="center" width="90%" border="0" cellpadding="5" cellspacing="0"
-           style="border-collapse: collapse;">
-        <tr>
-          <td width="50%" align="left" valign="middle">
-            <table align="center" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFF00"
-                   style="border-style: outset;">
-              <tr>
-                <td>
-                  <font face="Comic Sans MS, cursive" size="3" color="#0000ff">
-                    <a href="../" class="hl"><font color="#0000ff"><b>&#9733; RETURN TO REPORTS &#9733;</b></font></a>
-                  </font>
-                </td>
-              </tr>
-            </table>
-          </td>
-          <td width="50%" align="right" valign="middle">
-            <font face="Courier New, monospace" size="1" color="#808080">
-              A Horses Are Foes Production &copy; 1998-2026. All horses reserved.
-            </font>
-          </td>
-        </tr>
-      </table>
-    </center>
-
-    <br>
-
-    <hr class="separator">
-
-    <br>
-
-    <table align="center" width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#FFFF99" style="border-style: inset;">
-      <tr>
-        <td align="center">
-          <table align="center" width="100%" border="0" cellpadding="5" cellspacing="0">
-            <tr>
-              <td align="left" width="100" valign="top">
-                <table align="center" border="0" cellpadding="3" cellspacing="0" style="border-style: inset;">
-                  <tr>
-                    <td><a href="../../index.html" class="hl"><font face="Comic Sans MS, cursive" size="2" color="#333300"><b>&#9733; &#9733; HORSERS ARE FOES &#9733; &#9733;</b></font></a></td>
-                  </tr>
-                </table>
-              </td>
-              <td align="center" width="100" valign="top">
-                <table align="center" border="0" cellpadding="3" cellspacing="0" style="border-style: inset;">
-                  <tr>
-                    <td align="center"><font face="Comic Sans MS, cursive" size="2" color="#333300"><b>&#9733; &#9733; ABOUT &#9733; &#9733;</b></font></td>
-                  </tr>
-                  <tr>
-                    <td align="center"><img src="../../assets/HAF_LOGO.png" alt="Horses Are Foes" width="80" height="80" border="1"></td>
-                  </tr>
-                </table>
-              </td>
-              <td align="right" width="100" valign="top">
-                <table align="center" border="0" cellpadding="3" cellspacing="0" style="border-style: inset;">
-                  <tr>
-                    <td align="right"><font face="Comic Sans MS, cursive" size="2" color="#333300"><b>&#9733; &#9733; &#9733; &#9733; &#9733;</b></font></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <hr size="2" noshade style="border-style: outset;">
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <font face="Courier New, monospace" size="1" color="#808080">
-            This page is part of the Horses Are Foes network. &copy; 1998-2026 All horses reserved.
-          </font>
-        </td>
-      </tr>
-    </table>
-
-    <br>
-
-    <table align="center" width="80%" border="0" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center">
-          <center>
-            <font face="Times New Roman, Times, serif" size="2">
-              <br>
-              <a href="../../index.html" class="hl"><font color="#0000CC"><b>&#9733; HOME</b></font></a>
-              &nbsp;|&nbsp;
-              <font color="#333333">Report archive</font>
-              <br>
-              <br>
-            </font>
-          </center>
-        </td>
-      </tr>
-    </table>
-
-    <br>
-
-    <div id="counter" align="center">
-      <table border="0" cellpadding="0" cellspacing="0" align="center">
-        <tr>
-          <td align="center">
-            <font face="Courier New, monospace" size="1" color="#808080">VISITORS:</font><br>
-            <table border="2" cellpadding="3" cellspacing="0" bgcolor="#333333" align="center"
-                   style="border-style: inset;">
-              <tr>
-                <td align="center"><font face="Courier New, monospace" size="4" color="#00FF00">00004206</font></td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <br>
-
-    <center>
-      <font face="Times New Roman, Times, serif" size="1" color="#333333">
-        This page is part of the Horses Are Foes network.
-      </font>
-    </center>
-
-    <br>
-
-    <center>
-      <font face="Courier New, monospace" size="1" color="#333333">
-        <br>
-        This site is optimised to be viewed at 800 x 600 resolution.
-        <br>
-        Best viewed with any 256-colour browser.
-        <br>
-        &copy; 1998-2026 Horses Are Foes. All horses reserved.
-        <br>
-        <br>
-        You are visitor number
-        <font color="#FF0000"><b>00004206</b></font>
-        to this page.
-        <br>
-        <br>
-      </font>
-    </center>
-
-  </td>
-</tr>
+    banner_start = page.index("<!-- MARQUEE BANNER -->")
+    breadcrumb_start = page.index("<!-- BREADCRUMB -->", banner_start)
+    banner = f'''<!-- MARQUEE BANNER -->
+<table width="100%" bgcolor="#000080" cellpadding="3" cellspacing="0">
+  <tr>
+    <td align="center">
+      <marquee scrollamount="3" behavior="scroll" direction="left">
+        <font face="Courier New, monospace" size="2" color="#ffffff">
+          &#9733; {html.escape(warning, quote=False)} &#9733; HORSES ARE FOES &#9733;
+        </font>
+      </marquee>
+    </td>
+  </tr>
 </table>
 
-<script>
-  try {{
-    var ref = document.referrer;
-    var img = new Image();
-    img.src = "../../cgi-bin/counter.gif?ref=" + encodeURIComponent(ref);
-  }} catch (e) {{}}
-</script>
+'''
+    page = page[:banner_start] + banner + page[breadcrumb_start:]
 
-</body>
-</html>""".format(
-        title=html.escape(title),
-        author=html.escape(author),
-        published=html.escape(published),
-        warning=html.escape(warning),
-        subtitle_line=("                  <br>" + html.escape(subtitle) if subtitle else ""),
-        body=body,
-        site=DOMAIN,
-        slug=slug,
-        og_image=html.escape(og_image),
-        desc=html.escape(desc),
+    breadcrumb_start = page.index("<!-- BREADCRUMB -->")
+    layout_start = page.index("<!-- MAIN LAYOUT TABLE -->", breadcrumb_start)
+    breadcrumb = f'''<!-- BREADCRUMB -->
+<table width="100%" cellpadding="4" cellspacing="0">
+  <tr>
+    <td>
+      <font face="Courier New, monospace" size="1" color="#808080">
+        <a href="../../index.html"><font color="#0000ff"><u>[ Home ]</u></font></a> &gt; <b>Reports</b> &gt; <b>{title_text}</b>
+      </font>
+    </td>
+  </tr>
+</table>
+
+'''
+    page = page[:breadcrumb_start] + breadcrumb + page[layout_start:]
+
+    content_start = page.index("<!-- MAIN CONTENT AREA -->")
+    right_sidebar_start = page.index(
+        '    <td width="160" valign="top" bgcolor="#ffffcc" style="border-left: 2px ridge #cccccc; padding: 8px;">',
+        content_start,
     )
+    subtitle_html = (
+        '<br><font face="Times New Roman, Times, serif" size="3" color="#333333"><i>'
+        + html.escape(subtitle, quote=False)
+        + "</i></font>"
+        if subtitle else ""
+    )
+    article = f'''<!-- MAIN CONTENT AREA -->
+    <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
+
+      <!-- REPORT HEADER -->
+      <center>
+        <font face="Comic Sans MS, cursive" size="2" color="#0000ff"><b>Report by {author_text}</b></font>
+      </center>
+      <center>
+        <font face="Courier New, monospace" size="1" color="#808080">Published: {html.escape(published, quote=False)}</font>
+      </center>
+
+      <br>
+      <hr class="separator">
+      <br>
+
+      <!-- REPORT TITLE -->
+      <center>
+        <font face="Comic Sans MS, cursive" size="5" color="#0000ff"><b>&#9733; {title_text} &#9733;</b></font>{subtitle_html}
+      </center>
+
+      <br>
+      <hr class="separator">
+      <br>
+
+      <!-- REPORT CONTENT -->
+      {body}
+
+      <br>
+      <hr class="separator">
+      <br>
+
+      <center>
+        <table border="2" cellpadding="10" cellspacing="0" bgcolor="#000080" style="border-style: outset;">
+          <tr>
+            <td align="center">
+              <font face="Times New Roman, Times, serif" size="2" color="#ffffff">
+                <b>Return to Reports List</b><br>
+                <a href="../../index.html"><font color="#ffff00"><u>[ Return to Homepage ]</u></font></a>
+              </font>
+            </td>
+          </tr>
+        </table>
+      </center>
+
+    </td>
+'''
+    return page[:content_start] + article + page[right_sidebar_start:]
 
 
 # ---------------------------------------------------------------------------
