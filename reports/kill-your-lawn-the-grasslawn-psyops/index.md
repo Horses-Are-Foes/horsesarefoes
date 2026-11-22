@@ -1,6 +1,6 @@
 ---
 title: "KILL YOUR LAWN: The Grasslawn PSYOPs"
-date: 2022-02-13
+date: 2001-02-13
 description: >
   For so long mainly in the United Stated of America the picture-perfect idea of
   a perfect home has always been the white picket fence, nice white porch patio,

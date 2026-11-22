@@ -1,7 +1,7 @@
 ---
 title: "God Bless You, Doctor Brainwater"
 author: "Kelsey Grammer"
-date: 2026-11-22
+date: 2006-11-22
 description: "Kelsey Grammer reflects on meeting Dr. Brainwater, learning to defend himself against psychic horses, and supporting the foundation that became this website."
 cover: image2.png
 sections:

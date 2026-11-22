@@ -1,7 +1,7 @@
 ---
 title: "Horses Are Stupid"
 author: "Clarence Bartholomew Lewt"
-date: 2026-11-22
+date: 2006-10-22
 description: "Clarence Bartholomew Lewt recounts a lifelong conflict with horses, the art it inspired, and the loss that hardened his resolve."
 cover: image6.jpeg
 sections:
