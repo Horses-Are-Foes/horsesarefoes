@@ -81,10 +81,10 @@ function handleAuth(url, env) {
 }
 
 // Step 2 — exchange the one-time code for a token and render the handshake page.
-async function handleCallback(url, code, state, env) {
+async function handleCallback(url, code, state, env, request) {
   const secret = env.GITHUB_OAUTH_SECRET;
   const GITHUB_OAUTH_ID = env.GITHUB_OAUTH_ID;
-  const cookieState = readStateCookie(url);
+  const cookieState = readStateCookie(request);
 
   if (!code) {
     return renderError('Could not sign you in', 'Missing authorization code. Sign in again.');
@@ -201,6 +201,7 @@ export default {
         url.searchParams.get('code'),
         url.searchParams.get('state'),
         env,
+        request,
       );
     }
 
