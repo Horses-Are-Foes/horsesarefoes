@@ -47,6 +47,25 @@ content:
         type: image
         options:
           media: images
+      - name: image_width
+        label: Inserted image width
+        hint: Sets the default size for images added in the report.
+        type: select
+        options:
+          values:
+            - { name: small, label: Small - 25 percent }
+            - { name: medium, label: Medium - 50 percent }
+            - { name: large, label: Large - 75 percent }
+            - { name: full, label: Full width }
+      - name: image_position
+        label: Inserted image position
+        hint: Sets the default position for images added in the report.
+        type: select
+        options:
+          values:
+            - { name: left, label: Left }
+            - { name: center, label: Center }
+            - { name: right, label: Right }
       - name: body
         label: Report
         hint: Use the visual editor to format text and insert images.

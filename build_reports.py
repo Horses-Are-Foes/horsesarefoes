@@ -314,6 +314,13 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
         + "</i></font>"
         if subtitle else ""
     )
+    image_width = fm.get("image_width", "medium")
+    image_position = fm.get("image_position", "center")
+    if image_width not in ("small", "medium", "large", "full"):
+        image_width = "medium"
+    if image_position not in ("left", "center", "right"):
+        image_position = "center"
+
     article = f'''<!-- MAIN CONTENT AREA -->
     <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
 
@@ -339,7 +346,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
       <br>
 
       <!-- REPORT CONTENT -->
-      <div class="report-content">
+      <div class="report-content report-images-{image_position} report-images-{image_width}">
       {body}
       </div>
 
