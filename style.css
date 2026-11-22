@@ -10,8 +10,6 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 0;
-  padding-left: 172px;
-  padding-right: 172px;
 }
 
 /* ── Hyperlink colors (classic 90s) ── */
@@ -29,7 +27,7 @@ a:active { color: #ff0000; }
   border-bottom: 2px solid #333333;
 }
 
-/* ── Sidebar (left column) — fixed to viewport ── */
+/* ── Sidebar (left column) — scrolls with the page ── */
 td.sidebar {
   width: 160px !important;
   vertical-align: top;
@@ -37,25 +35,11 @@ td.sidebar {
   border-right: 2px ridge #cccccc;
   padding: 8px;
   font-size: 12px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
 }
 
-/* Ensure no other styles override this */
+/* Both sidebars (left and right) keep a fixed width */
 td[width="160"] {
   width: 160px !important;
-}
-
-/* ── Sidebar (right column) — fixed to viewport ── */
-td[width="160"]:not(.sidebar) {
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
 }
 
 td.sidebar a {
