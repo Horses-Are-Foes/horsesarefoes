@@ -28,5 +28,8 @@ python build_site.py
 python -m http.server 1112 --directory public
 ```
 
-Pages CMS stores uploaded images in `assets/`. New reports use the `title`,
-`date`, `description`, `author`, `cover image`, and report body fields.
+Pages CMS stores uploaded images in `assets/`. To post a report, friends use
+the visual editor fields for `title`, `URL name`, `publication date`, `summary`,
+`author`, `cover image`, and report body. Markdown knowledge is not required;
+use the editor toolbar for headings and formatting, and use the image control to
+upload or select images.

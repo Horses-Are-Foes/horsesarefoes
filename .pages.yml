@@ -1,6 +1,10 @@
 media:
-  input: assets
-  output: /assets
+  - name: images
+    label: Report images
+    input: assets
+    output: /assets
+    rename: safe
+    extensions: [jpg, jpeg, png, gif, webp]
 
 content:
   - name: reports
@@ -8,7 +12,7 @@ content:
     type: collection
     path: reports
     filename:
-      template: "{fields.title}/index.md"
+      template: "{fields.slug}/index.md"
       field: false
     format: yaml-frontmatter
     subfolders: true
@@ -21,6 +25,11 @@ content:
         label: Title
         type: string
         required: true
+      - name: slug
+        label: URL name
+        hint: Lowercase letters, numbers, and hyphens only. Example: horse-control-report
+        type: string
+        required: true
       - name: date
         label: Publication date
         type: date
@@ -28,16 +37,23 @@ content:
       - name: description
         label: Summary
         type: text
-      - name: extra
-        label: Report details
-        type: object
-        fields:
-          - name: author
-            label: Author
-            type: string
-          - name: cover
-            label: Cover image
-            type: image
+      - name: author
+        label: Author
+        type: string
+        required: true
+      - name: cover
+        label: Cover image
+        hint: Choose or upload a cover image. Friends do not need to type a file name.
+        type: image
+        options:
+          media: images
       - name: body
         label: Report
+        hint: Use the visual editor to format text and insert images.
         type: rich-text
+        options:
+          format: markdown
+          media: images
+          path: reports
+          rename: safe
+          switcher: true

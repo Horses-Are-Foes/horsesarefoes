@@ -371,10 +371,55 @@ def split_front_matter(text: str):
         m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)", text, re.S)
         if m:
             raw_body = m.group(2)
+            section = None
+            block_key = None
+            block_lines = []
+
+            def finish_block():
+                if block_key:
+                    fm[block_key] = " ".join(block_lines).strip()
+
             for line in m.group(1).split("\n"):
-                if ":" in line:
-                    k, v = line.split(":", 1)
-                    fm[k.strip()] = v.strip().strip('"').strip("'")
+                if block_key:
+                    if line.startswith("  "):
+                        block_lines.append(line.strip())
+                        continue
+                    finish_block()
+                    block_key = None
+                    block_lines = []
+
+                stripped = line.strip()
+                if not stripped or ":" not in stripped:
+                    continue
+
+                key, value = stripped.split(":", 1)
+                key = key.strip()
+                value = value.strip().strip('"').strip("'")
+
+                if line.startswith("  ") and section == "extra":
+                    nested = fm.setdefault("extra", {})
+                    nested[key] = value
+                    continue
+
+                if key == "extra" and not value:
+                    fm["extra"] = {}
+                    section = "extra"
+                    continue
+
+                section = None
+                if value in ("|", ">", "|-", ">-"):
+                    block_key = key
+                    block_lines = []
+                    continue
+                fm[key] = value
+
+            finish_block()
+
+            nested = fm.get("extra", {})
+            if isinstance(nested, dict):
+                fm.setdefault("author", nested.get("author", ""))
+                fm.setdefault("cover", nested.get("cover", ""))
+
             body = raw_body
     return fm, body
 
