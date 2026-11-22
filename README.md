@@ -16,10 +16,9 @@ The existing hand-authored HTML pages are copied through unchanged. Reports can
 be authored as Markdown bundles in `reports/<slug>/index.md`; the build renders
 their HTML pages and regenerates the homepage list and `/reports/` archive.
 
-For local development, install Python 3.13, then run:
+For local development, install Python 3, then run:
 
 ```powershell
-$env:DEPLOY_PRIME_URL = "http://127.0.0.1:1112"
 python build_reports.py
 python build_site.py
 python -m http.server 1112 --directory public

@@ -19,7 +19,6 @@ SKIP_FILES = {
     "README.md",
     "build_reports.py",
     "build_site.py",
-    "netlify.toml",
 }
 
 

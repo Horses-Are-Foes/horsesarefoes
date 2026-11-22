@@ -1,9 +1,0 @@
-# Netlify build settings for the Horses Are Foes site.
-# Every push to GitHub (commit, branch change, tag, merge) rebuilds the report
-# pages and copies the finished static site into the publish directory.
-[build]
-  command  = "python build_reports.py && python build_site.py"
-  publish  = "public"
-
-[build.environment]
-  PYTHON_VERSION = "3.13"

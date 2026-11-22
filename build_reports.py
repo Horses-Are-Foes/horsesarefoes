@@ -11,8 +11,8 @@ What it does:
     card metadata so old and new posts render consistently.
   * Regenerates the report lists in `index.html` and `reports/index.html`.
 
-No third-party dependencies (tiny built-in markdown converter) so it runs on
-GitHub Pages previews and Netlify's build step with just Python 3.
+No third-party dependencies (tiny built-in markdown converter) so it runs with
+just Python 3.
 
 Usage:  python3 build_reports.py
 """
