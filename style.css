@@ -386,42 +386,6 @@ ul.checklist li::before {
 .deny-back:hover { border-style: inset; background: #aaaaaa; }
 
 /* ═══════════════════════════════════════════
-   90's GIF Barrage — shared across every page
-   ═══════════════════════════════════════════ */
-#gif-barrage {
-  display: block !important;
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-#gif-barrage a {
-  position: absolute;
-  pointer-events: auto;
-  display: block;
-  width: 150px;
-}
-
-#gif-barrage img {
-  display: block;
-  width: 150px;
-  height: auto;
-  border: 2px ridge #cccccc;
-}
-
-.gif-barrage {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-  overflow: visible;
-}
-
-/* ═══════════════════════════════════════════
    Mobile — tables collapse gracefully
    ═══════════════════════════════════════════ */
 @media (max-width: 700px) {

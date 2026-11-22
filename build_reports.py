@@ -23,6 +23,8 @@ import os
 import re
 from datetime import date, datetime
 
+from sync_layout import render_page, sync_all
+
 REPO = os.path.dirname(os.path.abspath(__file__))
 REPORTS = os.path.join(REPO, "reports")
 HOME = os.path.join(REPO, "index.html")
@@ -265,7 +267,6 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
             )
         body = "".join(section_parts)
 
-    warning = fm.get("warning") or "INVESTIGATION REPORT"
     subtitle = fm.get("subtitle", "")
     description = title + " - investigation report by " + author + "."
     title_text = html.escape(title, quote=False)
@@ -283,13 +284,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     else:
         og_image = DOMAIN + "/reports/" + slug + "/" + cover_src
 
-    template_path = os.path.join(REPORTS, "faerie-lights-swamp-gas", "index.html")
-    with open(template_path, encoding="utf-8") as template_file:
-        page = template_file.read()
-
-    head_start = page.index("<head>")
-    head_end = page.index("</head>", head_start) + len("</head>")
-    head = f'''<head>
+    head = f'''
   <meta charset="UTF-8">
   <title>{title_text} | Horses Are Foes</title>
   <meta name="description" content="{description_attr}">
@@ -303,29 +298,8 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="{DOMAIN}/reports/{slug}/">
-</head>'''
-    page = page[:head_start] + head + page[head_end:]
-
-    banner_start = page.index("<!-- MARQUEE BANNER -->")
-    breadcrumb_start = page.index("<!-- BREADCRUMB -->", banner_start)
-    banner = f'''<!-- MARQUEE BANNER -->
-<table width="100%" bgcolor="#000080" cellpadding="3" cellspacing="0">
-  <tr>
-    <td align="center">
-      <marquee scrollamount="3" behavior="scroll" direction="left">
-        <font face="Courier New, monospace" size="2" color="#ffffff">
-          &#9733; {html.escape(warning, quote=False)} &#9733; HORSES ARE FOES &#9733;
-        </font>
-      </marquee>
-    </td>
-  </tr>
-</table>
-
 '''
-    page = page[:banner_start] + banner + page[breadcrumb_start:]
 
-    breadcrumb_start = page.index("<!-- BREADCRUMB -->")
-    layout_start = page.index("<!-- MAIN LAYOUT TABLE -->", breadcrumb_start)
     breadcrumb = f'''<!-- BREADCRUMB -->
 <table width="100%" cellpadding="4" cellspacing="0">
   <tr>
@@ -335,26 +309,15 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
       </font>
     </td>
   </tr>
-</table>
+</table>'''
 
-'''
-    page = page[:breadcrumb_start] + breadcrumb + page[layout_start:]
-
-    content_start = page.index("<!-- MAIN CONTENT AREA -->")
-    right_sidebar_start = page.index(
-        '    <td width="160" valign="top" bgcolor="#ffffcc" style="border-left: 2px ridge #cccccc; padding: 8px;">',
-        content_start,
-    )
     subtitle_html = (
         '<br><font face="Times New Roman, Times, serif" size="3" color="#333333"><i>'
         + html.escape(subtitle, quote=False)
         + "</i></font>"
         if subtitle else ""
     )
-    article = f'''<!-- MAIN CONTENT AREA -->
-    <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
-
-      <!-- REPORT HEADER -->
+    article = f'''      <!-- REPORT HEADER -->
       <center>
         <font face="Comic Sans MS, cursive" size="2" color="#0000ff"><b>Report by {author_text}</b></font>
       </center>
@@ -396,10 +359,9 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
           </tr>
         </table>
       </center>
-
-    </td>
 '''
-    return page[:content_start] + article + page[right_sidebar_start:]
+    return render_page(head, article, f"reports/{slug}/index.html",
+                       breadcrumb=breadcrumb)
 
 
 # ---------------------------------------------------------------------------
@@ -583,24 +545,38 @@ def build_archive_page(posts: list) -> str:
         card_html(post, "<!-- REPORT {} -->".format(index + 1), path_prefix="")
         for index, post in enumerate(posts)
     )
-    return """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    head = """
+  <meta charset="UTF-8">
   <title>Reports | Horses Are Foes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style.css">
-  <link rel="icon" href="../assets/HAF_LOGO.png">
-</head>
-<body>
-  <div class="marquee-bar"><font face="Courier New, monospace" size="2" color="#00ff00">+++ REPORT ARCHIVE +++</font></div>
-  <p><a href="../index.html">[ Home ]</a></p>
-  <center><font face="Comic Sans MS, cursive" size="5" color="#0000ff"><b>REPORT ARCHIVE</b></font></center>
-  <hr class="separator">
-  {cards}
-</body>
-</html>
+  <link rel="icon" href="/assets/HAF_LOGO.png">
+"""
+    breadcrumb = """<!-- BREADCRUMB -->
+<table width="100%" cellpadding="4" cellspacing="0">
+  <tr>
+    <td>
+      <font face="Courier New, monospace" size="1" color="#808080">
+        <a href="../index.html"><font color="#0000ff"><u>[ Home ]</u></font></a> &gt; <b>Reports</b>
+      </font>
+    </td>
+  </tr>
+</table>"""
+    content = """      <!-- HEADER BANNER -->
+      <center>
+        <font face="Comic Sans MS, Chalkboard SE, cursive" size="6" color="#ff0000"><b>Report Archive</b></font>
+      </center>
+
+      <br>
+      <hr class="separator">
+      <br>
+
+{cards}
+
+      <hr class="separator">
+      <br>
 """.format(cards=cards)
+    return render_page(head, content, "reports/index.html", breadcrumb=breadcrumb)
 
 
 # ---------------------------------------------------------------------------
@@ -670,6 +646,9 @@ def main() -> None:
     print("\nOrder (newest first):")
     for i, p in enumerate(posts, 1):
         print(f"  {i}. {p['title']}  [{human_date(p['published_key'])}]")
+
+    print("\nSyncing shared layout from index.html:")
+    sync_all()
 
 
 if __name__ == "__main__":

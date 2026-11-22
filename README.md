@@ -27,3 +27,12 @@ python -m http.server 1112 --directory public
 Report metadata is stored in each Markdown file's YAML front matter. Put report
 images in the report's folder and reference them from its Markdown body. Run
 `python build_reports.py` to regenerate the report pages and archive listings.
+
+## Shared layout
+
+The home page (`index.html`) is the template for every page: the marquee, the
+left menu/GIF sidebar, the right GIF sidebar, the banner, footer, ad banners
+and age gate. To change any of these, edit `index.html`, then run
+`python sync_layout.py` (or `python build_reports.py`, which runs it too).
+Each page keeps its own `<head>`, breadcrumb and main content cell; everything
+else is copied from the home page with links adjusted for the page's folder.
