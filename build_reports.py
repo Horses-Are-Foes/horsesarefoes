@@ -321,6 +321,33 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     if image_position not in ("left", "center", "right"):
         image_position = "center"
 
+    body_image_parts = []
+    width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
+    for image_data in fm.get("report_images", []):
+        image_src = _normalize_asset(image_data.get("image", ""), slug)
+        if not image_src:
+            continue
+        if image_src.startswith("http://") or image_src.startswith("https://"):
+            rendered_src = image_src
+        elif image_src.startswith("assets/"):
+            rendered_src = "../../" + image_src
+        else:
+            rendered_src = image_src
+        width = width_styles.get(image_data.get("width"), "50%")
+        position = image_data.get("position", "center")
+        if position not in ("left", "center", "right"):
+            position = "center"
+        caption = html.escape(image_data.get("caption", ""), quote=False)
+        align_style = {"left": "text-align:left", "center": "text-align:center", "right": "text-align:right"}[position]
+        body_image_parts.append(
+            '<div style="clear:both; margin:12px 0; ' + align_style + ';">'
+            '<img src="' + html.escape(rendered_src, quote=True) + '" alt="' + caption + '" '
+            'style="width:' + width + '; max-width:100%; height:auto;">'
+            + (('<br><font size="1"><i>' + caption + '</i></font>') if caption else '')
+            + '</div>'
+        )
+    body_images = "".join(body_image_parts)
+
     article = f'''<!-- MAIN CONTENT AREA -->
     <td valign="top" bgcolor="#ffffff" style="padding: 16px;">
 
@@ -348,6 +375,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
       <!-- REPORT CONTENT -->
       <div class="report-content report-images-{image_position} report-images-{image_width}">
       {body}
+      {body_images}
       </div>
 
       <br>
@@ -390,7 +418,18 @@ def split_front_matter(text: str):
                 if block_key:
                     fm[block_key] = " ".join(block_lines).strip()
 
+            report_images = []
             for line in m.group(1).split("\n"):
+                if line.strip().startswith("- type: image"):
+                    report_images.append({"type": "image"})
+                    continue
+                if report_images and line.startswith("    "):
+                    stripped = line.strip()
+                    if ":" in stripped:
+                        key, value = stripped.split(":", 1)
+                        report_images[-1][key.strip()] = value.strip().strip('"').strip("'")
+                    continue
+
                 if block_key:
                     if line.startswith("  "):
                         block_lines.append(line.strip())
@@ -425,6 +464,9 @@ def split_front_matter(text: str):
                 fm[key] = value
 
             finish_block()
+
+            if report_images:
+                fm["report_images"] = report_images
 
             nested = fm.get("extra", {})
             if isinstance(nested, dict):

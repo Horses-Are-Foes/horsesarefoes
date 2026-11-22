@@ -66,6 +66,40 @@ content:
             - { name: left, label: Left }
             - { name: center, label: Center }
             - { name: right, label: Right }
+      - name: report_images
+        label: Report images
+        hint: Add one row per image, then choose its size and position.
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: image
+            fields:
+              - name: image
+                label: Image
+                type: image
+                options:
+                  media: images
+              - name: width
+                label: Size
+                type: select
+                options:
+                  values:
+                    - { name: small, label: Small - 25 percent }
+                    - { name: medium, label: Medium - 50 percent }
+                    - { name: large, label: Large - 75 percent }
+                    - { name: full, label: Full width }
+              - name: position
+                label: Position
+                type: select
+                options:
+                  values:
+                    - { name: left, label: Left }
+                    - { name: center, label: Center }
+                    - { name: right, label: Right }
+              - name: caption
+                label: Caption
+                type: string
       - name: body
         label: Report
         hint: Use the visual editor to format text and insert images.
