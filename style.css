@@ -411,24 +411,36 @@ ul.checklist li::before {
     display: block !important;
   }
 
-  td[width="160"]:not(.sidebar) {
-    display: none !important;
-  }
-
   td.sidebar {
     height: auto !important;
     max-height: none !important;
   }
 
-  td.sidebar > table:nth-of-type(n+2),
-  td.sidebar > center:not(:first-of-type),
-  td.sidebar > hr,
-  td.sidebar > br {
+  /* Side panels: keep menu, social icons, counter and GIFs visible,
+     with the GIFs wrapping side by side instead of one tall column. */
+  td.sidebar,
+  td[width="160"]:not(.sidebar) {
+    text-align: center;
+  }
+
+  td.sidebar > center:has(img),
+  td[width="160"]:not(.sidebar) > center:has(img) {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
+  }
+
+  td.sidebar > hr {
     display: none !important;
   }
 
   td.sidebar > center:first-of-type {
     margin-bottom: 4px;
+  }
+
+  td.sidebar img,
+  td[width="160"]:not(.sidebar) img {
+    margin: 0;
   }
 
   table {
