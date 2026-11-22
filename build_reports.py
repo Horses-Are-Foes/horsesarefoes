@@ -155,6 +155,8 @@ def _inline(s: str) -> str:
 
 def md_to_html(md: str) -> str:
     md = md.replace("\r\n", "\n").strip()
+    if re.search(r"<(?:p|div|h[1-6]|table|blockquote|ul|ol)\b", md, re.I):
+        return md
     blocks = re.split(r"\n\n+", md)
     out = []
     for block in blocks:
@@ -337,7 +339,9 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
       <br>
 
       <!-- REPORT CONTENT -->
+      <div class="report-content">
       {body}
+      </div>
 
       <br>
       <hr class="separator">

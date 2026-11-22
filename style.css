@@ -449,3 +449,20 @@ ul.checklist li::before {
     padding: 16px !important;
   }
 }
+
+.report-content {
+  overflow: hidden;
+}
+
+.report-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.report-content [style*="float: left"] {
+  margin: 4px 16px 12px 0;
+}
+
+.report-content [style*="float: right"] {
+  margin: 4px 0 12px 16px;
+}

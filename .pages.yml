@@ -52,7 +52,7 @@ content:
         hint: Use the visual editor to format text and insert images.
         type: rich-text
         options:
-          format: markdown
+          format: html
           media: images
           path: reports
           rename: safe
