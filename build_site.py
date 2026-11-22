@@ -37,8 +37,26 @@ def build_static_site() -> None:
             shutil.copy2(source, PUBLIC / source.name)
 
 
+def inject_gif_barrage() -> None:
+    """Add the shared GIF barrage script to every published HTML page."""
+    script_tag = '<script src="{path}js/gif-barrage.js"></script>'
+    for html_path in PUBLIC.rglob("*.html"):
+        text = html_path.read_text(encoding="utf-8")
+        if "gif-barrage.js" in text:
+            continue
+        depth = len(html_path.relative_to(PUBLIC).parent.parts)
+        prefix = "../" * depth
+        script = script_tag.format(path=prefix)
+        if "</body>" in text:
+            text = text.replace("</body>", script + "\n</body>", 1)
+        else:
+            text += "\n" + script
+        html_path.write_text(text, encoding="utf-8")
+
+
 def main() -> None:
     build_static_site()
+    inject_gif_barrage()
 
 
 if __name__ == "__main__":
