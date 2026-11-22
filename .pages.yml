@@ -8,8 +8,8 @@ content:
     type: collection
     path: content/reports
     filename:
-      template: "{primary}.md"
-      field: create
+      template: "{fields.title}.md"
+      field: false
     format: yaml-frontmatter
     exclude:
       - _index.md
