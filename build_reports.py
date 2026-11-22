@@ -25,6 +25,7 @@ from datetime import date, datetime
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 REPORTS = os.path.join(REPO, "reports")
+CONTENT_REPORTS = os.path.join(REPO, "content", "reports")
 HOME = os.path.join(REPO, "index.html")
 DOMAIN = "https://horsesarefoes.com"
 LOGO = DOMAIN + "/assets/HAF_LOGO.png"
@@ -727,6 +728,25 @@ def main() -> None:
             p = extract_metadata(slug, text)
             print(f"scanned   {slug}  ({p['title']})")
             posts.append(p)
+
+    if os.path.isdir(CONTENT_REPORTS):
+        for entry in sorted(os.listdir(CONTENT_REPORTS)):
+            if not entry.endswith(".md") or entry.startswith("_"):
+                continue
+            md_path = os.path.join(CONTENT_REPORTS, entry)
+            fm, _ = split_front_matter(open(md_path, encoding="utf-8").read())
+            slug = os.path.splitext(entry)[0]
+            published_raw = fm.get("date") or fm.get("published", "")
+            posts.append({
+                "slug": slug,
+                "title": fm.get("title", slug),
+                "subtitle": fm.get("description", ""),
+                "author": fm.get("author", "Gideon Vale"),
+                "published_raw": published_raw,
+                "published_key": parse_date(published_raw),
+                "cover": fm.get("cover", ""),
+            })
+            print(f"scanned   {slug}  ({fm.get('title', slug)})")
 
     posts.sort(key=lambda p: p["published_key"], reverse=True)
     cards = build_home_cards(posts)
