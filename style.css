@@ -402,6 +402,96 @@ ul.checklist li::before {
    Mobile — tables collapse gracefully
    ═══════════════════════════════════════════ */
 @media (max-width: 700px) {
+  body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden;
+  }
+
+  table[width="100%"] {
+    width: 100% !important;
+  }
+
+  table tr,
+  table td {
+    max-width: 100%;
+  }
+
+  table[width="100%"] > tbody,
+  table[width="100%"] > tr {
+    display: block;
+  }
+
+  td.sidebar,
+  td[width="160"]:not(.sidebar) {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    display: block;
+    overflow: visible !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+
+  td.sidebar,
+  td.sidebar + td,
+  td[width="160"]:not(.sidebar) {
+    display: block !important;
+  }
+
+  td[width="160"]:not(.sidebar) {
+    display: none !important;
+  }
+
+  td.sidebar {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  td.sidebar > table:nth-of-type(n+2),
+  td.sidebar > center:not(:first-of-type),
+  td.sidebar > hr,
+  td.sidebar > br {
+    display: none !important;
+  }
+
+  td.sidebar > center:first-of-type {
+    margin-bottom: 4px;
+  }
+
+  table {
+    max-width: 100% !important;
+  }
+
+  td {
+    box-sizing: border-box;
+  }
+
+  td.sidebar {
+    order: 1;
+  }
+
+  td[width="160"]:not(.sidebar) {
+    order: 3;
+  }
+
+  td.sidebar + td {
+    order: 2;
+  }
+
+  table[width="100%"] > tbody,
+  table[width="100%"] > tr {
+    width: 100%;
+  }
+
+  td[width="160"] img,
+  .sidebar img,
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   .hero, .deny-body, section.section, .notice {
     text-align: center !important;
     margin-left: auto !important;
