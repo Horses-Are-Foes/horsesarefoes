@@ -35,8 +35,9 @@ RIGHT_TD_RE = re.compile(
     r'<td width="160" valign="top" bgcolor="#ffffcc" style="border-left'
 )
 SCRIPT_RE = re.compile(r"<script\b[^>]*>.*?</script>", re.S | re.I)
+# File name of a script's src: "../js/counter.js?t=2" -> "counter.js"
+SCRIPT_NAME_RE = re.compile(r'<script\b[^>]*\bsrc="(?:[^"]*/)?([^"/?]+)', re.I)
 LINK_ATTR_RE = re.compile(r'\b(src|href)="([^"]*)"')
-SHARED_SCRIPTS = ("counter.js", "age-gate.js", "gif-barrage.js")
 
 
 def _between(text: str, start: str, end: str) -> str:
@@ -48,11 +49,14 @@ def _between(text: str, start: str, end: str) -> str:
 def load_chrome() -> dict:
     text = TEMPLATE.read_text(encoding="utf-8")
     right_start = text.index("<!-- RIGHT SIDEBAR -->")
+    bottom = _between(text, "<!-- PAGE BOTTOM -->", "</body>")
     return {
         "top": _between(text, "<!-- MARQUEE BANNER -->", "<!-- MAIN LAYOUT TABLE -->"),
         "left": _between(text, "<!-- LEFT SIDEBAR -->", "<!-- MAIN CONTENT AREA -->"),
         "right": text[right_start:text.index("</tr>", right_start)].rstrip(),
-        "bottom": _between(text, "<!-- PAGE BOTTOM -->", "</body>"),
+        "bottom": bottom,
+        # Scripts the shared bottom already loads, so a page never keeps extra copies.
+        "scripts": set(SCRIPT_NAME_RE.findall(bottom)),
     }
 
 
@@ -148,7 +152,7 @@ def render_page(head: str, content: str, rel_path: str,
     return "\n".join(parts)
 
 
-def parse_page(text: str) -> dict | None:
+def parse_page(text: str, shared_scripts: set) -> dict | None:
     """Pull the page-specific pieces out of an existing page."""
     if "<!-- MAIN CONTENT AREA -->" not in text or "<head>" not in text:
         return None
@@ -177,7 +181,7 @@ def parse_page(text: str) -> dict | None:
     tail = text[right_start:]
     extra_scripts = [
         s for s in SCRIPT_RE.findall(tail)
-        if not any(name in s for name in SHARED_SCRIPTS)
+        if not shared_scripts.intersection(SCRIPT_NAME_RE.findall(s))
     ]
     return {
         "head": head,
@@ -199,7 +203,7 @@ def sync_all() -> None:
     chrome = load_chrome()
     for path, rel in html_pages():
         text = path.read_text(encoding="utf-8")
-        parts = parse_page(text)
+        parts = parse_page(text, chrome["scripts"])
         if parts is None:
             print(f"skipped   {rel}  (no layout markers)")
             continue
