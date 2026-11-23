@@ -65,7 +65,7 @@ body.gate-open {
 
 .age-gate-title {
   font-family: var(--font-comic);
-  font-size: clamp(28px, 5.5vw, 42px);
+  font-size: 42px;
   margin: 0 0 20px;
   line-height: 1.2;
   font-weight: 800;
@@ -253,6 +253,7 @@ body.gate-open {
   border-style: inset;
 }
 
+/* Phones: tighter spacing only. Text keeps its desktop size and spacing. */
 @media (max-width: 600px) {
   .age-gate { padding: 12px; }
   .age-gate-panel {
@@ -261,28 +262,22 @@ body.gate-open {
     transform: none;
   }
   .age-gate-panel::before {
-    font-size: 9px;
-    letter-spacing: 0.1em;
     padding: 4px 8px;
     margin-bottom: 10px;
     transform: rotate(0);
   }
-  .age-gate-kicker { font-size: 12px; letter-spacing: 0.12em; margin-bottom: 4px; }
-  .age-gate-title { font-size: 28px; margin: 0 0 12px; }
-  .age-gate-context { margin: 0.75rem 0 1rem; padding: 0.75rem 1rem; font-size: 14px; }
-  .age-gate-context strong { font-size: 16px; }
-  .age-gate-warning { border-top-width: 2px; border-bottom-width: 2px; padding: 10px 0; margin: 12px 0; font-size: 14px; }
-  .age-gate-warning strong { font-size: 12px; }
-  .age-gate-restricted { padding: 12px 16px; margin: 12px 0; font-size: 14px; }
-  .age-gate-restricted strong { font-size: 10px; margin-bottom: 4px; }
-  .age-gate-restricted li { font-size: 14px; padding-left: 14px; margin-bottom: 2px; }
-  .age-gate-restricted li::before { font-size: 10px; }
-  .age-gate-welcome { padding: 12px 16px; margin: 14px 0 0; font-size: 14px; }
-  .age-gate-welcome strong { font-size: 10px; margin-bottom: 4px; }
-  .age-gate-welcome .magician-name { font-size: 14px; }
-  .remember-choice { margin-top: 12px; font-size: 13px; }
+  .age-gate-kicker { margin-bottom: 4px; }
+  .age-gate-title { margin: 0 0 12px; }
+  .age-gate-context { margin: 0.75rem 0 1rem; padding: 0.75rem 1rem; }
+  .age-gate-warning { border-top-width: 2px; border-bottom-width: 2px; padding: 10px 0; margin: 12px 0; }
+  .age-gate-restricted { padding: 12px 16px; margin: 12px 0; }
+  .age-gate-restricted strong { margin-bottom: 4px; }
+  .age-gate-restricted li { padding-left: 14px; margin-bottom: 2px; }
+  .age-gate-welcome { padding: 12px 16px; margin: 14px 0 0; }
+  .age-gate-welcome strong { margin-bottom: 4px; }
+  .remember-choice { margin-top: 12px; }
   .remember-choice input { width: 16px; height: 16px; }
   .age-gate-actions { gap: 10px; margin-top: 16px; }
   .age-gate-actions button,
-  .age-gate-actions a { padding: 12px 18px; border-width: 3px; font-size: 12px; box-shadow: none; transform: none; flex: none; }
+  .age-gate-actions a { padding: 12px 18px; border-width: 3px; box-shadow: none; transform: none; flex: none; }
 }
