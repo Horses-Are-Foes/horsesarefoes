@@ -5,6 +5,7 @@
 /* ── Global body (classic 90s colors) ── */
 body {
   background-color: #ffffff;
+  background-image: linear-gradient(to right, #ffffcc 0 178px, #ffffff 178px calc(100% - 178px), #ffffcc calc(100% - 178px));
   color: #000000;
   font-family: 'Times New Roman', Times, serif;
   font-size: 14px;
@@ -374,6 +375,7 @@ ul.checklist li::before {
    ═══════════════════════════════════════════ */
 @media (max-width: 700px) {
   body {
+    background-image: none;
     padding-left: 0 !important;
     padding-right: 0 !important;
     overflow-x: hidden;
