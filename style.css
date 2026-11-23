@@ -515,6 +515,15 @@ ul.checklist li::before {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  .home-psa-kicker,
+  .home-psa-link {
+    font-family: 'Courier New', monospace !important;
+  }
+
+  .home-psa-headline {
+    font-family: 'Comic Sans MS', cursive !important;
+  }
 }
 
 .report-images-small img { width: 25%; }
