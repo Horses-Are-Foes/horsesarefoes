@@ -49,14 +49,14 @@ body.gate-open {
   color: #ffffff;
   padding: 6px 12px;
   margin-bottom: 16px;
-  font: 700 11px Arial, sans-serif;
+  font: 700 11px var(--font-sans);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   transform: rotate(-1deg);
 }
 
 .age-gate-kicker {
-  font: 700 14px 'Courier New', monospace;
+  font: 700 14px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: #cc0000;
@@ -64,7 +64,7 @@ body.gate-open {
 }
 
 .age-gate-title {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: var(--font-comic);
   font-size: clamp(28px, 5.5vw, 42px);
   margin: 0 0 20px;
   line-height: 1.2;
@@ -124,7 +124,7 @@ body.gate-open {
 
 .age-gate-restricted strong {
   display: block;
-  font: 700 12px 'Courier New', monospace;
+  font: 700 12px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #000000;
@@ -177,7 +177,7 @@ body.gate-open {
 
 .age-gate-welcome strong {
   display: block;
-  font: 700 12px 'Courier New', monospace;
+  font: 700 12px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #808080;
@@ -195,7 +195,7 @@ body.gate-open {
   display: flex;
   align-items: center;
   gap: 10px;
-  font: 14px 'Times New Roman', Times, serif;
+  font: 14px var(--font-serif);
   margin-top: 16px;
   color: #808080;
   font-weight: 500;
@@ -221,7 +221,7 @@ body.gate-open {
   padding: 14px 24px;
   border: 3px outset #ffffff;
   text-decoration: none;
-  font: 700 14px 'Times New Roman', Times, serif;
+  font: 700 14px var(--font-serif);
   text-transform: uppercase;
   letter-spacing: 0;
   cursor: pointer;

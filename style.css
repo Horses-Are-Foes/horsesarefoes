@@ -2,21 +2,35 @@
    Horses Are Foes — 1998 Tripod Aesthetic
    ═══════════════════════════════════════════ */
 
-/* ── Global body (classic 90s colors) ── */
+/* ── Bundled fonts ──
+   Phones don't have the classic desktop fonts (Android has none of them, iOS
+   has no Comic Sans MS and turns ☄ ⚠ ☠ into color emoji), so every page draws
+   its text with these bundled copies, which look the same on every device.
+   Tinos, Arimo and Comic Relief are metric-compatible clones of Times New
+   Roman, Arial and Comic Sans MS (same letter widths and line heights);
+   Courier Prime matches Courier New's widths. Licenses: assets/fonts/*-OFL.txt */
 @font-face {
-  font-family: 'Comic Neue';
+  font-family: 'Tinos';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('assets/fonts/comic-neue-regular.woff2') format('woff2');
+  src: url('assets/fonts/tinos-regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Comic Neue';
+  font-family: 'Tinos';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('assets/fonts/comic-neue-bold.woff2') format('woff2');
+  src: url('assets/fonts/tinos-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Tinos';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/tinos-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -35,23 +49,78 @@
   src: url('assets/fonts/courier-prime-bold.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Comic Relief';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/comic-relief-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Comic Relief';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/comic-relief-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/arimo-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/arimo-bold.woff2') format('woff2');
+}
+
+/* Only the symbols the site uses (★ ☄ ☠ ⚠ ✕), drawn as plain text glyphs.
+   ❌ is left out on purpose: it is a red emoji on every device. The glyph
+   sizes, widths and line metrics in this file were fitted to Segoe UI Symbol
+   (the font Windows desktops used for them), so text wraps as it always did. */
+@font-face {
+  font-family: 'Noto Sans Symbols 2';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/noto-sans-symbols-2-subset.woff2') format('woff2');
+  unicode-range: U+2604-2605, U+2620, U+26A0, U+2715;
+}
+
+:root {
+  --font-serif: 'Tinos', 'Noto Sans Symbols 2', 'Times New Roman', Times, serif;
+  --font-mono: 'Courier Prime', 'Noto Sans Symbols 2', 'Courier New', monospace;
+  --font-comic: 'Comic Relief', 'Noto Sans Symbols 2', 'Comic Sans MS', 'Chalkboard SE', cursive;
+  --font-sans: 'Arimo', 'Noto Sans Symbols 2', Arial, sans-serif;
+}
+
+/* Stop phones from enlarging text on their own (e.g. iOS in landscape). */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Pages name the classic fonts in <font face="...">; draw them with the bundled copies. */
+font[face*="Times" i] { font-family: var(--font-serif); }
+font[face*="Courier" i] { font-family: var(--font-mono); }
+font[face*="Comic Sans" i] { font-family: var(--font-comic); }
+
+/* ── Global body (classic 90s colors) ── */
 body {
   background-color: #ffffff;
   background-image: linear-gradient(to right, #ffffcc 0 178px, #ffffff 178px calc(100% - 178px), #ffffcc calc(100% - 178px));
   color: #000000;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
   font-size: 14px;
   margin: 0;
   padding: 0;
-}
-
-.home-psa-kicker,
-.home-psa-link {
-  font-family: 'Courier Prime', monospace;
-}
-
-.home-psa-headline {
-  font-family: 'Comic Neue', cursive;
 }
 
 /* ── Hyperlink colors (classic 90s) ── */
@@ -63,7 +132,7 @@ a:active { color: #ff0000; }
 .marquee-bar {
   background-color: #000000;
   color: #00ff00;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   padding: 4px 0;
   border-bottom: 2px solid #333333;
@@ -97,7 +166,7 @@ td.sidebar img {
 }
 
 td.sidebar h2 {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: var(--font-comic);
   font-size: 14px;
   color: #ff0000;
   text-align: center;
@@ -142,7 +211,7 @@ td.sidebar-right img {
 }
 
 td.sidebar-right h2 {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: var(--font-comic);
   font-size: 14px;
   color: #ff0000;
   text-align: center;
@@ -169,14 +238,14 @@ td.content {
 
 /* ── Headers in content ── */
 td.content h1 {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: var(--font-comic);
   font-size: 24px;
   color: #0000ff;
   margin: 0 0 12px 0;
 }
 
 td.content h2 {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: var(--font-comic);
   font-size: 18px;
   color: #0000ff;
   border-bottom: 2px dotted #0000ff;
@@ -212,7 +281,7 @@ td.content h3 {
 .card .publish-date {
   font-size: 11px;
   color: #808080;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
 }
 
 .card a {
@@ -236,7 +305,7 @@ td.content h3 {
   background: #cccccc;
   border: 3px outset #ffffff;
   padding: 6px 14px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
   font-size: 13px;
   font-weight: bold;
   text-decoration: none;
@@ -268,7 +337,7 @@ footer a { color: #ffff00; }
   color: #808080;
   background-color: #fffff0;
   border-bottom: 1px solid #cccccc;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
 }
 
 .breadcrumb a { color: #0000ff; text-decoration: underline; }
@@ -281,7 +350,7 @@ footer a { color: #ffff00; }
 .wiki-section { margin-bottom: 24px; }
 
 .wiki-section h2 {
-  font-family: 'Comic Sans MS', cursive;
+  font-family: var(--font-comic);
   font-size: 16px;
   color: #0000ff;
   border-bottom: 2px dotted #0000ff;
@@ -304,7 +373,7 @@ footer a { color: #ffff00; }
 .wiki-source {
   font-size: 11px;
   color: #808080;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   margin-top: 6px;
 }
 
@@ -355,7 +424,7 @@ ul.checklist li {
 ul.checklist li::before {
   content: "[+] ";
   color: #0000ff;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   position: absolute;
   left: 0;
@@ -379,7 +448,7 @@ ul.checklist li::before {
   display: inline-block;
   border: 3px solid #ff0000;
   color: #ff0000;
-  font: bold 12px Arial, sans-serif;
+  font: bold 12px var(--font-sans);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   padding: 4px 10px;
@@ -388,7 +457,7 @@ ul.checklist li::before {
 }
 
 .deny-box h1 {
-  font-family: 'Comic Sans MS', cursive;
+  font-family: var(--font-comic);
   font-size: 24px;
   color: #ff0000;
   margin: 0 0 12px 0;
@@ -403,7 +472,7 @@ ul.checklist li::before {
   border: 3px outset #ffffff;
   color: #000000;
   text-decoration: none;
-  font: bold 13px 'Times New Roman', Times, serif;
+  font: bold 13px var(--font-serif);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   cursor: pointer;

@@ -36,3 +36,12 @@ and age gate. To change any of these, edit `index.html`, then run
 `python sync_layout.py` (or `python build_reports.py`, which runs it too).
 Each page keeps its own `<head>`, breadcrumb and main content cell; everything
 else is copied from the home page with links adjusted for the page's folder.
+
+## Fonts
+
+Pages keep the classic font names in `<font face="...">` (Times New Roman,
+Courier New, Comic Sans MS), and `style.css` draws them with look-alike copies
+bundled in `assets/fonts/`, so phones show the same text as desktops. In CSS,
+use the `--font-serif`, `--font-mono`, `--font-comic` and `--font-sans`
+variables. Any other font will look different on phones, which don't have the
+desktop fonts installed.
