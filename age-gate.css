@@ -9,7 +9,7 @@
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(17, 17, 17, 0.94);
+  background: rgba(0, 0, 128, 0.94);
   /* Psychic energy crackle behind the barrier */
   animation: barrier-pulse 4s ease-in-out infinite;
 }
@@ -19,8 +19,8 @@
 }
 
 @keyframes barrier-pulse {
-  0%, 100% { background: rgba(17, 17, 17, 0.94); }
-  50%      { background: rgba(17, 17, 17, 0.97); }
+  0%, 100% { background: rgba(0, 0, 128, 0.94); }
+  50%      { background: rgba(0, 0, 128, 0.97); }
 }
 
 body.gate-open {
@@ -30,13 +30,12 @@ body.gate-open {
 .age-gate-panel {
   width: min(620px, 100%);
   max-height: 92vh;
-  background: #ffffff;
-  border: 2px solid #000000;
-  /* Hyper-brutalist shadow — matches site cards */
-  box-shadow: 16px 16px 0px 0px rgba(0, 0, 0, 0.5);
+  background: #ffffcc;
+  border: 4px ridge #cccccc;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
   padding: 32px 28px 28px;
   position: relative;
-  transform: translate(-16px, -16px);
+  transform: none;
   overflow-y: auto;
   color: #000000;
 }
@@ -57,27 +56,28 @@ body.gate-open {
 }
 
 .age-gate-kicker {
-  font: 700 14px Arial, sans-serif;
+  font: 700 14px 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #808080;
+  color: #cc0000;
   margin-bottom: 8px;
 }
 
 .age-gate-title {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
   font-size: clamp(28px, 5.5vw, 42px);
   margin: 0 0 20px;
   line-height: 1.2;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #000000;
+  letter-spacing: 0;
+  color: #0000ff;
 }
 
 .age-gate-context {
   margin: 1rem 0 1.5rem;
   padding: 1rem 1.2rem;
   border-left: 4px solid #ff0000;
-  background: #f5f5f5;
+  background: #ffffff;
   font-size: 16px;
   line-height: 1.6;
   color: #000000;
@@ -92,19 +92,18 @@ body.gate-open {
 
 /* Content-warning block */
 .age-gate-warning {
-  border-top: 2px solid #e2e8f0;
-  border-bottom: 2px solid #e2e8f0;
+  border-top: 2px dotted #ff0000;
+  border-bottom: 2px dotted #ff0000;
   padding: 16px 0;
   margin: 20px 0;
   font-size: 16px;
   line-height: 1.6;
   color: #000000;
-  background: #fffaf0;
-  border-radius: 4px;
+  background: #ffffcc;
 }
 
 .age-gate-warning strong {
-  color: #dc2626;
+  color: #ff0000;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 14px;
@@ -115,18 +114,17 @@ body.gate-open {
 /* Restricted entities block */
 .age-gate-restricted {
   background: #f5f5f5;
-  border: 2px solid #000000;
+  border: 2px outset #cccccc;
   padding: 16px 20px;
   margin: 16px 0;
   font-size: 15px;
   line-height: 1.6;
   color: #000000;
-  border-radius: 4px;
 }
 
 .age-gate-restricted strong {
   display: block;
-  font: 700 12px Arial, sans-serif;
+  font: 700 12px 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #000000;
@@ -170,17 +168,16 @@ body.gate-open {
 .age-gate-welcome {
   margin: 20px 0 0;
   padding: 14px 20px;
-  background: #f5f5f5;
-  border: 2px solid #000000;
+  background: #ffffcc;
+  border: 2px outset #cccccc;
   font-size: 16px;
   line-height: 1.6;
   text-align: center;
-  border-radius: 4px;
 }
 
 .age-gate-welcome strong {
   display: block;
-  font: 700 12px Arial, sans-serif;
+  font: 700 12px 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #808080;
@@ -198,14 +195,14 @@ body.gate-open {
   display: flex;
   align-items: center;
   gap: 10px;
-  font: 14px Arial, sans-serif;
+  font: 14px 'Times New Roman', Times, serif;
   margin-top: 16px;
   color: #808080;
   font-weight: 500;
 }
 
 .remember-choice input {
-  accent-color: #ff0000;
+  accent-color: #cc0000;
   width: 18px;
   height: 18px;
 }
@@ -222,52 +219,46 @@ body.gate-open {
 .age-gate-actions a {
   display: inline-block;
   padding: 14px 24px;
-  border: 6px solid #000000;
+  border: 3px outset #ffffff;
   text-decoration: none;
-  font: 700 14px Arial, sans-serif;
+  font: 700 14px 'Times New Roman', Times, serif;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   cursor: pointer;
-  transition: all 0.1s cubic-bezier(0.23, 1, 0.32, 1);
-  /* Brutalist card shadow */
-  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.35);
-  transform: translate(-6px, -6px);
+  transition: background-color 0.1s ease, border-style 0.1s ease;
+  box-shadow: none;
   flex: 1 1 140px;
   text-align: center;
   font-weight: 700;
 }
 
 .age-enter {
-  background: #000000;
-  color: white;
+  background: #000080;
+  color: #ffff00;
 }
 
 .age-enter:hover {
-  background: #ff0000;
-  border-color: #ff0000;
-  transform: translate(0, 0);
-  box-shadow: none;
+  background: #cc0000;
+  color: #ffffff;
+  border-style: inset;
 }
 
 .age-leave {
-  background: transparent;
+  background: #cccccc;
   color: #000000;
 }
 
 .age-leave:hover {
-  background: #f5f5f5;
-  border-color: #ff0000;
-  color: #ff0000;
-  transform: translate(0, 0);
-  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.2);
+  background: #aaaaaa;
+  border-style: inset;
 }
 
 @media (max-width: 600px) {
   .age-gate { padding: 12px; }
   .age-gate-panel {
     padding: 18px 14px 20px;
-    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.5);
-    transform: translate(-8px, -8px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+    transform: none;
   }
   .age-gate-panel::before {
     font-size: 9px;
@@ -293,7 +284,5 @@ body.gate-open {
   .remember-choice input { width: 16px; height: 16px; }
   .age-gate-actions { gap: 10px; margin-top: 16px; }
   .age-gate-actions button,
-  .age-gate-actions a { padding: 12px 18px; border-width: 4px; font-size: 12px; box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.35); transform: translate(-4px, -4px); flex: none; }
-  .age-enter:hover,
-  .age-leave:hover { transform: translate(0, 0); }
+  .age-gate-actions a { padding: 12px 18px; border-width: 3px; font-size: 12px; box-shadow: none; transform: none; flex: none; }
 }
