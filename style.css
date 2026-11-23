@@ -3,6 +3,38 @@
    ═══════════════════════════════════════════ */
 
 /* ── Global body (classic 90s colors) ── */
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/comic-neue-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/comic-neue-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/courier-prime-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/courier-prime-bold.woff2') format('woff2');
+}
+
 body {
   background-color: #ffffff;
   background-image: linear-gradient(to right, #ffffcc 0 178px, #ffffff 178px calc(100% - 178px), #ffffcc calc(100% - 178px));
@@ -11,6 +43,15 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 0;
+}
+
+.home-psa-kicker,
+.home-psa-link {
+  font-family: 'Courier Prime', monospace;
+}
+
+.home-psa-headline {
+  font-family: 'Comic Neue', cursive;
 }
 
 /* ── Hyperlink colors (classic 90s) ── */
@@ -516,14 +557,6 @@ ul.checklist li::before {
     padding-right: 0 !important;
   }
 
-  .home-psa-kicker,
-  .home-psa-link {
-    font-family: 'Courier New', monospace !important;
-  }
-
-  .home-psa-headline {
-    font-family: 'Comic Sans MS', cursive !important;
-  }
 }
 
 .report-images-small img { width: 25%; }
