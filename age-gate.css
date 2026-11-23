@@ -257,6 +257,7 @@ body.gate-open {
 @media (max-width: 600px) {
   .age-gate { padding: 12px; }
   .age-gate-panel {
+    box-sizing: border-box; /* count padding and border in the width so it fits the screen */
     padding: 18px 14px 20px;
     box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
     transform: none;
