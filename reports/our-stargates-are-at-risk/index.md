@@ -3,7 +3,7 @@ title: "Our Stargates are at Risk"
 author: "Adrienna Reichloft"
 date: 2026-09-05
 description: "An investigation into the Stargate Project, psychic operations, Hollywood signals, and the continuing influence of the horse menace."
-cover: image3.jpeg
+cover: image5.jpeg
 sections:
   - type: text
     content: |
