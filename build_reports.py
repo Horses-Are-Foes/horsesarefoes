@@ -234,7 +234,7 @@ def render_markdown_post(fm: dict, body_md: str, slug: str) -> str:
     sections = fm.get("sections", [])
     if sections:
         section_parts = []
-        width_styles = {"small": "25%", "medium": "50%", "large": "75%", "full": "100%"}
+        width_styles = {"small": "25%", "medium": "50%", "medium-large": "78.125%", "large": "75%", "full": "100%"}
         for section in sections:
             if section.get("type") == "text":
                 section_parts.append(section.get("content", ""))
